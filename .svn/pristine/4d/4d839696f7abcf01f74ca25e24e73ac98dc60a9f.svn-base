@@ -1,0 +1,93 @@
+$black-text: #{'#171717'};
+$black-bg: #{'#000000'};
+$white-text: #{'#ffffff'};
+$white-bg: #{'#ffffff'};
+$gray: #{'#cccccc'};
+$bg-footer-slider: #{'#182e0d'};
+$bg-footer: #{'#182e0d'};
+$red-text: #{'#9bb824'};
+$red-bg: #{'#78b800'};
+$shadow-color: #{'#222222'};
+$header-text: #{'#afcda0'};
+$border-color: #{'#828183'};
+$header-nav-bg: #{'#006822'};
+$dark-shadow-color: #{'#555555'};
+$taupe-text-color: #{'#555555'};
+$profile-nav-bg: #{'#555555'};
+$bg-button: #{'#006822'} url(../images/bet-list-bg.png) no-repeat 93% 50%;
+$bg-button-disable: #{'#7F806B'} url(../images/bet-list-bg.png) no-repeat 93% 50%;
+$betslit-icon: url(../images/bet-list-bg.png) no-repeat 0 20%;
+$bg-forms-cantain: rgba(89, 89, 89, 0.3);
+$style-text: italic;
+$lite-black-text: #{'#333333'};
+$bold-text: bold;
+$font-f: Arial, Helvetica, sans-serif;
+
+
+
+$show-hide-header: block;
+$header-margin: 41px 0 0; //for skins with header
+$top-sport-title-lpos: 230px;
+$logo-home-icon: none;
+$bet-btn-bg: #{'#8b6835'};
+$bet-btn-hover-bg: #{'#b57b22'};
+$bet-btn-disabled-bg: #{'#AFADAD'};
+$live-btn-bg: rgba(148, 244, 98, 0.63);
+$prematch-btn-bg: rgba(255, 255, 255, 0.4);
+
+@mixin bg-img{}
+@mixin header-menu-bg{
+	background: #78b800;
+	box-shadow: 0 1px 2px #498b19 inset;
+}
+@mixin dropdown-menu-bg{
+	background: #78b800;
+}
+@mixin logo-position{
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+	width: 205px;
+	height: 59px;
+	padding: 0 5px;
+}
+
+@mixin logo-fixed{
+	width: 88px;
+	height: 41px;	
+}
+@mixin logo-fixed-position{
+	background-repeat: no-repeat;
+	background-position: 0 50%;
+	width: 88px;
+	height: 41px;
+	padding: 0;
+}
+@mixin bet-tooltip-visibility{	
+}
+
+/* ======================================================================== 
+   === skin specific styles === */
+
+.game-live-row .account span.game-id {
+	font-size: 10px;
+	line-height: 5px;
+	display: block;
+	&:after{ content: "";}
+}
+.copyright, .about-company-footer-text, .old-version-link {
+	display: none;
+}
+.contain-footer {
+	padding: 0;
+}
+.contain-footer.no-footer-nav {
+	height: 104px;
+	margin: -104px 0 0 0;
+}  
+.game-live-row .time-date span.game-id {
+	font-size: 10px;
+	line-height: 0;
+	display: table-row;
+} 
+   
+   

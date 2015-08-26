@@ -1,0 +1,85 @@
+$black-text: #{'#000000'};
+$black-bg: #{'#01abe8'};
+$white-text: #{'#ffffff'};
+$white-bg: #{'#ffffff'};
+$gray: #{'#cccccc'};
+$bg-footer-slider: #{'#03133C'} url(../images/bg-footer.png) repeat 0 0;
+$bg-footer: #{'#03133C'} url(../images/bg-footer.png) repeat 0 0;
+$red-text: #{'#008BDD'};
+$red-bg: #{'#008BDD'};
+$shadow-color: #{'#222222'};
+$header-text: #{'#ffffff'};
+$border-color: #{'#6A5680'};
+$header-nav-bg: #{'#4A43A6'};
+$dark-shadow-color: #{'#555555'};
+$taupe-text-color: #{'#555555'};
+$profile-nav-bg: #{'#555555'};
+$bg-button: #{'#008BDD'} url(../images/bet-list-bg.png) no-repeat 90% 50%;
+$bg-button-disable: #{'#434E5E'} url(../images/bet-list-bg.png) no-repeat 90% 50%;
+$betslit-icon: url(../images/bet-list-bg.png) no-repeat 0 20%;
+$bg-forms-cantain: rgba(171, 183, 207, 0.2);
+$style-text: italic;
+$lite-black-text: #{'#333333'};
+$bold-text: bold;
+$font-f: Arial, Helvetica, sans-serif;
+
+
+
+$show-hide-header: block;
+$header-margin: 41px 0 0; //for skins with header
+$top-sport-title-lpos: 230px;
+$logo-home-icon: url(../images/home.png) no-repeat 50px 68px;
+$bet-btn-bg: url(../images/bg-button-bet.png) repeat-x 0 0;
+$bet-btn-hover-bg: url(../images/bg-button-bet.png) repeat-x 0 -36px;
+$bet-btn-disabled-bg: #{'#AFADAD'};
+$live-btn-bg: rgba(148, 244, 98, 0.63);
+$prematch-btn-bg: rgba(255, 255, 255, 0.4);
+
+@mixin bg-img{}
+@mixin header-menu-bg{
+	background: #0475b7;
+	background: -moz-linear-gradient(#0199e8, #001f72);
+    background: -webkit-linear-gradient(#0199e8, #001f72);
+    background: -o-linear-gradient(#0199e8, #001f72);
+    background: linear-gradient(#0199e8, #001f72);
+	box-shadow: 0 1px 2px #2471C5 inset;
+	-moz-box-shadow: 0 1px 2px #2471C5 inset;
+	-ms-box-shadow: 0 1px 2px #2471C5 inset;
+	-o-box-shadow: 0 1px 2px #2471C5 inset;
+	-webkit-box-shadow: 0 1px 2px #2471C5 inset;
+}
+@mixin dropdown-menu-bg{
+	background: #0475b7;
+	background: -moz-linear-gradient(#0199e8, #001f72);
+    background: -webkit-linear-gradient(#0199e8, #001f72);
+    background: -o-linear-gradient(#0199e8, #001f72);
+    background: linear-gradient(#0199e8, #001f72);
+}
+@mixin logo-position{
+	background-repeat: no-repeat;
+	background-position: 0 14px;
+	width: 180px;
+	height: 100px;
+}
+
+@mixin logo-fixed{
+	background: url(../images/home.png) no-repeat 48px 8px;
+	width: 88px;
+	height: 41px;
+}
+@mixin logo-fixed-position{
+	background-repeat: no-repeat;
+	background-position: 0 2px;	
+	width: 68px;
+	height: 41px;
+	padding: 0 20px 0 0;
+}
+@mixin bet-tooltip-visibility{	
+}
+
+/* ======================================================================== 
+   === skin specific styles === */
+   
+ .conteiner.show-fix .top-menu .block-search, .conteiner.show-game .top-menu .block-search{
+	background: none;
+}

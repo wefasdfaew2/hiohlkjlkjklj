@@ -1,0 +1,5 @@
+/* ======================================================================== 
+   === skin specific styles === */
+@media screen and (max-width: 1200px) {
+  .conteiner.show-fix .clock {
+    display: block; } }

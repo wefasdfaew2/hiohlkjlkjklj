@@ -1,0 +1,68 @@
+<div class="print-info-b" ng-controller="betPrint" ng-init="printBetEvent()">
+    <table>
+        <tr>
+            <td>
+                <div class="logo-mini-print"><img ng-src="./skins/{{conf.skin}}/images/logo.png"></div>
+            </td>
+            <td>
+                <div class="all-bet-inform">
+                    <ul>
+                        <li trans ng-if="betData.type==='1'">Single</li>
+                        <li trans ng-if="betData.type==='2'">Express</li>
+                        <li ng-if="betData.type==='3'"><span trans>System</span> {{betData.system_min_count}}/{{betData.system_max_count}}</li>
+                        <li trans ng-if="betData.type==='4'">Chain</li>
+                        <li>Customer ID: {{userId}}</li>
+                        <li>Bet ID: {{betData.id}}</li>
+                        <li>{{betData.date_time|formatDate}}</li>
+                    </ul>
+                </div>
+            </td>
+            <td>
+                <div class="qr-code-b" barcode-generator="{{betData.id}}" ></div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3" ng-if="betData.amount || betData.bonus_bet_amount">
+                <div class="unsitled-b">
+                    <p ng-show="betData.outcome == -5" trans>On Hold</p>
+                    <p ng-show="betData.outcome == 0" trans>UNSETTLED </p>
+                    <p ng-show="betData.outcome == 1" trans>Lost</p>
+                    <p ng-show="betData.outcome == 2" trans>Returned</p>
+                    <p ng-show="betData.outcome == 3" trans>Won</p>
+                </div>
+                <h1>{{betData.amount + betData.bonus_bet_amount}} {{betData.currency}} <span ng-if="betData.k">/</span> {{betData.k}}</h1>
+            </td>
+        </tr>
+
+        <tr ng-repeat="betEvent in betData.events">
+            <td colspan="3">
+                <div class="info-separator-b">
+                    <ul>
+                        <li>
+                            <span>{{betEvent.game_name}} / {{betEvent.event_name}} / {{betEvent.coeficient}}</span>
+                            <div class="status-game-print" ng-class="{0:'time', 1:'delete', 2:'return', 3:'good', '-5':'hold'}[betEvent.outcome]"></div>
+                        </li>
+                        <li>{{betEvent.sport_name}}</li>
+                        <li>{{betEvent.competition_name}} <span ng-if="is_live">(LIVE)</span></li>
+                        <li>{{betEvent.game_start_date|formatDate:'full'}}</li>
+                    </ul>
+                </div>
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="3">
+                <div class="potincial-win-print">
+                    <p ng-if="betData.possible_win && betData.outcome == 0" >
+                        <span trans>Potential win:</span> {{betData.possible_win}} {{betData.currency}}
+                    </p>
+                    <p ng-if="(betData.payout || betData.bonus_amount) && betData.outcome == 3" >
+                        <span trans>Won:</span> {{betData.payout + betData.bonus_amount}} {{betData.currency}}
+                    </p>
+
+                </div>
+            </td>
+        </tr>
+    </table>
+
+</div>

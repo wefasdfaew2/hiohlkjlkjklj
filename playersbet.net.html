@@ -1,0 +1,272 @@
+<!doctype html>
+<html xmlns:ng="http://angularjs.org" dir="{{::(conf.availableLanguages[env.lang].rtl ? 'rtl' : 'ltr')}}">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta charset="utf-8">
+    <!-- build:template
+    <title ng-bind="siteTitle + conf.siteTitle[env.lang]"><%=title%></title>
+    <meta name="description" content="<%=description%>">
+    <meta name="keywords" content="<%=keywords%>">
+        <link rel="icon" href="favicon.ico" />
+        <link rel="stylesheet" href="css/main.min.css?<%=buildDate%><%=version%>"/>
+        <link rel="stylesheet" href="skins/<%=skin%>/css/skin.min.css?<%=buildDate%><%=version%>"/>
+        <!--[if IE 8]>
+            <link rel="stylesheet" type="text/css" href="skins/<%=skin%>/css/ie8.css?<%=buildDate%><%=version%>" />
+        <![endif]-->
+        <!--[if lt IE 10]>
+        <script src="//cdn.rawgit.com/jpillora/xdomain/0.7.3/dist/xdomain.min.js"></script>
+        <script>xdomain.slaves({"http://swarm.betconstruct.com:8084" : "/xdomain-proxy.html"});</script>
+        <![endif]-->
+    <!-- /build -->
+    
+    <link rel="stylesheet" href="css/fonts/default.css"/>
+
+    <link ng-if="conf.customLanguageCss.indexOf(env.lang) !== -1" rel="stylesheet" ng-href="css/fonts/{{env.lang}}.css"/>
+    <!-- build:remove -->
+    <link ng-if="conf.customLanguageCss.indexOf(env.lang) !== -1" rel="stylesheet" ng-href="skins/{{conf.skin}}/css/fonts/{{env.lang}}.css"/>
+    <!-- /build -->
+
+    <!-- build:template -->
+    <!-- <%if(rtl){%> -->
+    <link rel="stylesheet" href="css/lib/introjs-rtl.min.css"/>
+    <!-- <%}%> -->
+    <!-- /build -->
+    <!-- build:remove -->
+        <title ng-bind="siteTitle + conf.siteTitle[env.lang]"></title>
+
+    <link ng-repeat="file in (conf.cssFiles || ['soccer-control.css', 'tennis-control.css', 'games-animations-classic.css', 'main.css', 'media.css', 'flags.css',  'transitions.css', 'lib/introjs.min.css', 'lib/barcode.css'])" rel="stylesheet" ng-href="css/{{file}}" />
+        <link rel="stylesheet" href="css/transitions.css"/>
+        <link rel="stylesheet" href="css/lib/rg-slider.min.css"/>
+        <link rel="stylesheet" href="css/lib/rzslider.min.css"/>
+        <!-- skin specific CSS -->
+        <link rel="stylesheet" ng-href="skins/{{conf.skin}}/css/skin.css"/>
+        <!--<link rel="stylesheet" ng-href="skins/{{conf.skin}}/css/skin-new.css"/>-->
+        <!--[if IE 8]>
+        <link rel="stylesheet" type="text/css" ng-href="skins/{{conf.skin}}/css/ie8.css" />
+        <![endif]-->
+    <!-- /build -->
+
+
+</head>
+<body>
+<div class="body-wrapper lang-{{::env.lang}} {{$location.path().split('/').join('')}} theme-{{theme.id}} {{::conf.site_name}} {{::domainClass}} {{conf.sportsLayout}}"
+     ng-class="{'full-screen' : casinoGameOpened, 'slider-open': env.sliderContent, 'no-footer-nav':conf.disableFooterNav, 'no-classic-scroll': noClassicScroll,
+      'sb': conf.sportsLayout === 'external', 'no-animations': conf.noAnimations, 'homepage': $location.path() == '/', 'footer-movable' : footerMovable}">
+	<div class="wrapper-contein" ng-class="{'sports-on-left' : conf.sportsOnLeft, 'footer-open': footerOpen}">
+    <!-- build:[src] //ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js -->
+    <script src="lib/angular/angular.js"></script>
+    <!-- /build -->
+    <!-- build:[src] //ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-route.min.js -->
+    <script src="lib/angular/angular-route.js"></script>
+    <!-- /build -->
+        <!-- build:[src] //ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-animate.min.js -->
+    <script src="lib/angular/angular-animate.js"></script>
+    <!-- /build -->
+
+    <!-- build:[src] //ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js -->
+        <script src="lib/swfobject.js"></script>
+    <!-- /build -->
+
+
+    <!-- build:template
+    <script src="app.min.js?<%=buildDate%>-<%=svnrev%>" id="bc-main-js"></script>
+    /build -->
+
+    <!-- build:remove -->
+    <script src="lib/amplify.store.min.js"></script>
+    <script src="lib/modules/angular-smooth-scroll-1.6.0.js"></script>
+    <script src="lib/modules/angular-snapscroll.js"></script>
+    <script src="lib/modules/truncate.js"></script>
+    <script src="lib/modules/livechat.js"></script>
+    <script src="lib/modules/ipcookie.js"></script>
+    <script src="lib/modules/qrcode.js"></script>
+    <script src="lib/modules/barcodeGenerator.js"></script>
+    <script src="lib/moment-with-langs.min.js"></script>
+    <script src="lib/readable-range.js"></script>
+    <script src="lib/intro.min.js"></script>
+    <script src="lib/es5-shim.js"></script>
+    <script src="lib/autofill-event.js"></script>
+	<script src="lib/xml2json.js"></script>
+    <script src="lib/analytics.js"></script>
+    <script src="lib/script.js"></script>
+
+        <script src="lib/modules/ui.calendar/ui-bootstrap-custom-0.12.1.js"></script>
+        <script src="lib/modules/ui.calendar/ui-bootstrap-custom-tpls-0.12.1.js"></script>
+
+
+    <script src="js/modules/vbet5/main.js"></script>
+    <script src="js/modules/vbet5/config.js"></script>
+
+    <script src="js/modules/vbet5/routes.js"></script>
+    <script src="lib/modules/rg-slider.min.js"></script>
+    <script src="lib/modules/rzslider.min.js"></script>
+
+    <script src="js/modules/vbet5/constants/countrycodes.js"></script>
+    <script src="js/modules/vbet5/constants/geoiplangswitch.js"></script>
+    <script src="js/modules/vbet5/constants/regconfig.js"></script>
+    <script src="js/modules/vbet5/constants/asianmarkets.js"></script>
+
+    <script src="js/modules/vbet5/services/zergling.js"></script>
+    <script src="js/modules/vbet5/services/translator.js"></script>
+    <script src="js/modules/vbet5/services/tracking.js"></script>
+    <script src="js/modules/vbet5/services/websocket.js"></script>
+    <script src="js/modules/vbet5/services/storage.js"></script>
+    <script src="js/modules/vbet5/services/utils.js"></script>
+    <script src="js/modules/vbet5/services/domhelper.js"></script>
+    <script src="js/modules/vbet5/services/keyboardmanager.js"></script>
+    <script src="js/modules/vbet5/services/intro.js"></script>
+    <script src="js/modules/vbet5/services/script.js"></script>
+    <script src="js/modules/vbet5/services/moment.js"></script>
+    <script src="js/modules/vbet5/services/geoip.js"></script>
+    <script src="js/modules/vbet5/services/gameinfo.js"></script>
+	<script src="js/modules/vbet5/services/x2js.js"></script>
+	<script src="js/modules/vbet5/services/useragent.js"></script>
+	<script src="js/modules/vbet5/services/partner.js"></script>
+	<script src="js/modules/vbet5/services/analytics.js"></script>
+	<script src="js/modules/vbet5/services/authdata.js"></script>
+
+    <script src="js/modules/cms/main.js"></script>
+    <script src="js/modules/cms/config.js"></script>
+    <script src="js/modules/cms/services/content.js"></script>
+    <script src="js/modules/cms/controllers/sportnews.js"></script>
+    <script src="js/modules/cms/controllers/pages.js"></script>
+    <script src="js/modules/cms/controllers/pageslider.js"></script>
+    <script src="js/modules/cms/controllers/pageprint.js"></script>
+
+    <script src="js/modules/casino/main.js"></script>
+    <script src="js/modules/casino/config.js"></script>
+    <script src="js/modules/casino/controllers/casino.js"></script>
+    <script src="js/modules/casino/controllers/mycasinogames.js"></script>
+    <script src="js/modules/casino/controllers/casinologin.js"></script>
+    <script src="js/modules/casino/controllers/skillgames.js"></script>
+    <script src="js/modules/casino/controllers/livedealer.js"></script>
+    <script src="js/modules/casino/controllers/specialgames.js"></script>
+    <script src="js/modules/casino/controllers/minigames.js"></script>
+    <script src="js/modules/casino/controllers/jackpot.js"></script>
+    <script src="js/modules/casino/services/casinodata.js"></script>
+    <script src="js/modules/casino/services/casinocache.js"></script>
+    <script src="js/modules/casino/services/casinoutils.js"></script>
+    <script src="js/modules/casino/directives/framecontrol.js"></script>
+
+    <script src="js/modules/vbet5/directives/angular-drag-and-drop-lists.js"></script>
+    <script src="js/modules/vbet5/directives/trans.js"></script>
+    <script src="js/modules/vbet5/directives/classonscroll.js"></script>
+    <script src="js/modules/vbet5/directives/draggable.js"></script>
+    <script src="js/modules/vbet5/directives/resizer.js"></script>
+    <script src="js/modules/vbet5/directives/tshirt.js"></script>
+    <script src="js/modules/vbet5/directives/betslipscroll.js"></script>
+    <script src="js/modules/vbet5/directives/hideonclick.js"></script>
+    <script src="js/modules/vbet5/directives/keyboardnavigation.js"></script>
+    <script src="js/modules/vbet5/directives/flashplayer.js"></script>
+    <script src="js/modules/vbet5/directives/match.js"></script>
+    <script src="js/modules/vbet5/directives/dayselector.js"></script>
+    <script src="js/modules/vbet5/directives/externalform.js"></script>
+    <script src="js/modules/vbet5/directives/focuson.js"></script>
+    <script src="js/modules/vbet5/directives/tooltip.js"></script>
+    <script src="js/modules/vbet5/directives/classrotate.js"></script>
+    <script src="js/modules/vbet5/directives/routereload.js"></script>
+    <script src="js/modules/vbet5/directives/passclickto.js"></script>
+    <script src="js/modules/vbet5/directives/watchresize.js"></script>
+    <script src="js/modules/vbet5/directives/soccertimeline.js"></script>
+    <script src="js/modules/vbet5/directives/numpad.js"></script>
+    <script src="js/modules/vbet5/directives/timezoneswitcher.js"></script>
+    <script src="js/modules/vbet5/directives/countrycodevalidation.js"></script>
+    <script src="js/modules/vbet5/directives/bigslider.js"></script>
+    <script src="js/modules/vbet5/directives/scriptrunner.js"></script>
+    <script src="js/modules/vbet5/directives/multimenuconstructor.js"></script>
+    <script src="js/modules/vbet5/directives/loader.js"></script>
+    <script src="js/modules/vbet5/directives/passportuploader.js"></script>
+    <script src="js/modules/vbet5/directives/promotionnews.js"></script>
+    <script src="js/modules/vbet5/directives/vbetvideoplayer.js"></script>
+    <script src="js/modules/vbet5/directives/preventinput.js"></script>
+    <script src="js/modules/vbet5/directives/htmlcompiler.js"></script>
+    <script src="js/modules/vbet5/directives/capitaliseinput.js"></script>
+    <script src="js/modules/vbet5/directives/casinogameslider.js"></script>
+    <script src="js/modules/vbet5/directives/comma.js"></script>
+
+    <script src="js/modules/vbet5/filters/firstelement.js"></script>
+    <script src="js/modules/vbet5/filters/translate.js"></script>
+    <script src="js/modules/vbet5/filters/oddconvert.js"></script>
+    <script src="js/modules/vbet5/filters/deepcount.js"></script>
+    <script src="js/modules/vbet5/filters/removeparts.js"></script>
+    <script src="js/modules/vbet5/filters/count.js"></script>
+    <script src="js/modules/vbet5/filters/objecttoarray.js"></script>
+    <script src="js/modules/vbet5/filters/isupcoming.js"></script>
+    <script src="js/modules/vbet5/filters/improvename.js"></script>
+    <script src="js/modules/vbet5/filters/convertsetname.js"></script>
+    <script src="js/modules/vbet5/filters/formatdate.js"></script>
+    <script src="js/modules/vbet5/filters/capitalise.js"></script>
+    <script src="js/modules/vbet5/filters/numberfixedlength.js"></script>
+    <script src="js/modules/vbet5/filters/allowedPayments.js"></script>
+    <script src="js/modules/vbet5/filters/faqPayment.js"></script>
+    <script src="js/modules/vbet5/filters/padwithzeros.js"></script>
+    <script src="js/modules/vbet5/filters/html.js"></script>
+
+    <script src="js/modules/vbet5/controllers/explorer.js"></script>
+    <script src="js/modules/vbet5/controllers/classicexplorer.js"></script>
+    <script src="js/modules/vbet5/controllers/classicgame.js"></script>
+    <script src="js/modules/vbet5/controllers/classicleftmenu.js"></script>
+    <script src="js/modules/vbet5/controllers/overview.js"></script>
+    <script src="js/modules/vbet5/controllers/multiview.js"></script>
+    <script src="js/modules/vbet5/controllers/virtualsports.js"></script>
+    <script src="js/modules/vbet5/controllers/games.js"></script>
+    <script src="js/modules/vbet5/controllers/game.js"></script>
+    <script src="js/modules/vbet5/controllers/notification.js"></script>
+    <script src="js/modules/vbet5/controllers/globaldialog.js"></script>
+    <script src="js/modules/vbet5/controllers/mainheader.js"></script>
+    <script src="js/modules/vbet5/controllers/search.js"></script>
+    <script src="js/modules/vbet5/controllers/login.js"></script>
+    <script src="js/modules/vbet5/controllers/mygames.js"></script>
+    <script src="js/modules/vbet5/controllers/betting.js"></script>
+    <script src="js/modules/vbet5/controllers/header.js"></script>
+    <script src="js/modules/vbet5/controllers/footer.js"></script>
+    <script src="js/modules/vbet5/controllers/homepage.js"></script>
+    <script src="js/modules/vbet5/controllers/featuredgame.js"></script>
+    <script src="js/modules/vbet5/controllers/bethistory.js"></script>
+    <script src="js/modules/vbet5/controllers/balance.js"></script>
+    <script src="js/modules/vbet5/controllers/payments.js"></script>
+    <script src="js/modules/vbet5/controllers/euro88payments.js"></script>
+    <script src="js/modules/vbet5/controllers/cashier.js"></script>
+    <script src="js/modules/vbet5/controllers/settings.js"></script>
+    <script src="js/modules/vbet5/controllers/messages.js"></script>
+    <script src="js/modules/vbet5/controllers/pokerlogin.js"></script>
+    <script src="js/modules/vbet5/controllers/poolbetting.js"></script>
+    <script src="js/modules/vbet5/controllers/freebet.js"></script>
+    <script src="js/modules/vbet5/controllers/lottery.js"></script>
+    <script src="js/modules/vbet5/controllers/freewinners.js"></script>
+    <script src="js/modules/vbet5/controllers/facebook.js"></script>
+    <script src="js/modules/vbet5/controllers/rfid.js"></script>
+    <script src="js/modules/vbet5/controllers/odnoklassniki.js"></script>
+    <script src="js/modules/vbet5/controllers/pokerleaderboard.js"></script>
+    <script src="js/modules/vbet5/controllers/feedback.js"></script>
+    <script src="js/modules/vbet5/controllers/livecalendar.js"></script>
+    <script src="js/modules/vbet5/controllers/betprint.js"></script>
+    <script src="js/modules/vbet5/controllers/registration.js"></script>
+    <script src="js/modules/vbet5/controllers/blitzsurvey.js"></script>
+    <script src="js/modules/vbet5/controllers/tournaments.js"></script>
+    <script src="js/modules/vbet5/controllers/results.js"></script>
+    <script src="js/modules/vbet5/controllers/asian.js"></script>
+    <script src="js/modules/vbet5/controllers/superbet.js"></script>
+
+    <!--<script src="js/modules/vbet5/translations.js"></script>-->
+
+
+    <script src="js/main.js"></script>
+    <script src="js/skins/playersbet.net.js"></script>
+
+    
+    <!-- /build -->
+    <div class="contain-header tpl-container" ng-include="getTemplate('templates/header.html')"></div>
+    <div ng-view ng-class="$location.path().split('/').join('')"></div>
+	</div>
+</div>
+<div class="footer-button theme-{{theme.id}}" ng-click="footerOpen=!footerOpen" ng-class="{'footer-button-open': footerOpen}"
+     ng-hide="casinoGameOpened > 0 || conf.disableFooter"></div>
+<div class="contain-footer tpl-container lang-{{env.lang + ' ' + $location.path().split('/').join('')}}"
+     id="footerContainer"
+     ng-include="getTemplate('templates/footer.html')"
+     ng-if="$location.path() !='/popup/'"
+     ng-class="{'full-screen' : casinoGameOpened, 'no-footer-nav': conf.disableFooterNav,'classic': conf.sportsLayout === 'classic', 'sb': conf.sportsLayout === 'external', 'footer-open': footerOpen, 'no-animations': conf.noAnimations, 'footer-movable' : footerMovable}"></div>
+</body>
+</html>

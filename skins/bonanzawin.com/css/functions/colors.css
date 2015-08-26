@@ -1,0 +1,4 @@
+/* ======================================================================== 
+   === skin specific styles === */
+.button-bet button:hover {
+  transition-duration: 300ms; }

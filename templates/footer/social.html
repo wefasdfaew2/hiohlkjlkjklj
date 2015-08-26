@@ -1,0 +1,12 @@
+<div class="social-icons">
+    <ul>
+        <li class="vkontakte" ng-show="conf.vkontakteUrl"><a href="{{conf.vkontakteUrl}}" target="_blank">VKontakte</a></li>
+        <li class="youtube" ng-show="conf.youtubeUrl"><a href="{{conf.youtubeUrl}}" target="_blank">youtube</a></li>
+        <li class="facebook" ng-show="conf.facebookUrl"><a href="{{conf.facebookUrl}}" target="_blank">facebook</a></li>
+        <li class="linkedin" ng-show="conf.linkedInUrl"><a href="{{conf.linkedInUrl}}" target="_blank">linkedin</a></li>
+        <li class="instagram" ng-show="conf.instagramUserName"><a href="http://instagram.com/{{conf.instagramUserName}}?ref=badge" target="_blank">instagram</a></li>
+        <li class="twitter" ng-show="conf.twitterAccount"><a href="https://twitter.com/{{conf.twitterAccount}}/" target="_blank">twitter</a></li>
+        <li class="google" ng-show="conf.googlePlusUrl"><a href="{{conf.googlePlusUrl}}" target="_blank">google+</a></li>
+        <li ng-repeat="icon in conf.additionalIconsInFooter" ng-class="icon.name"><a ng-href="{{icon.url}}" target="{{icon.target || '_blank'}}" ng-bind="icon.name"></a></li>
+    </ul>
+</div>

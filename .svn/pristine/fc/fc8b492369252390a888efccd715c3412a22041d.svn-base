@@ -1,0 +1,3 @@
+<div class="promos-container" ng-init="setTitle(('Promotions'|translate))">
+    <promotion-news slug="promotions" main-class="promo block-meny-news" path="news" count="999"></promotion-news>
+</div>

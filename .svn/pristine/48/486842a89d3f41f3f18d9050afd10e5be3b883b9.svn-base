@@ -1,0 +1,57 @@
+<div class="block-meny-news" ng-controller="pagesCtrl" >
+    <div class="block-sport-news product">
+        <div class="list-news">
+            <ul>
+                <li>
+                    <h3><a trans>SPORTSBOOK</a></h3>
+                    <!--<p>Sample text for sportsbook</p>-->
+                    <div class="picture-news-block">
+                        <div class="sport-news-name">SPORTSBOOK</div>
+                        <a href="#/sport/?type=1"><img ng-src="skins/{{conf.skin}}/images/homepage/sportsbook.jpg" alt=""></a>
+                    </div>
+                </li>
+            </ul>
+
+			 <ul>
+                <li>
+                    <h3><a trans>CASINO</a></h3>
+                    <!--<p>Sample text for Casino</p>-->
+                    <div class="picture-news-block">
+                        <div class="sport-news-name">CASINO</div>
+                        <a href="#/casino"><img ng-src="skins/{{conf.skin}}/images/homepage/casino.jpg" alt=""></a>
+                    </div>
+                </li>
+            </ul>
+			
+            <ul >
+                <li>
+                    <h3><a trans>BİTCOİN NEDİR</a></h3>
+                    <!--<p>Sample text for Skill games</p>-->
+                    <div class="picture-news-block" >
+                        <div class="sport-news-name">BİTCOİN NEDİR</div>
+                        <a ng-click="openHelpPage('bitcoin', 'footer');$event.stopPropagation();"><img ng-src="skins/{{conf.skin}}/images/homepage/bitcoin.jpg" alt=""></a>
+                    </div>
+                </li>
+            </ul>
+
+           
+
+            <!--<h2 trans>Favorites</h2>-->
+
+
+            <ul>
+                <li>
+                    <h3><a trans>HOŞGELDİN BONUSU</a></h3>
+                    <!--<p>Sample text for Backgammon</p>-->
+                    <div class="picture-news-block">
+                        <div class="sport-news-name">HOŞGELDİN BONUSU</div>
+                        <a ng-click="openHelpPage('bonus', 'footer');$event.stopPropagation();"><img ng-src="skins/{{conf.skin}}/images/homepage/bonus.jpg" alt=""></a>
+                    </div>
+                </li>
+            </ul>
+
+         
+
+        </div>
+    </div>
+

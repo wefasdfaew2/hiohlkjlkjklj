@@ -1,0 +1,76 @@
+@font-face {
+	font-family: 'vbet-sport2';
+	src:url('fonts/vbet-sport2.eot?-fsjgh8');
+	src:url('fonts/vbet-sport2.eot?#iefix-fsjgh8') format('embedded-opentype'),
+		url('fonts/vbet-sport2.woff?-fsjgh8') format('woff'),
+		url('fonts/vbet-sport2.ttf?-fsjgh8') format('truetype'),
+		url('fonts/vbet-sport2.svg?-fsjgh8#vbet-sport2') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+	font-family: 'vbet-sport2';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.icon-vbet-sport-icons_futsal:before {
+	content: "\21";
+}
+.icon-vbet-sport-icons_tablehockey:before {
+	content: "\22";
+}
+.icon-vbet-sport-icons_tabletennis:before {
+	content: "\23";
+}
+.icon-vbet-sport-icons_taekwondo:before {
+	content: "\24";
+}
+.icon-vbet-sport-icons_tankbiathlon:before {
+	content: "\25";
+}
+.icon-vbet-sport-icons_telecast:before {
+	content: "\26";
+}
+.icon-vbet-sport-icons_tennis:before {
+	content: "\27";
+}
+.icon-vbet-sport-icons_triathlon:before {
+	content: "\28";
+}
+.icon-vbet-sport-icons_UFC:before {
+	content: "\29";
+}
+.icon-vbet-sport-icons_ultimatefighting:before {
+	content: "\2a";
+}
+.icon-vbet-sport-icons_virtualdogs:before {
+	content: "\2b";
+}
+.icon-vbet-sport-icons_virtualhorses:before {
+	content: "\2c";
+}
+.icon-vbet-sport-icons_virtualtennis:before {
+	content: "\2d";
+}
+.icon-vbet-sport-icons_volleyball:before {
+	content: "\2e";
+}
+.icon-vbet-sport-icons_waterpolo:before {
+	content: "\2f";
+}
+.icon-vbet-sport-icons_whatwherewhen:before {
+	content: "\30";
+}
+.icon-vbet-sport-icons_yachting:before {
+	content: "\31";
+}

@@ -1,0 +1,194 @@
+
+
+<!--Главная страница-->
+<div class="mein-page-contain" ng-init="setTitle('')">
+    <div class="page-main">
+        <div class="top-picture-block">
+            <div ng-controller="sportNewsCtrl" ng-show="selectedHomepageGames.length" ng-init="getSelectedHomepageGames()" class="featured-games-container" ng-mouseover="rotationPaused = true" ng-mouseleave="rotationPaused=false">
+                <div class="big-buner" ng-repeat="selectedHomepageGame in selectedHomepageGames" ng-show="$index === selectedGameIndex">
+                <a class="block-black-hover" ng-click="gaSend('send', 'event', 'news', {'page': $location.path(), 'eventLabel': 'homepage big banner click'})"
+                   ng-href="{{selectedHomepageGame.link}}" target="{{selectedHomepageGame.target}}">
+                    <p class="name-chempionship" ng-bind-html="selectedHomepageGame.content"></p>
+                    <span class="bet-button" trans ng-show="!selectedHomepageGame.isExternal">Bet now!</span>
+                </a>
+                <img ng-src="{{ selectedHomepageGame.thumbnail_images.full.url }}" alt="">
+                </div>
+
+                <div class="featured-game-selector" ng-show="selectedHomepageGames.length >1">
+                    <span ng-repeat="selectedHomepageGame in selectedHomepageGames" ng-class="{'active': $index === selectedGameIndex}" ng-click="$parent.selectedGameIndex = $index">{{$index}}</span>
+                </div>
+            </div>
+
+
+            <div class="big-cash" >
+                <div class="contein-cash">
+                    
+                    <div class="free-registr-info" ng-show="!env.authorized">
+                    	<h3><b trans>Register Now!</b>
+                        	<span trans>and get</span>
+                        </h3>
+                        <p>5000
+                        	<span trans>Virtual Credits</span>
+                        </p>
+                        <div class="free-signin-b">
+                        	<input name="" type="submit" value="{{'Join us now!'|translate}}" trans ng-click="env.showSlider = true; env.sliderContent = 'registrationForm'; $event.stopPropagation();"  />
+                        </div>
+                    
+                    </div>
+                    <div class="free-registr-info balance-info" ng-if="env.authorized" ng-controller="paymentsCtrl" ng-init="renewInit()">
+                    	<h3 trans>You have</h3>
+                        <p>{{ profile.balance|number:conf.balanceFractionSize }}&nbsp;{{ profile.currency_name }}</p>
+
+
+
+                    <div ng-show="profile.credit_renew_time">
+                        <p ng-show="timer"><span trans>Get more in</span></p>
+                        <div class="timer-fb" ng-show="timer">
+                            <span ng-show="timer.days.value">{{timer.days.value|numberFixedLength:2}} : </span>
+                            <span>{{timer.hours.value|numberFixedLength:2}} : </span>
+                            <span>{{timer.minutes.value|numberFixedLength:2}} : </span>
+                            <span>{{timer.seconds.value|numberFixedLength:2}}</span>
+                        </div>
+                        <div class="free-signin-b" ng-show="profile.credit_renew_time && timer === null">
+                        	<input name="" type="submit" value="{{'Renew Now'|translate}}" ng-click="env.showSlider = true; env.sliderContent = 'renew'; $event.stopPropagation();" ng-disabled="timer"/>
+                        </div>
+                    </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+</div>
+
+
+
+
+
+<div class="block-meny-news"  ng-init="loadRecentNews(numberOfRecentNews, undefined);">
+
+
+    <div class="block-sport-news product">
+        <div class="list-news">
+            <ul>
+                <li>
+                    <h3><a trans>Sportsbook</a></h3>
+                    <!--<p>Sample text for sportsbook</p>-->
+                    <div class="picture-news-block">
+                        <div class="sport-news-name">sportsbook</div>
+                        <a href="#/sport/?type=1"><img ng-src="skins/{{conf.skin}}/images/homepage/sportsbook.jpg" alt=""></a>
+                    </div>
+                </li>
+			</ul>
+            
+            <ul ng-show="conf.fantasyEnabled">
+                <li>
+                    <h3><a trans>Fantasy sport</a></h3>
+                    <!--<p>Sample text for Fantasy sport</p>-->
+                    <div class="picture-news-block">
+                        <div class="sport-news-name">Fantasy sport</div>
+                        <a href="#/fantasy"><img ng-src="skins/{{conf.skin}}/images/homepage/fantasysports.jpg" alt=""></a>
+                    </div>
+                </li>
+			</ul>
+            
+            <ul>
+                <li>
+                    <h3><a trans>Poker</a></h3>
+                    <!--<p>Sample text for poker</p>-->
+                    <div class="picture-news-block">
+                        <div class="sport-news-name">poker</div>
+                        <a href="#/poker"><img ng-src="skins/{{conf.skin}}/images/homepage/poker.jpg" alt=""></a>
+                    </div>
+                </li>
+			</ul>
+
+            <ul>
+                <li>
+                    <h3><a trans>Skill games</a></h3>
+                    <!--<p>Sample text for Skill games</p>-->
+                    <div class="picture-news-block">
+                        <div class="sport-news-name">Skill games</div>
+                        <a href="#/games"><img ng-src="skins/{{conf.skin}}/images/homepage/skillgames.jpg" alt=""></a>
+                    </div>
+                </li>
+            </ul>
+
+            <ul>
+                <li>
+                    <h3><a trans>Casino</a></h3>
+                    <!--<p>Sample text for Casino</p>-->
+                    <div class="picture-news-block">
+                        <div class="sport-news-name">Casino</div>
+                        <a href="#/casino"><img ng-src="skins/{{conf.skin}}/images/homepage/casino.jpg" alt=""></a>
+                    </div>
+                </li>
+			</ul>
+            
+            <h2 trans>Favorites</h2>
+
+            <ul ng-show="conf.fantasyEnabled">
+                <li>
+                    <h3><a trans>Fantasy Soccer</a></h3>
+                    <!--<p>Sample text for Fantasy Soccer</p>-->
+                    <div class="picture-news-block">
+                        <div class="sport-news-name">Fantasy Soccer</div>
+                        <a href="#/fantasy/?fantasysport=1"><img ng-src="skins/{{conf.skin}}/images/homepage/fantasyfootball.jpg" alt=""></a>
+                    </div>
+                </li>
+			</ul>
+            <ul>
+                <li>
+                    <h3><a trans>Texas Hold'Em</a></h3>
+                    <!--<p>Sample text for  Texas Hold'Em</p>-->
+                    <div class="picture-news-block">
+                        <div class="sport-news-name"> Texas Hold'Em</div>
+                        <a href="#/poker"><img ng-src="skins/{{conf.skin}}/images/homepage/texas.jpg" alt=""></a>
+                    </div>
+                </li>
+			</ul>
+
+            <ul>
+                <li>
+                    <h3><a trans>Backgammon</a></h3>
+                    <!--<p>Sample text for Backgammon</p>-->
+                    <div class="picture-news-block">
+                        <div class="sport-news-name">Backgammon</div>
+                        <a href="#/games/?game=599&type=real" ng-click="$event.stopPropagation();"><img ng-src="skins/{{conf.skin}}/images/homepage/backgammon.jpg" alt=""></a>
+                    </div>
+                </li>
+            </ul>
+
+            <ul>
+                <li>
+                    <h3><a trans>Belote</a></h3>
+                    <!--<p>Sample text for Belote</p>-->
+                    <div class="picture-news-block">
+                        <div class="sport-news-name">Belote</div>
+                        <a onclick="window.open('http://belote.free.vbet.com/', 'VGSBELOTE', 'width=975,height=645,menubar=no,toolbar=no,location=no,scrollbars=no,resizable=yes');" href="javascript:void(0);"><img ng-src="skins/{{conf.skin}}/images/homepage/belote.jpg" alt=""></a>
+                    </div>
+                </li>
+            </ul>
+
+
+
+            <ul>
+                <li>
+                    <h3><a trans>Bet on Poker</a></h3>
+                    <!--<p>Sample text for Bet on Poker</p>-->
+                    <div class="picture-news-block">
+                        <div class="sport-news-name">Bet on Poker</div>
+                        <a href="#/casino/?category=35&game=562&type=real"><img ng-src="skins/{{conf.skin}}/images/homepage/betonpoker.jpg" alt=""></a>
+                    </div>
+                </li>
+            </ul>
+
+            
+
+        </div>
+    </div>
+
+

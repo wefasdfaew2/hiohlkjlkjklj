@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- build:template
+    <title ng-bind="siteTitle + conf.siteTitle[env.lang]"><%=title%></title>
+        <meta name="description" content="<%=description%>">
+        <meta name="keywords" content="<%=keywords%>">
+        <link rel="icon" href="favicon.ico" />
+        <link rel="stylesheet" href="css/main.min.css?<%=buildDate%><%=version%>"/>
+    <!-- /build -->
+    <!-- build:remove -->
+    <link rel="stylesheet" href="css/main.css"/>
+    <!-- /build -->
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.14/angular.min.js"></script>
+    <script>
+        var myApp = angular.module('myApp',[]);
+        myApp.controller('mainCtrl', ['$scope','$location', function($scope, $location) {
+            $scope.url = $location.absUrl().replace('fbapplanding.html#/?','#/?action=fblead&').replace('https://', 'http://');
+        }]);
+</script>
+</head>
+<body>
+<div class="fb-wrapper" ng-app="myApp" ng-controller="mainCtrl">
+	<div class="conteiner">
+    	<div class="header-bg fbfree"></div>
+        <div class="logo free"><a ng-href="{{url}}" target="_blank">logo</a></div>
+    </div>
+	<div class="centr-content-fb">
+    	<div class="fbinfo-center-block">
+        	<div class="content-fb-bonus">
+            	<div class="site-lik-fb"><a ng-href="{{url}}" target="_blank">free.vbet.com</a></div>
+                <div class="invite-info-b">
+                <ul>
+                	<li>Join Now</li>
+                    <li>and get</li>
+                    <li><span>5000 VC</span></li>
+                </ul>
+                	<a ng-href="{{url}}" target="_blank"><button >Join / Get Bonus</button></a>
+                <ul>
+                	<li>Invite</li>
+                    <li>your frends</li>
+                    <li>and get <span>5000 VC</span></li>
+                    <li>for each friend.</li>
+                </ul>
+                </div>
+             </div>
+        </div>
+     </div>
+</div>
+</body>
+</html>

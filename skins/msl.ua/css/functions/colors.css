@@ -1,0 +1,23 @@
+/* ======================================================================== 
+   === skin specific styles === */
+.game-live-row .account span.game-id {
+  font-size: 10px;
+  line-height: 5px;
+  display: block; }
+  .game-live-row .account span.game-id:after {
+    content: ""; }
+
+.copyright, .about-company-footer-text, .old-version-link {
+  display: none; }
+
+.contain-footer {
+  padding: 0; }
+
+.contain-footer.no-footer-nav {
+  height: 104px;
+  margin: -104px 0 0 0; }
+
+.game-live-row .time-date span.game-id {
+  font-size: 10px;
+  line-height: 0;
+  display: table-row; }

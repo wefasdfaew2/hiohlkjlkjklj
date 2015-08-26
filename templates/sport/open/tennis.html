@@ -1,0 +1,211 @@
+    <div class="left-block-score">
+
+
+        <div class="live-game-team" ng-class="{'no-video-flash': !(conf.videoEnabled && game.video_id || game.last_event) || (isVideoDetached && !game.last_event), 'no-video-ie8': !game.video_id || isVideoDetached}">
+            <ul>
+                <li ng-class="{'active':game.info.pass_team=='team1'}">
+                    <div class="team-form"><tshirt shorts="{{game.info.short1_color}}" shirt="{{game.info.shirt1_color}}"></tshirt></div>
+                    <span title="{{ game.team1_name }}">{{ game.team1_name }}</span>
+                </li>
+                <li>{{ game.stats.passes.team1_value ? game.stats.passes.team1_value : 0}}</li>
+                <li class="set-number">{{ game.info.score1 ? game.info.score1 : 0 }}</li>
+            </ul>
+            <ul>
+                <li ng-class="{'active':game.info.pass_team=='team2'}">
+                    <div class="team-form"><tshirt shorts="{{game.info.short2_color}}" shirt="{{game.info.shirt2_color}}"></tshirt></div>
+                    <span title="{{ game.team2_name }}">{{ game.team2_name }}</span>
+                </li>
+                <li>{{ game.stats.passes.team2_value ? game.stats.passes.team2_value : 0 }}</li>
+                <li class="set-number">{{ game.info.score2 ? game.info.score2 : 0 }}</li>
+            </ul>
+        </div>
+        <div class="conteiner-goals" ng-if="game.live_events.length > 0">
+            <div class="football-gamer-name multi-game">
+                <!--<span ng-class="game.live_events[game.live_events.length-1].team" ng-show="game.live_events[0]">
+                    <tshirt shirt="{{ game.info['shirt'+ (game.live_events|orderBy:'add_info_order':true)[0].team.slice(-1) + '_color'] }}" shorts="{{ game.info['short'+ (game.live_events|orderBy:'add_info_order':true)[0].team.slice(-1) + '_color'] }}"></tshirt>
+                </span>-->
+                <p><span trans>Game</span>{{game.live_events[game.live_events.length-1].game}} - <span trans>Score</span>{{game.live_events[game.live_events.length-1].score}}</p>
+                <div class="curr-set">{{ game.live_events[game.live_events.length-1].set }} <span trans>Set</span></div>
+                <div class="arrow-hover" ng-show="game.live_events.length > 1"></div>
+            </div>
+            <div class="hover-sp">
+                <div class="football-gamer-name multi-game" ng-repeat="gameEvent in game.live_events|orderBy:['set','game_order']:true" ng-if="!$first" ng-class="{'set-changed':  gameEvent.game === '1'}">
+                    <!--<span ng-class="gameEvent.team">
+                        <tshirt shirt="{{ game.info['shirt'+ gameEvent.team.slice(-1) + '_color'] }}" shorts="{{ game.info['short'+ gameEvent.team.slice(-1) + '_color'] }}"></tshirt>
+                    </span>-->
+                    <p><span trans>Game</span>{{gameEvent.game}} - <span trans>Score</span>{{gameEvent.score}} </p>
+                    <div class="curr-set">{{ gameEvent.set }} <span trans>Set</span></div>
+                </div>
+            </div>
+        </div>
+        <!--Счет игры live game-->
+        <table class="cash-game" ng-class="{'no-video-flash': !(conf.videoEnabled && game.video_id || game.last_event) || (isVideoDetached && !game.last_event), 'no-video-ie8': !game.video_id  || isVideoDetached}">
+            <tr>
+                <th trans>Set</th>
+                <th ng-class="{'active-set': game.info.current_game_state == 'set1'}">1</th>
+                <th ng-class="{'active-set': game.info.current_game_state == 'set2'}">2</th>
+                <th ng-class="{'active-set': game.info.current_game_state == 'set3'}">3</th>
+                <th ng-class="{'active-set': game.info.current_game_state == 'set4'}">4</th>
+                <th ng-class="{'active-set': game.info.current_game_state == 'set5'}">5</th>
+                <!--<th ng-class="{'active-set': game.info.current_game_state == 'set6'}">6</th>-->
+            </tr>
+            <tr>
+                <td class="team-1" ng-style="{'border-left-color': '#'+ game.info.shirt1_color}">
+                    <div ng-class="{'active-game':game.info.pass_team=='team1'}"><tshirt shorts="{{game.info.short1_color}}" shirt="{{game.info.shirt1_color}}"></tshirt></div>
+                    <span title="{{ game.team1_name }}">{{ game.team1_name }}</span>
+                </td>
+                <td ng-class="{'active-cash':game.info.current_game_state == 'set1','winner':isSetWinner(game.stats.score_set1,1)}">{{ game.stats.score_set1.team1_value}}</td>
+                <td ng-class="{'active-cash':game.info.current_game_state == 'set2','winner':isSetWinner(game.stats.score_set2,1)}">{{ game.stats.score_set2.team1_value}}</td>
+                <td ng-class="{'active-cash':game.info.current_game_state == 'set3','winner':isSetWinner(game.stats.score_set3,1)}">{{ game.stats.score_set3.team1_value}}</td>
+                <td ng-class="{'active-cash':game.info.current_game_state == 'set4','winner':isSetWinner(game.stats.score_set4,1)}">{{ game.stats.score_set4.team1_value}}</td>
+                <td ng-class="{'active-cash':game.info.current_game_state == 'set5','winner':isSetWinner(game.stats.score_set5,1)}">{{ game.stats.score_set5.team1_value}}</td>
+                <!--<td ng-class="{'active-cash':game.info.current_game_state == 'set6','winner':isSetWinner(game.stats.score_set6,1)}">{{ game.stats.score_set6.team1_value}}</td>-->
+            </tr>
+            <tr>
+                <td class="team-2" ng-style="{'border-left-color': '#'+ game.info.shirt2_color}">
+                    <div ng-class="{'active-game':game.info.pass_team=='team2'}"><tshirt shorts="{{game.info.short2_color}}" shirt="{{game.info.shirt2_color}}"></tshirt></div>
+                    <span title="{{ game.team2_name }}">{{ game.team2_name }}</span>
+                </td>
+                <td ng-class="{'active-cash':game.info.current_game_state == 'set1','winner':isSetWinner(game.stats.score_set1,2)}">{{ game.stats.score_set1.team2_value}}</td>
+                <td ng-class="{'active-cash':game.info.current_game_state == 'set2','winner':isSetWinner(game.stats.score_set2,2)}">{{ game.stats.score_set2.team2_value}}</td>
+                <td ng-class="{'active-cash':game.info.current_game_state == 'set3','winner':isSetWinner(game.stats.score_set3,2)}">{{ game.stats.score_set3.team2_value}}</td>
+                <td ng-class="{'active-cash':game.info.current_game_state == 'set4','winner':isSetWinner(game.stats.score_set4,2)}">{{ game.stats.score_set4.team2_value}}</td>
+                <td ng-class="{'active-cash':game.info.current_game_state == 'set5','winner':isSetWinner(game.stats.score_set5,2)}">{{ game.stats.score_set5.team2_value}}</td>
+                <!--<td ng-class="{'active-cash':game.info.current_game_state == 'set6','winner':isSetWinner(game.stats.score_set6,2)}">{{ game.stats.score_set6.team2_value}}</td>-->
+            </tr>
+        </table>
+    </div>
+    <div ng-show="(conf.videoEnabled && game.video_id && !isVideoDetached) || game.last_event" ng-class="{'hide-animation-ie8': !game.video_id || isVideoDetached}">
+    <div class="right-block-flash" id="game-monitor-{{ game.id }}">
+        <div ng-include="getTemplate('templates/sport/open/player.html')"></div>
+        <!-- Animated control -->
+        <div class="game-control tennis" ng-show="game.activeFieldType==='field'">
+            <div class="video-player-control">
+                <span class="video-mute" ng-click="toggleAnimationSound()" ng-show="!isVideoDetached && env.sound > 0 "></span>
+                <span class="video-unmute" ng-click="toggleAnimationSound()" ng-show="!isVideoDetached && env.sound === 0"></span>
+                <!--<span class="video-soundoff" ng-show="env.sound === 0 && !isVideoDetached" trans title="Turn on sound from settings"></span>-->
+                <div class="sound-volume">
+                    <div>
+                        <rzslider rz-slider-model="env.sound" rz-slider-floor="0" rz-slider-ceil="1" rz-slider-step="0.01" rz-slider-precision="1" rz-slider-always-show-bar="true"></rzslider>
+                    </div>
+                </div>
+            </div>
+            <div class="field-container tl-hide">
+                <ul class="game-team-names">
+                    <li>{{ game.team1_name }}</li>
+                    <li>{{ game.team2_name }}</li>
+                </ul>
+                <div class="field field-{{game.info.field}}">
+                    <audio id="{{game.id}}" ng-src="{{animationSoundsMap[game.last_event.type] + '.mp3'}}" autoplay="" ng-if="!game.isAnimationMute && game.activeFieldType !='video' && animationSoundsMap[game.last_event.type] && !isVideoDetached && env.sound > 0" ng-init="changeVolume()"></audio>
+                    <audio id="{{game.id}}" ng-src="{{animationSoundsMap[game.last_event.type] + '.ogg'}}" autoplay="" ng-if="!game.isAnimationMute && game.activeFieldType !='video' && animationSoundsMap[game.last_event.type] && !isVideoDetached && env.sound === 0 && !isMp3Supported" ng-init="changeVolume()"></audio>
+
+                    <div class="{{game.last_event.type}} side_{{game.last_event.side}} {{game.last_event.court_side}}">
+                        <div ng-if="game.last_event.type === 'BallInPlay'">
+                            <div class="ball_container">
+                                <div class="ball"></div>
+                                <div class="ball_shadow"></div>
+                            </div>
+                            <!--<audio id="{{game.id}}" ng-src="{{game.last_event.type === 'BallInPlay'? 'audio/tennis/BallInPlay.mp3': ''}}" autoplay="autoplay" ng-if="!game.isAnimationMute && game.activeFieldType !='video' && !isVideoDetached && env.sound === 'on'"></audio>
+                            <audio id="{{game.id}}" ng-src="{{game.last_event.type === 'BallInPlay'? 'audio/tennis/BallInPlay.ogg': ''}}" autoplay="autoplay" ng-if="!game.isAnimationMute && game.activeFieldType !='video' && !isVideoDetached && env.sound === 'on' && !isMp3Supported"></audio>-->
+                        </div>
+                        <div ng-if="game.last_event.type === 'Ace'">
+                            <div class="ball_container">
+                                <div class="ball"></div>
+                                <div class="ball_shadow"></div>
+                            </div>
+                            <div trans class="set" title="Ace">Ace</div>
+                            <!--<audio id="{{game.id}}" ng-src="{{game.last_event.type === 'Ace'? 'audio/tennis/Ace.mp3': ''}}" autoplay="autoplay" ng-if="!game.isAnimationMute && game.activeFieldType !='video' && !isVideoDetached && env.sound === 'on'"></audio>
+                            <audio id="{{game.id}}" ng-src="{{game.last_event.type === 'Ace'? 'audio/tennis/Ace.ogg': ''}}" autoplay="autoplay" ng-if="!game.isAnimationMute && game.activeFieldType !='video' && !isVideoDetached && env.sound === 'on' && !isMp3Supported"></audio>-->
+                        </div>
+                        <div ng-if="game.last_event.type === 'Point'">
+                            <div class="score_1"><span>{{game.last_event.game_score_team1}}</span></div>
+                            <div class="score_2"><span>{{game.last_event.game_score_team2}}</span></div>
+                            <div trans class="point_text" title="Point">Point</div>
+                            <!--<audio id="{{game.id}}" ng-src="{{game.last_event.type === 'Point'? 'audio/tennis/' + game.last_event.game_score_team1 + '-' + game.last_event.game_score_team2 + '.mp3': ''}}" autoplay="autoplay" ng-if="!game.isAnimationMute && game.activeFieldType !='video' && !isVideoDetached && env.sound === 'on'"></audio>
+                            <audio id="{{game.id}}" ng-src="{{game.last_event.type === 'Point'? 'audio/tennis/' + game.last_event.game_score_team1 + '-' + game.last_event.game_score_team2 + '.ogg': ''}}" autoplay="autoplay" ng-if="!game.isAnimationMute && game.activeFieldType !='video' && !isVideoDetached && env.sound === 'on' && !isMp3Supported"></audio>-->
+                        </div>
+                        <div ng-if="game.last_event.type === 'ServiceFault'">
+                            <div trans class="fault_text" title="Service Fault">Service Fault</div>
+                            <!--<audio id="{{game.id}}" ng-src="{{game.last_event.type === 'ServiceFault'? 'audio/tennis/Fault.mp3': ''}}" autoplay="autoplay" ng-if="!game.isAnimationMute && game.activeFieldType !='video' && !isVideoDetached && env.sound === 'on'"></audio>
+                            <audio id="{{game.id}}" ng-src="{{game.last_event.type === 'ServiceFault'? 'audio/tennis/Fault.ogg': ''}}" autoplay="autoplay" ng-if="!game.isAnimationMute && game.activeFieldType !='video' && !isVideoDetached && env.sound === 'on' && !isMp3Supported"></audio>-->
+                        </div>
+                        <div ng-if="game.last_event.type === 'DoubleFault'">
+                            <div trans class="fault_text" title="Double Fault">Double Fault</div>
+                        </div>
+                        <div ng-if="game.last_event.type === 'Finished'">
+                            <div trans class="set" title="Finished">Finished</div>
+                            <!--<audio id="{{game.id}}" ng-src="{{game.last_event.type === 'Finished'? 'audio/tennis/EndGame.mp3': ''}}" autoplay="autoplay" ng-if="!game.isAnimationMute && game.activeFieldType !='video' && !isVideoDetached && env.sound === 'on'"></audio>
+                            <audio id="{{game.id}}" ng-src="{{game.last_event.type === 'Finished'? 'audio/tennis/EndGame.ogg': ''}}" autoplay="autoplay" ng-if="!game.isAnimationMute && game.activeFieldType !='video' && !isVideoDetached && env.sound === 'on' && !isMp3Supported"></audio>-->
+                        </div>
+                        <div ng-if="game.last_event.type === 'FirstSet'">
+                            <div trans class="set" title="First Set">First Set</div>
+                        </div>
+                        <div ng-if="game.last_event.type === 'SecondSet'">
+                            <div trans class="set" title="Second Set">Second Set</div>
+                        </div>
+                        <div ng-if="game.last_event.type === 'ThirdSet'">
+                            <div trans class="set" title="Third Set">Third Set</div>
+                        </div>
+                        <div ng-if="game.last_event.type === 'FourthSet'">
+                            <div trans class="set" title="Fourth Set">Fourth Set</div>
+                        </div>
+                        <div ng-if="game.last_event.type === 'FifthSet'">
+                            <div trans class="set" title="Fifth Set">Fifth Set</div>
+                        </div>
+                        <div ng-if="game.last_event.type === 'InjuryBreak'">
+                            <div trans class="set" title="Injury Break">Injury Break</div>
+                        </div>
+                        <div ng-if="game.last_event.type === 'RainDelay'">
+                            <div trans class="set" title="Rain Delay">Rain Delay</div>
+                        </div>
+                        <div ng-if="game.last_event.type === 'Timeout'">
+                            <div trans class="set" title="Timeout">Timeout</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="statistics-toggle">
+                <!-- 	<button  ng-click="hide = !hide"></button> -->
+                <ul class="game-statistics" ng-class="{hidden: hide}">
+                    <li>
+                        <div trans class="title">Aces</div>
+                        <div class="stat-l">{{game.last_event.aces_score.split(':')[0]}}</div>
+                        <div class="team-2" ng-style="{background: '#'+ game.info.shirt2_color}">
+                            <div class="team-1" ng-style="{background: '#'+ game.info.shirt1_color, width: getStatWidth(game.last_event.aces_score) + '%'}"></div>
+                        </div>
+                        <div class="stat-r">{{game.last_event.aces_score.split(':')[1]}}</div>
+                    </li>
+                    <!--<li class="persent">
+                        <div trans class="title">Win % 1 st Service</div>
+                        <div class="stat-l">0</div>
+                        <div class="team-2">
+                            <div class="team-1" ng-style="{background: '#'+ game.info.shirt1_color}"></div>
+                            <div class="t2-persent" ng-style="{background: '#'+ game.info.shirt2_color}"></div>
+                            <div class="sep"></div>
+                        </div>
+                        <div class="stat-r">0</div>
+                    </li>-->
+                    <li>
+                        <div trans class="title">Double Faults</div>
+                        <div class="stat-l">{{game.last_event.double_fault_score.split(':')[0]}}</div>
+                        <div class="team-2" ng-style="{background: '#'+ game.info.shirt2_color}">
+                            <div class="team-1" ng-style="{background: '#'+ game.info.shirt1_color, width: getStatWidth(game.last_event.double_fault_score) + '%'}"></div>
+                        </div>
+                        <div class="stat-r">{{game.last_event.double_fault_score.split(':')[1]}}</div>
+                    </li>
+                    <!--<li class="persent">
+                        <div trans class="title">Break Point Conversions</div>
+                        <div class="stat-l">0</div>
+                        <div class="team-2">
+                            <div class="team-1" ng-style="{background: '#'+ game.info.shirt1_color}"></div>
+                            <div class="t2-persent" ng-style="{background: '#'+ game.info.shirt2_color}"></div>
+                            <div class="sep"></div>
+                        </div>
+                        <div class="stat-r">0</div>
+                    </li>-->
+                </ul>
+            </div>
+        </div>
+        <!-- Animated control END -->
+    </div>
+</div>

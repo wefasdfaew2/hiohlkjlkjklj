@@ -1,0 +1,19 @@
+/* ======================================================================== 
+   === skin specific styles === */
+#egm {
+  position: relative;
+  font-size: 10px;
+  padding-left: 90px; }
+
+#egm p {
+  min-width: inherit;
+  max-width: inherit;
+  text-align: left; }
+
+#egm img {
+  position: absolute;
+  left: 0;
+  top: 2px; }
+
+#egm a {
+  color: #dd5; }

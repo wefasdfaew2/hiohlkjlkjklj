@@ -1,0 +1,142 @@
+$black-text: #{'#000000'};
+$black-bg: #{'#000000'};
+$white-text: #{'#ffffff'};
+$white-bg: #{'#ffffff'};
+$gray: #{'#cccccc'};
+$bg-footer-slider: #{'#000000'} url(../images/bg-footer.png) repeat 0 0;
+$bg-footer: #{'#000000'} url(../images/bg-footer.png) repeat 0 0;
+$red-text: #{'#ea1152'};
+$red-bg: #{'#ea1152'};
+$shadow-color: #{'#222222'};
+$header-text: #{'#646464'};
+$border-color: #{'#828183'};
+$header-nav-bg: #{'#8e1237'};
+$dark-shadow-color: #{'#555555'};
+$taupe-text-color: #{'#555555'};
+$profile-nav-bg: #{'#555555'};
+$bg-button: #{'#ea1152'} url(../images/bet-list-bg.png) no-repeat 90% 100%;
+$bg-button-disable: #{'#7A7575'} url(../images/bet-list-bg.png) no-repeat 90% 100%;
+$betslit-icon: url(../images/bet-list-bg.png) no-repeat 0 100%;
+$bg-forms-cantain: rgba(255, 255, 255, 0.2);
+$style-text: italic;
+$lite-black-text: #{'#333333'};
+$bold-text: bold;
+$font-f: Arial, Helvetica, sans-serif;
+
+
+
+$show-hide-header: block;
+$header-margin: 41px 0 0; //for skins with header
+$top-sport-title-lpos: 274px;
+$logo-home-icon: url(../images/home.png) no-repeat 115px 68px;
+$bet-btn-bg: url(../images/bg-button-bet.png) repeat-x 0 0;
+$bet-btn-hover-bg: url(../images/bg-button-bet.png) repeat-x 0 -36px;
+$bet-btn-disabled-bg: #{'#AFADAD'};
+$live-btn-bg: rgba(148, 244, 98, 0.63);
+$prematch-btn-bg: rgba(255, 255, 255, 0.4);
+
+@mixin bg-img{}
+@mixin header-menu-bg{
+	background: #db0a49;
+	background: -moz-linear-gradient(#eb1857, #cd134b);
+	background: -webkit-linear-gradient(#eb1857, #cd134b);
+	background: -o-linear-gradient(#eb1857, #cd134b);
+	background: linear-gradient(#eb1857, #cd134b);
+	box-shadow: 0 1px 2px #aaa inset;
+}
+@mixin dropdown-menu-bg{
+	background: #db0a49;
+	background: -moz-linear-gradient(#eb1857, #cd134b);
+    background: -webkit-linear-gradient(#eb1857, #cd134b);
+	background: -o-linear-gradient(#eb1857, #cd134b);
+	background: linear-gradient(#eb1857, #cd134b);
+}
+@mixin logo-position{
+	background-repeat: no-repeat;
+	background-position: 0 0;
+	width: 158px;
+	height: 100px;
+}
+
+@mixin logo-fixed{
+	background: url(../images/home.png) no-repeat 108px 8px;
+	width: 135px;
+	height: 41px;	
+}
+@mixin logo-fixed-position{
+	background-repeat: no-repeat;
+	background-position:  0 0;
+	width: 115px;
+	height: 41px;
+	padding: 0 20px 0 0;
+}
+@mixin bet-tooltip-visibility{	
+}
+
+/* ======================================================================== 
+   === skin specific styles === */
+
+.free-registr-info{
+	float: left;
+	width: 100%;
+	text-align: center;
+	padding: 20px 0 0;
+	height: 274px;
+	position: relative;
+}
+.free-registr-info h3{
+	float: left;
+	width: 100%;
+	font: 38px/42px "sirucaregular", $font-f;
+	color: $white-text;
+	text-shadow: 0 -1px 0 #666666;
+	text-transform: uppercase;
+}
+.free-registr-info h3 span{
+	width: 100%;
+	float: left;
+	font: 22px/24px "sirucaregular", $font-f; 
+	text-transform: none;
+}
+.free-registr-info p{
+	float: left;
+	width: 100%;
+	font: 58px/60px "sirucaregular", $font-f; 
+	text-shadow: 0 -1px 0 #666666;
+	color: $white-text;
+}
+.free-registr-info p span{
+	float: left;
+	width: 100%;
+	font: 36px/38px "sirucaregular", $font-f; 
+}
+.free-signin-b{
+	position: absolute;
+	bottom: 40px;
+	width: 100%;
+}
+.free-signin-b input{
+	padding: 10px 20px;
+	border: none;
+	margin: 0;
+	background: #f2f2f2;
+	border-radius: 5px;
+	box-shadow: 0 0 5px #444444;
+	font: 17px $font-f; 
+	color: #3e3e3e;
+	font-weight: bold;
+	text-transform: uppercase;
+	min-width: 240px;
+	cursor: pointer;
+}
+.free-signin-b input:hover {
+	background: #FFE3E3;
+	transition-duration: 150ms;
+	text-shadow: 0 -1px 0 #fff;
+}
+.free-signin-b input:active{
+	background: #FFBEBE;
+	position: relative;
+	top: 1px;
+	box-shadow: 0 1px 5px #333333;
+}

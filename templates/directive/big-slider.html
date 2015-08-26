@@ -1,0 +1,19 @@
+<div class="contain-casino poker"
+     ng-mouseover="rotationPaused = true"
+     ng-mouseleave="rotationPaused = false">
+    <div class="casino-top-slider">
+        <div class="big-slider-casino">
+            <ul>
+                <li ng-show="$index == index" ng-repeat="banner in images track by $index">
+                    <a ng-href="{{!banner.isYouTubeVideo ? banner.link : ''}}" target="{{banner.linktarget}}" ng-click="linkClick(banner)">
+                        <img ng-src="{{banner.imageurl}}" alt="">
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="arrow-left-s" ng-show="index > 0"><a ng-click="index = index - 1;">left-arrow</a></div>
+    <div class="arrow-right-s" ng-show="index < images.length - 1"><a ng-click="index = index + 1;">right-arrow</a>
+    </div>
+
+</div>

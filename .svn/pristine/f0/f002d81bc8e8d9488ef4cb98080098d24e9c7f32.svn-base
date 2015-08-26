@@ -1,0 +1,14 @@
+<div ng-controller="pagesCtrl"
+     ng-if="!conf.enableNewPoker"
+     ng-init="loadPages('poker');"
+     ng-include="getTemplate('templates/poker/old.html')"
+     ng-class="'poker-'+selectedPokerPage.slug"
+     class="poker-background"
+     watch-resize></div>
+
+<div ng-controller="pagesCtrl"
+     ng-if="conf.enableNewPoker"
+     ng-include="getTemplate('templates/poker/new.html')"
+     ng-class="'poker-'+selectedPokerPage.slug"
+     class="poker-background new-poker"
+     watch-resize></div>

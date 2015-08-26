@@ -1,0 +1,178 @@
+/* LIVE SPORT */
+/* END OF LIVE SPORT | hallelujah !!!!! */
+/* TEXT COLORS */
+/* HEADER */
+/* END HEADER */
+/* LANGUAGE AND SETTING DROPDOWN MENU */
+/* END LANGUAGE AND SETTING DROPDOWN MENU */
+/* PROFILE DROPDOWN LIST */
+/* END PROFILE DROPDOWN LIST */
+/* POPUP SLIDERS */
+/* SIGN IN AND REGISTER */
+/* END SIGN IN AND REGISTER */
+/* FAVORITES */
+/* END FAVORITES */
+/* BET HISTORY */
+/* END BET HISTORY */
+/* RECENT BETS */
+/* END RECENT BETS */
+/* MESSAGES */
+/* END MESSAGES */
+/* SETTINGS */
+/* SETTINGS */
+/* END POPUP SLIDERS */
+/* FOOTER */
+/* END FOOTER */
+/* MAIN PAGE */
+/* LIVE GAME */
+/* END LIVE GAME */
+/* NEWS CAT NAVIGATION */
+/* END NEWS CAT NAVIGATION */
+/* BLOCK NEWS */
+/* END BLOCK NEWS */
+/* TOURNAMENTS */
+/* END TOURNAMENTS */
+/* LIST LEADER GAMES */
+/* END LIST LEADER GAMES */
+/* END MAIN PAGE */
+/* BALANCE PAGE */
+/* WALLET */
+/* END WALLET */
+/* HISTORY */
+/* END HISTORY */
+/* DEPOSIT */
+/* END DEPOSIT */
+/* WIDTHDRAW */
+/* WIDTHDRAW */
+/* END BALANCE PAGE */
+/* NEWS PAGE */
+/* END NEWS PAGE */
+/* GAMES PAGE */
+/* END GAMES PAGE */
+/* LIVE CASINO */
+/* END LIVE CASINO */
+/* POKER PAGE */
+/* END POKER PAGE */
+/* POOL BETTING PAGE */
+/* END POOL BETTING */
+/* CASINO PAGE */
+/* END CASINO PAGE */
+/* BACKGAMMON PAGE */
+/* END BACKGAMMON PAGE */
+/* BELOTE PAGE */
+/* END BELOTE PAGE */
+/* JACKPOT PAGE */
+/* END JACKPOT PAGE */
+/* PROMOTIONS PAGE */
+/* PROMOTIONS PAGE */
+/* SPORTSBOOK */
+/* CLASSIC */
+/* LEFT SECTION */
+/* END LEFT SECTION */
+/* CENTER SECTION */
+/* LIVE CALENDAR */
+/* LIVE CALENDAR */
+/* SPORTS */
+/* END SPORTS */
+/* LIVE */
+/* END LIVE */
+/* VIRTUAL SPORTS */
+/* END VIRTUAL SPORTS */
+/* CENTER SECTION */
+/* RIGHT SECTION */
+/* BET SLIP */
+/* END BET SLIP */
+/* SPORT NEWS */
+/* SPORT NEWS */
+/* END RIGHT SECTION */
+/* END CLASSIC */
+/* MODERN */
+/* END MODERN */
+/* END SPORTSBOOK */
+/* DON'T DELETE */
+/* END OF TEXT COLORS */
+/* NOT USING
+$show-hide-header: block;
+$header-margin: 41px 0 0; //for skins with header
+$top-sport-title-lpos: 274px;
+$logo-home-icon: url(../images/home.png) no-repeat 115px 68px;
+$bet-btn-bg: url(../images/bg-button-bet.png) repeat-x 0 0;
+$bet-btn-hover-bg: url(../images/bg-button-bet.png) repeat-x 0 -36px;
+$bet-btn-disabled-bg: #AFADAD;
+$live-btn-bg: rgba(148, 244, 98, 0.63);
+$prematch-btn-bg: rgba(255, 205, 205, 0.4);
+@mixin bg-img{}
+@mixin header-menu-bg{
+  background: #db0a49;
+  background: -moz-linear-gradient(#eb1857, #cd134b);
+  background: -webkit-linear-gradient(#eb1857, #cd134b);
+  background: -o-linear-gradient(#eb1857, #cd134b);
+  background: linear-gradient(#eb1857, #cd134b);
+  box-shadow: 0 1px 2px #aaa inset;
+}
+@mixin dropdown-menu-bg{
+	background: #db0a49;
+	background: -moz-linear-gradient(#eb1857, #cd134b);
+    background: -webkit-linear-gradient(#eb1857, #cd134b);
+	background: -o-linear-gradient(#eb1857, #cd134b);
+	background: linear-gradient(#eb1857, #cd134b);
+}
+@mixin logo-position{
+	background-repeat: no-repeat;
+	background-position: 0 0;
+	width: 158px;
+	height: 100px;
+}
+@mixin logo-fixed{
+	background: url(../images/home.png) no-repeat 108px 8px;
+	width: 135px;
+	height: 41px;
+	}
+@mixin logo-fixed-position{
+	background-repeat: no-repeat;
+	background-position: 0 0;
+	width: 115px;
+	height: 41px;
+	padding: 0 20px 0 0;
+}
+@mixin bet-tooltip-visibility{
+	opacity: 1;
+	left: 0;
+}
+/* skin specific styles *
+.youtube a {
+	background: url(../images/social-spryte.png) no-repeat 0 -229px;
+}
+*/
+/*asian view*/
+/*base colors*/
+/*asian page background*/
+/*asian page background END*/
+/*text-colors*/
+/*text-colors END*/
+/*background-colors*/
+/*background-colors END*/
+/*popup*/
+/*popup END*/
+/*base colors END*/
+/*second level*/
+/*headers-bg*/
+/*headers-bg END*/
+/*buttons*/
+/*buttons END*/
+/*filters*/
+/*filters END*/
+/*team name*/
+/*team name END*/
+/*market colors*/
+/*market colors END*/
+/*border-color*/
+/*border-color END*/
+/*element states*/
+/*element states END*/
+/*up down*/
+/*up down END*/
+/*sport icons color*/
+/*sport icons color END*/
+/*second level END*/
+/*asian view END*/

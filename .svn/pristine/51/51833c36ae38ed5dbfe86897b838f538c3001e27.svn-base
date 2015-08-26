@@ -1,0 +1,94 @@
+$black-text: #{'#171717'};
+$black-bg: #{'#000000'};
+$white-text: #{'#ffffff'};
+$white-bg: #{'#ffffff'};
+$gray: #{'#cccccc'};
+$bg-footer-slider: #{'#015d87'};
+$bg-footer: #{'#015d87'};
+$red-text: #{'#35b1e9'};
+$red-bg: #{'#016d9e'};
+$shadow-color: #{'#222222'};
+$header-text: #{'#0f95d1'};
+$border-color: #{'#0f95d1'};
+$header-nav-bg: #{'#0f95d1'};
+$dark-shadow-color: #{'#555555'};
+$taupe-text-color: #{'#555555'};
+$profile-nav-bg: #{'#555555'};
+$bg-button: #{'#20a4df'} url(../images/bet-list-bg.png) no-repeat 93% 50%;
+$bg-button-disable: #{'#436473'} url(../images/bet-list-bg.png) no-repeat 93% 50%;
+$betslit-icon: url(../images/bet-list-bg.png) no-repeat 0 20%;
+$bg-forms-cantain: rgba(255, 255, 255, 0.2);
+$style-text: italic;
+$lite-black-text: #{'#333333'};
+$bold-text: bold;
+$font-f: Arial, Helvetica, sans-serif;
+
+
+
+$show-hide-header: block;
+$header-margin: 41px 0 0; //for skins with header
+$top-sport-title-lpos: 265px;
+$logo-home-icon: url(../images/home.png) no-repeat 112px 68px;
+$bet-btn-bg: #{'#20a4df'};
+$bet-btn-hover-bg: #{'#016d9e'};
+$bet-btn-disabled-bg: #{'#AFADAD'};
+$live-btn-bg: rgba(148, 244, 98, 0.63);
+$prematch-btn-bg: rgba(255, 255, 255, 0.4);
+
+@mixin bg-img{}
+@mixin header-menu-bg{
+	background: #016d9e;
+	background: -moz-linear-gradient(#016d9e, #015d87);
+    background: -webkit-linear-gradient(#016d9e, #015d87);
+    background: -o-linear-gradient(#016d9e, #015d87);
+    background: linear-gradient(#016d9e, #015d87);
+	box-shadow: 0 1px 2px #aaa inset;
+}
+@mixin dropdown-menu-bg{
+	background: #016d9e;
+	background: -moz-linear-gradient(#016d9e, #015d87);
+    background: -webkit-linear-gradient(#016d9e, #015d87);
+    background: -o-linear-gradient(#016d9e, #015d87);
+    background: linear-gradient(#016d9e, #015d87);
+}
+@mixin logo-position{
+	width: 143px;
+	height: 100px;
+	padding: 0 5px;
+	background-repeat: no-repeat;
+	background-position: 50% 3px;
+	
+}
+@mixin logo-fixed{
+	  width: 120px;
+	  height: 41px;
+	  background-position: 100% 50%;
+}
+@mixin logo-fixed-position{
+	width: 90px;
+	height: 41px;
+	padding: 0 0 0 30px; 
+	background-repeat: no-repeat;
+	background-position: 0 50%;
+	
+}	  
+@mixin bet-tooltip-visibility{
+}
+
+/* ======================================================================== 
+   === skin specific styles === */
+   
+#egm {
+  position: relative;
+  font-size: 10px;
+  padding-left: 90px;
+}
+#egm p{min-width: inherit;max-width: inherit; text-align: left;}
+#egm img {
+  position: absolute;
+  left: 0;
+  top: 2px;
+}
+#egm a {
+  color: #dd5;
+}

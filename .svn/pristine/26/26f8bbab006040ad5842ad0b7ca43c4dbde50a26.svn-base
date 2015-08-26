@@ -1,0 +1,736 @@
+$J-GLOBAL-1: #a61f67;
+$J-GLOBAL-BUTTON: #008D48;
+$J-GLOBAL-COLOR: #171c2c;  
+$j-favorite-yellow: #efbf00;
+
+$j-button-border-radius: 5px;
+$j-button-padding-lr: 20px;
+
+
+
+
+$black-bg: $J-GLOBAL-COLOR;
+$white-bg: #ffffff;
+$gray: #586380;
+$bg-footer-slider: $J-GLOBAL-COLOR;
+$bg-footer: $J-GLOBAL-COLOR; 
+$bg-button: $J-GLOBAL-BUTTON;
+$shadow-color: #2e323e;
+$header-text: #646464;
+$border-color: lighten( saturate( adjust-hue( $J-GLOBAL-COLOR, -4deg ), 1 ), 2 );
+$red-bg: $J-GLOBAL-1;
+$dark-shadow-color: #555555;
+$taupe-text-color: #555555;
+$profile-nav-bg: #555555;
+$bg-button-disable: #41454F;
+$betslit-icon: url(../images/bet-list-bg.png) no-repeat 0 100%;
+$bg-forms-cantain: rgba(255, 255, 255, 0.2);
+$style-text: normal;
+$lite-black-text: #333333;
+$bold-text: bold;
+$font-f: 'NotoSans', 'NotoSans2';
+
+
+
+$j-header-bg: $J-GLOBAL-COLOR;
+$j-header-search-background-color: $white-bg;
+$j-header-second-navigation-bg: $white-bg;
+$header-nav-bg: darken( desaturate( $red-bg, 1 ), 7 );
+$j-head-reg-button: lighten( desaturate( adjust-hue( $bg-button, -17deg ), 38 ), 2 ); //#1d7d34
+$j-button-background-new-style: lighten( desaturate( adjust-hue( $bg-button, -17deg ), 38 ), 2 ); //#1d7d34
+
+$j-deposit-alert-button: $bg-button;
+$j-pagination-border: $bg-button;
+$j-casino-nav-selected: $bg-button;
+$j-form-error-bg: lighten( desaturate( $red-bg, 13 ), 8 );
+$j-form-focus-border: $red-bg;
+$j-announcement-timer-binding-color: lighten( saturate( $red-bg, 14 ), 10 );
+$j-news-sport-active-tab-border: darken( desaturate( $red-bg, 15 ), 17 );
+$j-roundups-slider-color: lighten( saturate(  $red-bg, 31 ), 20 );
+$j-table-popular-bets-active-bg: lighten( saturate( $red-bg, 17 ), 10 );
+$j-table-popular-bets-active-hover-bg: $j-table-popular-bets-active-bg;
+$j-popular-bet-color: lighten( saturate( $red-bg, 31 ), 15 );
+$j-active-tab-border2: $j-news-sport-active-tab-border;
+$j-tournament-name-selection-bg: darken( desaturate( $red-bg, 51 ), 6 );
+$j-history-list-transactions-money-selection-bg: $j-tournament-name-selection-bg;
+$j-menu-casino-active: $red-bg;
+$j-menu-casino-active-bsi: darken( saturate( $j-menu-casino-active, 11 ), 5 );
+$j-play-button-bg: lighten( desaturate( adjust-hue( $red-bg, 2deg ), 14 ), 8 );
+$j-fun-game-bg:$bg-button; //play-gor-free
+$j-baners-poker-p-bg: lighten( saturate( $red-bg, 19 ), 9 ); //#e60f50
+$j-general-nav-block-bg: $j-menu-casino-active;
+$j-general-nav-block-bsi: $j-menu-casino-active-bsi;
+$j-selected-deposit-box-shadow: lighten( desaturate( adjust-hue( $red-bg, -328deg ), 19 ), 6 ); //#AD3939
+$j-settings-info-contain-note-highlight-color: #FF5C5C;
+$j-category-nav-ul-after-bg: darken( desaturate( $red-bg, 2 ), 8 );
+$j-prematch-live-buttons-count-bg: darken( desaturate( $red-bg, 1 ), 9 );
+$j-download-button-info-beta: $red-bg;
+$j-play-start-button: $red-bg;
+$j-lending-buttons-new-button: $red-bg;
+$j-homapage-liwvenow-button: $red-bg;
+$j-cancelbtn-red: $red-bg;
+$j-account-verification-button:  $red-bg;
+$j-drop-down-menu-btn-bg: $red-bg;
+$j-bet-form-input-focus: lighten( desaturate( adjust-hue( $red-bg, 15deg ), 37 ), 23 );
+$j-body-background-global-color: $J-GLOBAL-COLOR;   
+$j-dark-blue-global-2: darken( saturate( $j-body-background-global-color, 1 ), 3 ); //#121623
+$j-dark-blue-global-3: lighten( adjust-hue( $j-body-background-global-color, -4deg ), 4 ); //#1e2639
+$j-body-background-bg-style:  $j-body-background-global-color url(../images/bg-homepage-new.jpg) no-repeat 0 0;
+$j-footer-bg: desaturate( adjust-hue( $j-body-background-global-color, -2deg ), 2 );
+$j-footer-black-line-bg:  darken( desaturate( adjust-hue( $j-body-background-global-color, 3deg ), 1 ), 6 ); 
+$j-footer-social-icons-color: lighten( desaturate( adjust-hue( $j-footer-black-line-bg, -3deg ), 17 ), 24 );
+$j-footer-paymen-icons-list: $j-dark-blue-global-2;
+$j-footer-second-black-line-bg: $j-dark-blue-global-2;
+
+$j-new-footer-bg: $j-dark-blue-global-2; //#121623
+$j-new-footer-button-bg: $j-dark-blue-global-2; //#121623
+$j-new-footer-about-company-footer-text-p-color: #505665;
+$j-new-footer-paymen-icons-list-bg: $j-body-background-global-color;
+$j-new-footer-old-18-year-p-bg: $j-body-background-global-color;
+
+
+// MAIN PAGE
+$j-live-now-block-button: darken( saturate( $j-body-background-global-color, 2 ), 5 );
+$j-live-now-block-button-hover: $j-live-now-block-button;
+$j-text-banners-new-bg: lighten( adjust-hue( $j-body-background-global-color, -4deg ), 4 );//#1e2639
+$j-text-banners-new-border-bottom: $j-dark-blue-global-2;//#121623
+$j-sports-nav-contain-bg: $j-dark-blue-global-2; //#121623
+$j-sports-nav-contain-box-shadow: lighten( adjust-hue( $j-sports-nav-contain-bg, -2deg ), 2 ); 
+$j-sport-nav-ul-li-a-border-color: lighten( desaturate( adjust-hue( $j-sports-nav-contain-bg, -4deg ), 1 ), 7);
+$j-sports-nav-drop-down-las-item-bg: lighten( desaturate( adjust-hue( $j-sports-nav-contain-bg, 1deg ), 5 ), 7 );
+$j-sports-casino-morgames-hover-bg: $j-sports-nav-contain-bg;
+$j-min-t-container-default-bg: darken( saturate( $j-dark-blue-global-2, 1 ), 2 );
+$j-min-to-conatiner-border-bottom-color: $j-dark-blue-global-2;
+$j-new-tournament-steps-bg: lighten( adjust-hue( $j-body-background-global-color, -2deg ), 2 );
+$j-list-leder-gamers-borders: $j-dark-blue-global-3;
+$j-min-t-container-button-border: lighten( desaturate( adjust-hue( $j-dark-blue-global-2, -5deg ), 12 ), 15 );
+$j-news-block-global-color-bg: $j-text-banners-new-bg;
+$j-news-block-scrollbar-bg: $j-news-block-global-color-bg;
+$j-news-block-scrollbar-thumb: lighten( desaturate( $j-news-block-scrollbar-bg, 19 ), 18 );
+$j-news-block-li-bg: darken( adjust-hue( $j-dark-blue-global-3, 2deg ), 3 );
+$j-news-block-li-border: $j-dark-blue-global-2;
+$j-block-news-date-button-bg: $red-bg;
+$j-show-all-listinfo-button-border-color: lighten( desaturate( $j-min-t-container-button-border, 5 ), 8 );
+// END OF MAIN PAGE
+
+$j-block-more-event-global: #F0B0B0;
+
+//popups
+$j-block-slider-bg: $j-dark-blue-global-2; // #111522
+$j-form-sign-in-bg: lighten( desaturate( $j-block-slider-bg, 1 ), 3 );
+$j-input-textarea-bg: lighten( desaturate( adjust-hue( $j-dark-blue-global-2, -4deg ), 1 ), 7 );
+//end of popups
+
+$j-balance-td-bg-2: $j-input-textarea-bg;
+$j-balance-td-bg-3: lighten( desaturate( $j-body-background-global-color, 12 ), 9 );
+$j-table-color-1: $j-input-textarea-bg; //#1E2639
+$j-table-color-2: lighten( desaturate( adjust-hue( $j-table-color-1, 4deg ), 12 ), 5 ); //#2D3242
+$j-body-games-promos-belote-bg: $j-body-background-global-color;
+$j-body-livedealer-bg: $j-body-background-global-color;
+$j-body-livedealer-fs-bg: $j-body-background-global-color;
+$j-poker-background-new: $j-body-background-global-color;
+$j-poker-background-new-border: darken( saturate( $j-poker-background-new, 1 ), 3 );
+$j-read-mor-button: $j-body-background-global-color;
+$j-read-mor-button-color: lighten( desaturate( $j-read-mor-button, 25 ), 31 );
+$j-link-sec-download: lighten( desaturate( adjust-hue( $j-body-background-global-color, -1deg ), 16 ), 8 );
+$j-contain-gradient-first: $j-body-background-global-color;
+$j-contain-gradient-second:  darken( saturate( $j-contain-gradient-first, 1 ), 3 );
+$j-contain-fantasy-bg: lighten( desaturate( adjust-hue( $j-body-background-global-color, -3deg ), 8 ), 8 );
+$j-all-games-wrap-bg: $j-body-background-global-color;
+
+
+/* LIVE SPORT */
+$j-ls-globe-color: $j-body-background-global-color; // #171c2c
+$j-ls-globe-color-second: darken( saturate( $j-ls-globe-color, 1 ), 3 ); //#121623
+$j-ls-globe-color-third: lighten( adjust-hue( $j-ls-globe-color, -4deg ), 4 ); //#1e2639
+$j-ls-globe-color-fourth: lighten( desaturate( adjust-hue( $j-ls-globe-color, -1deg ), 16 ), 8 ); //#2E323E
+$j-left-list-menu-ul-li-a: $j-ls-globe-color-fourth;
+$j-left-list-menu-ul-li-a-head: darken( saturate( adjust-hue( $j-left-list-menu-ul-li-a, 1deg ), 1 ), 5 );
+$j-ls-blocks-heads-bg: $j-ls-globe-color-fourth;
+$j-ls-scrollbar-bg: $j-ls-globe-color-fourth;
+$j-ls-scrollbar-bg-thumb: lighten( desaturate( adjust-hue( $j-ls-scrollbar-bg, -1deg ), 4 ), 20 );
+$j-ls-scrollbar-inset-shadow: darken( desaturate( adjust-hue( $j-ls-globe-color-fourth, -225deg ), 15 ), 5 );
+$j-center-ul-li-closed: $j-ls-globe-color-fourth;
+$j-center-ul-li: lighten( desaturate( $j-ls-globe-color, 15 ), 3 ); 
+$j-center-ul-li-box-shadow: lighten( desaturate( adjust-hue( $j-center-ul-li, -3deg ), 3 ), 23 );
+$j-center-ul-li-hover: lighten( desaturate( adjust-hue( $j-center-ul-li, -2deg ), 2 ), 10 );
+$j-betslip-ul-border-top: lighten( desaturate( $j-ls-globe-color, 15 ), 3 );
+$j-betslip-ul-li: lighten( desaturate( adjust-hue( $j-ls-globe-color, -1deg ), 16 ), 8 );
+$j-betslip-ul-li-deleted: lighten( desaturate( adjust-hue( $j-ls-globe-color, -3deg ), 17 ), 26 );
+$j-betslip-ul-li-changed: lighten( desaturate( adjust-hue( $j-ls-globe-color, -2deg ), 17 ), 18 );
+$j-betslip-button-disabled: lighten( desaturate( adjust-hue( $j-ls-globe-color-fourth, -1deg ), 1 ), 5 );
+$j-betslip-mini-select: darken( saturate( adjust-hue( $j-ls-globe-color-fourth, 1deg ), 1 ), 5 );
+$j-prematch-live-buttons: $j-ls-globe-color-fourth;
+$j-live-view-information-b: darken( saturate( adjust-hue( $j-ls-globe-color-fourth, 1deg ), 1 ), 5 ); //#232630
+$j-game-mini-filter: $j-ls-globe-color-fourth;
+$j-market-button: $j-live-view-information-b;
+/* END OF LIVE SPORT | hallelujah !!!!! */
+
+$j-belote-best-promotions-tab-bg: #c2c5cd;
+$j-right-betslip-contain-sport-news-bg: $j-ls-blocks-heads-bg;
+$j-right-betslip-contain-sport-news-hover-bg: lighten( desaturate( adjust-hue( $j-right-betslip-contain-sport-news-bg, -1deg ), 1 ), 5 );
+
+
+
+
+/* TEXT COLORS */
+	$j-main-global-color-first: white;
+	$j-main-global-color-fourth: black;
+	$j-main-global-color-second: #7b8191;
+	$j-main-global-colorful-color:  $J-GLOBAL-1;
+	/////////////////////////////////////////////////////////
+	$j-main-global-color-third: lighten( saturate( $j-main-global-color-second, 1 ), 25 ); // #c2c5cd
+	$j-light-blue-text: lighten( desaturate( $j-body-background-global-color, 23 ), 36 ); // #737888
+	$j-light-blue-text-2: lighten( desaturate( adjust-hue( $j-body-background-global-color, -2deg ), 12 ), 29 ); // #576280
+	/////////////////////////////////////////////////////////
+	$j-input-and-textarea-colors: $j-main-global-color-first;
+	$j-colorful-button-color: $j-main-global-color-first;
+	/////////////////////////////////////////////////////////
+	$j-fifty-shades-of-white: darken( saturate( adjust-hue( $j-main-global-color-first, 240deg ), 9 ), 4 ); //#f3f3f5
+	/////////////////////////////////////////////////////////
+	/* HEADER */
+		$j-header-global-text-color: $j-main-global-color-first;
+		$j-sign-in-button-color: $j-colorful-button-color;
+		$j-register-button-color: $j-colorful-button-color;
+		$j-header-icons-color: $j-header-global-text-color;
+		$j-header-clock-color: $j-header-global-text-color;
+		$j-header-menu-navigation-color: $j-header-global-text-color;
+		$j-header-menu-navigation-hover-color: $j-header-global-text-color;
+		$j-header-message-icon-color: lighten( desaturate( $j-header-bg, 20 ), 17 );
+		$j-header-profile-name-bg: lighten( desaturate( $j-header-bg, 18 ), 13 );
+		$j-header-second-nav-block-color: darken( saturate( adjust-hue( $j-main-global-color-first, 229deg ), 14 ), 30 );
+		$j-header-second-nav-block-hover-color: $j-main-global-color-first;
+			$j-main-nav-ul-li-a-color: $j-main-global-color-fourth;
+		$j-header-nav-icon-color: $j-main-global-colorful-color;
+	/* END HEADER */
+	/* LANGUAGE AND SETTING DROPDOWN MENU */
+		$j-language-settings-dropdown-menu-color: $j-main-global-color-fourth;
+		$j-language-settings-dropdown-menu-hover-color: $j-main-global-colorful-color;
+		$j-open-lang-ul-li-beta--after: $j-main-global-colorful-color;
+	/* END LANGUAGE AND SETTING DROPDOWN MENU */
+	/* PROFILE DROPDOWN LIST */
+		$j-prof-name-ul-li-color: $lite-black-text;
+		$j-prof-name-ul-li-hover-color: $j-main-global-colorful-color;
+	/* END PROFILE DROPDOWN LIST */
+	/* POPUP SLIDERS */
+		$j-block-slider-close-slider-button-before-color: lighten( desaturate( adjust-hue( $j-body-background-global-color, -6deg ), 27 ), 39 );
+			/* SIGN IN AND REGISTER */
+				$j-form-contain-h3-color: $j-main-global-color-first;
+				$j-signin-error-message-p-color: $j-main-global-color-first;
+				$j-form-error-text-p-color: $j-main-global-color-first;
+				$j-form-contain-help-b-a-color: $j-main-global-color-first;
+					$j-form-sign-in-label-color: $j-main-global-color-first;
+					$j-form-sign-in-label-span-hint: $j-main-global-colorful-color;
+				$j-check-label-color: $j-main-global-color-first;
+				$j-check-label-a-color: $j-main-global-color-first;
+				$j-button-sign-ul-li-a-color: $j-colorful-button-color;
+				$j-button-sign-in-button-color: $j-colorful-button-color;
+			/* END SIGN IN AND REGISTER */
+			/* FAVORITES */
+				$j-dont-games-block-p-color: $j-light-blue-text;
+				$j-centr-tabs-block-ul-li-color: lighten( desaturate( $j-dark-blue-global-2, 24 ), 39 );
+				$j-centr-tabs-block-ul-li-active-tab-color: $j-main-global-color-first;
+				$j-block-slider-games-slider-ul-li-popular-game-name-p-a-color: $j-main-global-color-first;
+			/* END FAVORITES */
+			/* BET HISTORY */
+				$j-left-block-history-h3-color: $j-main-global-color-first;
+					$j-data-range-month-color: $j-main-global-color-first;
+					$j-data-range-week-color:  lighten( desaturate( adjust-hue( $j-input-textarea-bg, 2deg ), 12 ), 25 );
+				$j-All-Bets-history-h3-color: $j-main-global-color-fourth;
+					$j-history-list-ul-li-list-date-color: lighten( $j-main-global-color-fourth, 46 ); //  767676
+					$j-history-list-ul-li-history-name-team-color: $j-main-global-color-fourth;
+						$j-history-list-ul-li-history-name-team-hitsory-date-mini-color: lighten( $j-main-global-color-fourth, 53 ); //868686
+							$j-express-contain-ul-li-p-popup-sport-name-color: #F82626;
+							$j-express-contain-ul-li-p-popup-live-game-color: #329a0d;
+					$j-history-list-ul-li-chempionship-history-color: $j-main-global-color-fourth;
+					$j-history-list-ul-li-chempionship-history-span-color: lighten( $j-main-global-color-fourth, 38 ); // 616161
+					$j-history-list-ul-li-maney-rate-color: lighten( $j-main-global-color-fourth, 16 ); // #282828
+					$j-history-list-ul-li-rezult-rate-won-rezult-color: $j-express-contain-ul-li-p-popup-sport-name-color;
+					$j-history-list-ul-li-rezult-rate-lost-rezult-color: $j-main-global-colorful-color;
+					$j-history-list-ul-li-rezult-rate-unsettled-rezult-color: darken( $j-main-global-color-first, 28 );
+			/* END BET HISTORY */
+			/* RECENT BETS */
+				$j-type-game-color: lighten( $j-main-global-color-fourth, 60 );
+					$j-type-rezult-color: $j-main-global-color-fourth;
+					$j-type-rezult-type-rezult-won-type-rezult-lost-color:  $j-main-global-color-first;
+				$j-tournament-name-span-color: lighten( $j-main-global-color-fourth, 38 );;
+				$j-tournament-name-p-color: lighten( $j-main-global-color-fourth, 60 );
+					$j-factor-number-color: $j-main-global-color-fourth;
+						$j-history-team-name-color: $j-main-global-color-fourth;
+						$j-history-tournament-name-color: $j-main-global-color-fourth;
+						$j-block-more-event-ul-li-p-color: lighten( saturate( adjust-hue( $j-main-global-color-fourth, 225deg ), 15 ), 21 ); // #2E323E
+							$j-block-more-event-color: #753E42;
+				$j-amount-maney-p-color: lighten( $j-main-global-color-fourth, 53 );
+			/* END RECENT BETS */
+			/* MESSAGES */
+				$j-settings-nav-contain-ul-li-a-color: $j-main-global-color-first;
+				$j-right-block-history-message-compose-All-Bets-history-h3-color: $j-main-global-color-first;
+					$j-message-title-contain-before-color: darken( saturate( $j-main-global-color-first, 3 ), 38 );
+					$j-message-title-contain-p-color: lighten( $j-main-global-color-fourth, 16 );
+					$j-message-time-p-color: lighten( $j-main-global-color-fourth, 46 );
+					$j-open-message-contain-p-color: $j-message-title-contain-p-color;
+						$j-cashier-button-button-color: $j-colorful-button-color;
+						$j-cashier-button-button-disabled-color: $j-colorful-button-color;
+			/* END MESSAGES */
+			/* SETTINGS */
+				$j-right-block-history-settings-h3-color: $j-main-global-color-first;
+				$j-verifity-account-button-color:  $j-colorful-button-color;
+					$j-settings-info-contain-deposit-limit-p-color: $gray;
+					$j-settings-info-contain-info-span-color: $j-main-global-color-first;
+			/* SETTINGS */
+			$j-pagination0ul-li-a-color: $j-main-global-color-first;
+		$j-closed-arrow-b-a-before-color: lighten( desaturate( adjust-hue( $j-body-background-global-color, -6deg ), 27 ), 39 );
+	/* END POPUP SLIDERS */
+	/* FOOTER */
+		$j-footer-global-text-color: $j-main-global-color-first;
+		$j-footer-li-a-color: $j-footer-global-text-color;
+		$j-footer-li-a-hover-color: $j-main-global-colorful-color;
+		$j-footer-about-company-color: $j-main-global-color-first;
+		$j-footer-copyright-color: $j-main-global-color-first;
+		$j-footer-copyright-a-color: $j-main-global-colorful-color;
+		$j-footer-18-plus-color: $j-main-global-color-first;
+	/* END FOOTER */
+	/* MAIN PAGE */
+		/* LIVE GAME */
+			$j-live-now-lbutton-color: $j-colorful-button-color;
+			$j-live-game-first-color: $j-main-global-color-first;
+			$j-live-game-bet-button-color: $j-colorful-button-color;
+			$j-live-game-second-color: $j-main-global-color-second;
+		/* END LIVE GAME */
+		$j-text-banners-color: $j-main-global-color-second;
+		$j-text-banners-hover-color: $j-main-global-color-first;
+		/* NEWS CAT NAVIGATION */
+			$j-news-cat-nav-h3-color: $j-main-global-colorful-color;
+			$j-news-cat-nav-ul-li-a-color: $j-main-global-color-first;
+			$j-news-cat-nav-ul-li-a-active-color: $j-main-global-color-first;
+			$j-news-cat-nav-ul-li-a-hover-color: $j-main-global-colorful-color;
+			$j-news-cat-nav-ul-li-a-more-button-color: $j-main-global-color-first;
+				$j-news-cat-nav-dropdown-h3-color: $j-main-global-colorful-color;
+				$j-news-cat-nav-dropdown-letter-color: $j-main-global-colorful-color;
+					$j-news-cat-nav-dropdown-il-li-a-color: $j-main-global-color-first;
+		/* END NEWS CAT NAVIGATION */
+		/* BLOCK NEWS */
+			$j-block-news-preview-all-a-color: $j-main-global-color-first;
+			$j-block-news-date-button-color: $j-colorful-button-color;
+			$j-news-slider-main-color: lighten( desaturate( adjust-hue( $j-body-background-global-color, -3deg ), 19 ), 22 );
+			$j-news-block-section-block-news-preview-news-list-ul-li-p-news-text-inform-color: lighten( desaturate( adjust-hue( $j-news-slider-main-color, 1deg ), 3 ), 18 );
+		/* END BLOCK NEWS */
+		/* TOURNAMENTS */
+			$j-tournaments-h3-color: $j-main-global-color-third;
+			$j-tournaments-time-p-color: $j-main-global-color-first;
+			$j-tournaments-time-sub-h4: $j-main-global-color-first;
+			$j-tournaments-steps-info-p-color: $j-main-global-color-third;
+			$j-tournaments-steps-info-before-icon-color: $j-main-global-colorful-color;
+			$j-show-all-listinfo-button-color: $j-main-global-color-third;
+		/* END TOURNAMENTS */
+		/* LIST LEADER GAMES */
+			$j-list-leder-gamers-table-tr-td-color: $j-main-global-color-third;
+			$j-list-leder-gamers-table-tr--second-td-color: $j-main-global-colorful-color;
+			$j-list-leder-gamers-table-tr--3-4-td-color: $j-main-global-color-first;
+		/* END LIST LEADER GAMES */
+		$j-feedback-p-color: $j-main-global-color-first;
+	/* END MAIN PAGE */
+	/* BALANCE PAGE */
+		/* WALLET */
+			$j-casier-volute-name-h4-span-color: $j-main-global-color-first;
+			$j-table-status-table-color:  $j-main-global-color-first;
+			$j-right-block-history-new-history-list-ul-transactions-list-date-color: $j-main-global-color-first;
+			$j-right-block-history-new-history-list-ul-type-transactions-p-color: $j-main-global-color-first;
+			$j-right-block-history-new-history-list-ul-type-transactions-p-span-color: $j-main-global-color-first;
+		/* END WALLET */
+		/* HISTORY */
+			$j-right-block-history-new-All-Bets-history-h3: $j-main-global-color-first;
+		/* END HISTORY */
+		/* DEPOSIT */
+			$j-form-contain-h4-span-color: $j-light-blue-text;
+			$j-text-payment-contain-p-text-deposit-contain-p: darken( saturate( adjust-hue( $j-main-global-color-first, 213deg ), 17 ), 25 );
+			$j-deposit-amount-label-color: $j-main-global-color-first;
+			$j-deposit-alert-contain-p-button-color: $j-colorful-button-color;
+		/* END DEPOSIT */
+		/* WIDTHDRAW */
+			$j-withdraw-tabs-li-color: lighten( desaturate( adjust-hue( $j-dark-blue-global-2, -2deg ), 13 ), 32 );
+			$j-withdraw-tabs-li-active-color: $j-main-global-color-first;
+			$j-account-verification-b-p-color: $j-main-global-color-first;
+			$j-account-verification-b-button-color: $j-colorful-button-color;
+			$j-button-confirm-color: $j-colorful-button-color;
+		/* WIDTHDRAW */
+	/* END BALANCE PAGE */
+	/* NEWS PAGE */
+		$j-list-news-ul-li-h3-a-color: $j-main-global-color-first;
+		$j-news-page-light-sat-blue-color: lighten( desaturate( adjust-hue( $j-body-background-global-color, -2deg ), 12 ), 29 );
+		$j-sport-news-name-color: $j-main-global-color-first;
+		$j-load-more-button-a-color: $j-main-global-color-first;
+		$j-load-more-button-a-icon-color: lighten( desaturate( adjust-hue( $j-body-background-global-color, -2deg ), 23 ), 43 );
+			$j-news-page-opne-news-block-h3: $j-main-global-color-first;
+			$j-news-page-opne-news-block-p-color: $j-main-global-color-first;
+			$j-mini-social-icons-p: $j-main-global-color-first;
+	/* END NEWS PAGE */
+	/* GAMES PAGE */
+		$j-games-slider-h3-color: $j-main-global-color-first;
+		$j-games-slider-ul-li-popular-game-name-p-a: $j-main-global-color-first;
+		$j-pupular-game-name-fav-block-a: $j-main-global-color-first;
+			$j-play-button-color: $j-colorful-button-color;
+			$j-fun-button-color: $j-colorful-button-color;
+			$j-casino-game-download-color: $j-main-global-color-first;
+		$j-casino-game-contain-popup-icons-color: $j-main-global-color-first;
+	/* END GAMES PAGE */
+	/* LIVE CASINO */
+		$j-live-casino-left-and-right-change-color: $j-main-global-colorful-color;
+		$j-live-casino-left-and-right-change-hover-color: $j-main-global-color-first;
+	/* END LIVE CASINO */
+	/* POKER PAGE */
+		$j-text-block-change-b-p-color: $j-main-global-color-first;
+			$j-download-button-info-button-color: $j-colorful-button-color;
+			$j-mini-slider-new-ul-li-p-color: $j-main-global-color-first;
+		$j-arrow-slider-color: $j-main-global-color-first;
+		$j-poker-leaderboard-color: $j-main-global-color-first;
+		$j-poker-leaderboard-h2-color: $j-main-global-color-first;
+		$j-poker-leaderboard-h3-color: $j-main-global-color-first;
+		$j-poker-leaderboard-more-button-color: $j-main-global-color-first;
+	/* END POKER PAGE */
+	/* POOL BETTING PAGE */
+		$j-pool-betting-counter-block-span-color: $j-main-global-color-fourth;
+		$j-left-b-game-h1-color: $j-main-global-color-fourth;
+		$j-left-b-game-name-page-totalizator-h1-span-color:  $j-main-global-color-fourth;
+		$j-pool-betting-top-buttons-color-counter-contain-ul-li-a: $j-colorful-button-color;
+			$j-category-sport-name-list-p: $j-main-global-color-fourth;
+				$j-pool-betting-first-child-numbers-color: lighten( $j-main-global-color-fourth, 60 ); // 999
+				$j-pool-betting-time-totalizator-game-color: lighten( $j-main-global-color-fourth, 33 ); // 555
+				$j-pool-betting-name-team-totalizator: $j-main-global-color-fourth;
+				$j-events-totalizator-label-color: lighten( $j-main-global-color-fourth, 47 ); // 777
+				$j-pool-betting-link-togame-a-color: $j-main-global-colorful-color;
+					$j-pool-betting-link-togame-a-hover-color: $j-main-global-color-fourth;
+		$j-pool-betting-bottom-buttons-random-buttons-ul-li-button-color: $j-colorful-button-color;
+		$j-pool-stake-box-ul-li-span-color: $j-main-global-color-fourth;
+		$j-pool-betting-news-block-h2-color: $j-main-global-color-fourth;
+			$j-pool-betting-news-block-ul-li-a: $j-main-global-color-fourth;
+			$j-pool-betting-news-block-ul-li-span: lighten( $j-pool-betting-news-block-ul-li-a, 62 );
+	/* END POOL BETTING */
+	/* CASINO PAGE */
+		$j-casino-main-contain-country-b-country-block-contain-ul-li-a-color: $j-main-global-color-first;
+	/* END CASINO PAGE */
+	/* BACKGAMMON PAGE */
+		$j-table-information-h3-color: $j-main-global-color-first;
+		$j-table-information-table-color: $j-main-global-color-first;
+	/* END BACKGAMMON PAGE */
+	/* BELOTE PAGE */
+		$j-slider-pagination-bg: $white-bg;
+			$j-btn-cont-j-button-color: $j-colorful-button-color;
+			$j-belote-pageh3-color: $j-main-global-color-third;
+			$j-belote-page-h4-color: $j-main-global-color-first;
+		$j-belote-best-promotions-tab-h3-color: $j-main-global-color-first;
+			$j-f-tab-menu-j-li-a-p-color: $j-dark-blue-global-3;
+			$j-belote-best-promotions-tab-span-color: $j-main-global-color-second;
+		$j-tournament-list-j-h3: $j-main-global-color-first;
+				$j-j-classic-table-table-color: $j-main-global-color-first;
+	/* END BELOTE PAGE */
+	/* JACKPOT PAGE */
+		$j-jeckpot-games-block-rules-title-h2-color: $j-news-page-light-sat-blue-color;
+		$j-jackpot-page-main-color: $j-main-global-color-first;
+	/* END JACKPOT PAGE */
+	/* PROMOTIONS PAGE */
+		$j-list-news-ul-li-p-color: $j-news-page-light-sat-blue-color;
+			$j-block-meny-news-promo-promo-bonus-title-color: darken( saturate( $j-light-blue-text, 23 ), 36 );
+			$j-right-block-news-span-color: $j-news-page-light-sat-blue-color;
+			$j-block-meny-news-promo-right-block-news-p-color: darken( saturate( $j-light-blue-text, 23 ), 36 );
+	/* PROMOTIONS PAGE */
+	/* SPORTSBOOK */
+		$j-info-sportsbook-tooltip-h3-color: $j-main-global-colorful-color;
+		$j-info-sportsbook-tooltip-ul-li-color: $j-main-global-color-fourth;
+		/* CLASSIC */
+			$j-classic-sportsbook-global-colorful-color: #DEC04F;
+			$j-classic-sportsbook-global-colorful-color-parent-active: $j-classic-sportsbook-global-colorful-color;
+			/* LEFT SECTION */
+				$j-prematch-live-buttons-ul-li-button-color: $j-colorful-button-color;
+				$j-prematch-live-buttons-ul-li-active-button-color: $j-colorful-button-color;
+				$j-prematch-live-buttons-ul-li-p-span-games-count-color: $j-main-global-color-first;
+					$j-left-list-menu-game-mini-filter-p-color: $j-main-global-color-first;
+						$j-left-list-menu-game-mini-filter-ul-li-icon-checkmark-color: $j-main-global-color-first;
+						$j-left-list-menu-game-mini-filter-ul-li-color: $j-light-blue-text;
+					$j-filter-icons-color: $j-main-global-color-first;
+					$j-filter-icons-parent-active-or-hover-color: $j-main-global-color-first;
+						$j-left-list-menu-ul-li-a-color: $j-main-global-color-first;
+						$j-left-list-menu-ul-li-active-a-color: $j-main-global-color-first;
+							$j-left-list-menu-ul-li-ul-li-h4-color: $j-light-blue-text;
+								$j-left-list-menu-ul-li-ul-li-ul-li-p-color: darken( $j-main-global-color-first, 7 );
+								$j-left-list-menu-ul-li-favorite-nav-ul-li-num-of-events-color: $j-light-blue-text;
+								$j-left-list-menu-ul-li-ul-li-ul-li-time-sport-cash-p-span-color: $j-main-global-color-first;
+								$j-left-list-menu-ul-li-favorite-nav-ul-li-active-time-sport-cash-i-color: $j-main-global-color-fourth;
+								$j-fav-game-star-icon-star2-color: darken( $j-main-global-color-first, 24 );
+						$j-calendar-nav-label-color: $j-main-global-color-first;
+						$j-left-menu-contain-left-list-menu-ul-li-ul-li-a-color: $j-light-blue-text;
+						$j-left-menu-contain-left-list-menu-ul-li-ul-li-hover-and-active-a-color: darken( $j-main-global-color-first, 7 );
+							$j-gameing-wrapper-prematch-left-list-menu-ul-li-ul-li-h4-hoverand-active-color: $j-main-global-color-first;
+							$j-right-betslip-contain-list-bet-block-ul-li-p-span-pick-color: $j-main-global-color-first;
+				$j-game-one-teams-label-color: #AFB4C5;
+				$j-left-list-menu-ul-li-ul-li-ul-popup-li-hover-label-color: $j-main-global-color-first;
+				$j-left-list-menu-ul-li-ul-li-ul-popup-li-label-game-time-color: $j-main-global-color-first;
+			/* END LEFT SECTION */
+				/* CENTER SECTION */
+					/* LIVE CALENDAR */
+						$j-livecalendar-filter-b-h2-color: $j-light-blue-text;
+						$j-livecalendar-filter-b-ul-li-label-color: $j-light-blue-text;
+							$j-calendar-content-h3-color: $j-light-blue-text;
+								$j-calendar-content-h4-color: $j-light-blue-text;
+								$j-calendar-content-h4-span-color: $j-main-global-colorful-color;
+									$j-live-view-information-b-ul-li-color: $j-light-blue-text;
+									$j-live-view-information-b-ul-li-event-b-calendare-hover-color: $j-main-global-color-first;
+										$j-live-view-information-b-ul-li-game-extra-info-p-color: $j-main-global-color-first;
+					/* LIVE CALENDAR */
+					/* SPORTS */
+						$j-team-name-market-ul-li-span-color: $j-main-global-color-first;
+						$j-team-name-market-ul-li-first-child-span-color: $j-light-blue-text;
+							$j-gameing-wrapper-prematch-scroll-contain-prematch-market-contain-b-active-command-names-b-fav-game-star-color: $j-light-blue-text;
+							$j-gameing-wrapper-prematch-scroll-contain-prematch-command-names-b-ul-li: $j-light-blue-text;
+							$j-gameing-wrapper-prematch-scroll-contain-prematch-command-names-b-ul-li-nth-child-2-names-block-command-color: $j-main-global-color-first;
+							$j-gameing-wrapper-prematch-scroll-contain-prematch-command-names-b-ul-li-nth-child-2-names-block-command-active-or-hover-color: $j-main-global-color-first;
+								$j-market-info-b-p-color: darken( $j-main-global-color-first, 7 ); //#EEE;
+								$j-market-info-b-p-parent-active-color: $j-market-info-b-p-color;
+							$j-mini-market-b-h3-color:	$j-main-global-color-first;
+							$j-mini-market-b-h3-arrow-rotate-color: darken( $j-main-global-color-first, 13 );
+					/* END SPORTS */
+					/* LIVE */
+						$j-live-game-container-game-info-color: $j-main-global-color-first;
+						$j-game-info-sport-title-curr-minute-info-color: #EFFC23;
+							$j-tl-data-hover-sp-football-gamer-name-color: $j-light-blue-text;
+						$j-gameing-wrapper-live-indicator-text-p-color: $j-main-global-color-first;
+					/* END LIVE */
+					/* VIRTUAL SPORTS */
+						$j-virtual-games-v-sports-tab-ul-li-color: $j-light-blue-text;
+						$j-virtual-games-v-sports-tab-ul-li-active-color: $j-main-global-color-first;
+							$j-upcoming-events-ul-li-color: $j-light-blue-text;
+							$j-upcoming-events-ul-li-active-color: $j-colorful-button-color; // button
+							$j-upcoming-events-ul-li-upcoming-title-color: $j-main-global-colorful-color;
+								$j-virtual-games-game-title-div-ew-color: $j-light-blue-text;
+							$j-market-contain-b-race-market-ul-li-color:$j-main-global-color-first;
+					/* END VIRTUAL SPORTS */
+				/* CENTER SECTION */
+			/* RIGHT SECTION */
+				/* BET SLIP */
+					$j-right-betslip-contain-name-b-list-h2-color: $j-main-global-color-first;
+						$j-right-betslip-contain-bs-type-switcher-p-color: $j-main-global-color-first;
+						$j-right-betslip-contain-bs-type-switcher-open-type-switcher-ul-li-a-color: $j-light-blue-text;
+							$j-right-betslip-contain-bet-settings-container-betslip-options-color: $j-light-blue-text;
+					$j-right-betslip-contain-quick-bet-button-p-color: darken( $j-colorful-button-color, 7 );
+					$j-right-betslip-contain-list-bet-block-ul-li-color: $j-main-global-color-first;
+						$j-right-betslip-contain-list-bet-block-ul-li-first-child-span-a-before-color: $j-main-global-color-first;
+						$j-right-betslip-contain-list-bet-block-ul-li-span-bet-initial-price: $j-main-global-color-first;
+						$j-right-betslip-contain-list-bet-block-ul-li-span-color: $j-light-blue-text;
+					$j-right-betslip-contain-betslip-clearall-button-input-color: $j-light-blue-text;
+					$j-right-betslip-contain-betslip-clearall-button-input-hover-color: $j-colorful-button-color;
+					$j-right-betslip-contain-betslip-clearall-button-b-before-color: $j-main-global-color-first;
+						$j-right-betslip-contain-bet-form-form-p-span: $j-light-blue-text;
+						$j-right-betslip-contain-bet-currency-value-single-bet-betmax-button-color: $j-main-global-color-first;
+					$j-button-bet-button-color: $j-colorful-button-color;
+						$j-bet-slip-popups-overbutton-notes-color:  darken( saturate( adjust-hue( $j-main-global-color-first, 226deg ), 18 ), 32 );
+				/* END BET SLIP */
+				/* SPORT NEWS */
+					$j-right-betslip-contain-sport-news-h2-color: $j-main-global-color-first;
+					$j-right-betslip-contain-sport-news-toggle-news: $j-main-global-color-first;
+					$j-right-betslip-contain-sport-news-ul-li-p-a: $j-main-global-color-first;
+					$j-right-betslip-contain-sport-news-ul-li-span: $j-light-blue-text;
+				/* SPORT NEWS */
+			/* END RIGHT SECTION */
+		/* END CLASSIC */
+		/* MODERN */
+			$j-country-b-country-block-contain-ul-li-a-color: $j-main-global-color-fourth;
+			$j-country-b-country-block-contain-ul-a-active-color: $j-main-global-colorful-color;
+				$j-left-b-game-h1-span: lighten( $j-left-b-game-h1-color, 53 );
+			$j-legue-sp-li-first-child-color: $j-main-global-color-fourth;
+			$j-legue-sp-li-first-child-span-color: lighten( $j-main-global-color-fourth, 63 );
+			$j-game-live-row-li-color: $j-main-global-color-fourth;
+			$j-game-live-row-account-color: lighten( $j-main-global-color-fourth, 46 );
+			$j-closed-game-game-live-row-team-span-top-arrow-span-color: $j-main-global-color-fourth;
+			$j-conteiner-live-block-hover-closed-game-game-live-row-account-color: $j-main-global-color-fourth;
+			$j-open-game-live-table-game-live-row-li-span-color: $j-colorful-button-color; // button color
+					$j-result-match-ul-li-a-color: $j-main-global-color-fourth;
+					$j-result-match-ul-li-first-child-color: $j-main-global-color-fourth;
+						$j-list-result-ul-li-p-color: lighten( $j-main-global-color-fourth, 16 );
+						$j-list-result-ul-li-top-arrow-color: $j-main-global-color-fourth;
+						$j-list-result-ul-li-bot-arrow-color: $j-main-global-color-fourth;
+		/* END MODERN */
+	/* END SPORTSBOOK */
+	/* NEW FAQ REDESIGN */
+		$j-help-landing-a-color: $j-main-global-colorful-color;
+		$j-faq-new-text-color: #b3bdc9;
+	/* NEW FAQ REDESIGN */
+	/* NEW BACKGAMMON PAGE */
+		$j-download-bg-sect-j-bg: #f3f3f5;
+	/* END NEW BACKGAMMON PAGE */
+	/* NEW WALLET SLIDER */
+		$j-your-currency-j-color: lighten( desaturate( adjust-hue( $bg-button, -17deg ), 38 ), 2 );
+		$j-wallet-table-total-color: #c4963f;
+		$j-wallet-button-bg: lighten( desaturate( adjust-hue( $bg-button, -17deg ), 38 ), 2 );
+	/* END NEW WALLET SLIDER */
+	/* DON'T DELETE */
+	$black-text: $j-main-global-color-fourth;
+	$white-text: $j-main-global-color-first;
+	$j-ls-li-value: $j-classic-sportsbook-global-colorful-color;
+	$j-ls-li-asctive-value: $j-ls-li-value;
+	$red-text: $j-main-global-colorful-color;
+/* END OF TEXT COLORS */
+
+
+/* NOT USING
+$show-hide-header: block;
+$header-margin: 41px 0 0; //for skins with header
+$top-sport-title-lpos: 274px;
+$logo-home-icon: url(../images/home.png) no-repeat 115px 68px;
+$bet-btn-bg: url(../images/bg-button-bet.png) repeat-x 0 0;
+$bet-btn-hover-bg: url(../images/bg-button-bet.png) repeat-x 0 -36px;
+$bet-btn-disabled-bg: #AFADAD;
+$live-btn-bg: rgba(148, 244, 98, 0.63);
+$prematch-btn-bg: rgba(255, 205, 205, 0.4);
+@mixin bg-img{}
+@mixin header-menu-bg{
+  background: #db0a49;
+  background: -moz-linear-gradient(#eb1857, #cd134b);
+  background: -webkit-linear-gradient(#eb1857, #cd134b);
+  background: -o-linear-gradient(#eb1857, #cd134b);
+  background: linear-gradient(#eb1857, #cd134b);
+  box-shadow: 0 1px 2px #aaa inset;
+}
+@mixin dropdown-menu-bg{
+	background: #db0a49;
+	background: -moz-linear-gradient(#eb1857, #cd134b);
+    background: -webkit-linear-gradient(#eb1857, #cd134b);
+	background: -o-linear-gradient(#eb1857, #cd134b);
+	background: linear-gradient(#eb1857, #cd134b);
+}
+@mixin logo-position{
+	background-repeat: no-repeat;
+	background-position: 0 0;
+	width: 158px;
+	height: 100px;
+}
+@mixin logo-fixed{
+	background: url(../images/home.png) no-repeat 108px 8px;
+	width: 135px;
+	height: 41px;
+	}
+@mixin logo-fixed-position{
+	background-repeat: no-repeat;
+	background-position: 0 0;
+	width: 115px;
+	height: 41px;
+	padding: 0 20px 0 0;
+}
+@mixin bet-tooltip-visibility{
+	opacity: 1;
+	left: 0;
+}
+/* skin specific styles *
+.youtube a {
+	background: url(../images/social-spryte.png) no-repeat 0 -229px;
+}
+*/
+
+
+
+
+
+ 
+
+/*asian view*/
+
+/*base colors*/
+/*asian page background*/
+$asian-page-layout: url(../images/bg-asian-view.jpg) no-repeat 50% 0 fixed;
+/*asian page background END*/
+
+/*text-colors*/
+$text-color-active: #fff;
+$text-color-dark: #fff;
+$text-color-white: #ffffff;
+$text-color-menu: $j-main-global-color-second;
+/*text-colors END*/
+
+/*background-colors*/
+$global-color-1: #505767;
+$global-color-2: #6a8294;
+$global-color-3: #2e323e;
+$global-color-4: #828282;
+$global-white-bg: #121623;
+/*background-colors END*/
+
+/*popup*/
+$global-color-popup: rgba(18, 22, 34, 0.5);
+/*popup END*/
+
+
+
+
+/*base colors END*/
+
+/*second level*/
+
+/*headers-bg*/
+$bg-headers: $global-color-1;
+/*headers-bg END*/
+
+
+
+/*buttons*/
+$bg-buttons-normal: #a71f67;
+$bg-buttons-disable: #232630;
+/*buttons END*/
+
+
+
+
+/*filters*/
+$bg-filters: $global-color-2;
+/*filters END*/
+
+
+
+
+/*team name*/
+$team-name-bg: #3f4553;
+$score-bg: darken( desaturate( adjust-hue( $team-name-bg, -240deg ), 4 ), 40 );
+/*team name END*/
+
+
+
+
+/*market colors*/
+$market-color: #2e323e;
+$market-color-active: #a71f67;
+$market-color-hover: #505767;
+/*market colors END*/
+
+
+
+
+/*border-color*/
+$border-color-default: $global-color-2;
+$border-color-white: #121623;
+$base-color-border: #121623;
+$base-color-light: lighten( desaturate( adjust-hue( $border-color-default, 34deg ), 13 ), 41 );
+/*border-color END*/
+
+
+
+
+/*element states*/
+$element-default-color: #2e323e;
+$element-default-2-color: lighten( desaturate( adjust-hue( $element-default-color, -206deg ), 17 ), 1 );
+$element-active-color: #a71f67;
+$element-hover-color: darken( $element-default-color, 17 );
+$element-disable-color: darken( desaturate( adjust-hue( $global-color-3, -240deg ), 4 ), 13 );
+/*element states END*/
+
+/*up down*/
+$up-bg: #2d423a;
+$down-bg: #3f343a;
+$up-text-color: #1dbd15;
+$down-text-color: #e44108;
+/*up down END*/
+
+/*sport icons color*/
+$sport-icon-color: $global-white-bg;
+/*sport icons color END*/
+
+/*second level END*/
+
+/*asian view END*/

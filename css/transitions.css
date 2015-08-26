@@ -1,0 +1,134 @@
+
+/* Game loader */
+
+.loader.ng-enter {
+    -webkit-transition: 1s linear all; /* Chrome */
+    transition: 1s linear all;
+    opacity: 0;
+}
+
+.loader.ng-enter-active {
+    opacity: 1;
+}
+
+/* Games list */
+
+.conteiner-live-block.ng-enter {
+    -webkit-transition: 0.2s linear all; /* Chrome */
+    transition: 0.2s linear all;
+    transform: rotateX(90deg);
+    -webkit-transform: rotateX(90deg);
+    transform-origin: 0 0;
+    -webkit-transform-origin: 0 0;
+    opacity: 0;
+}
+
+.conteiner-live-block.ng-enter-active {
+    transform: rotateX(0deg);
+    -webkit-transform: rotateX(0deg);
+    opacity: 1;
+}
+
+.conteiner-live-block.ng-leave {
+    -webkit-transition: 0.2s linear all; /* Chrome */
+    transition: 0.2s linear all;
+    transform: rotateX(0deg);
+    -webkit-transform: rotateX(0deg);
+    transform-origin: 0 0;
+    -webkit-transform-origin: 0 0;
+    opacity: 1;
+}
+
+.conteiner-live-block.ng-leave-active {
+    transform: rotateX(90deg);
+    -webkit-transform: rotateX(90deg);    
+    opacity: 0;
+}
+
+/* Game open */
+
+/*.open-game.ng-enter {
+    -webkit-transition: 0.2s linear all; 
+    transition: 0.2s linear all;
+    transform: rotateX(90deg);
+    -webkit-transform: rotateX(90deg);
+    transform-origin: 0 0;
+    -webkit-transform-origin: 0 0;
+    opacity: 0;
+}
+
+.open-game.ng-enter-active {
+    transform: rotateX(0deg);
+    -webkit-transform: rotateX(0deg);
+    opacity: 1;
+}
+*/
+
+/* Market Rows */
+
+.list-result.ng-enter {
+    -webkit-transition: 0.2s linear all; /* Chrome */
+    transition: 0.2s linear all;
+    transform: rotateX(90deg);
+    -webkit-transform: rotateX(90deg);
+    transform-origin: 0 0;
+    -webkit-transform-origin: 0 0;
+    opacity: 0;
+}
+
+.list-result.ng-enter-active {
+    transform: rotateX(0deg);
+    -webkit-transform: rotateX(0deg);
+    opacity: 1;
+}
+
+.list-result.ng-leave {
+    -webkit-transition: 0.2s linear all; /* Chrome */
+    transition: 0.2s linear all;
+    transform: rotateX(0deg);
+    -webkit-transform: rotateX(0deg);
+    transform-origin: 0 0;
+    -webkit-transform-origin: 0 0;
+    opacity: 1;
+}
+
+.list-result.ng-leave-active {
+    transform: rotateX(90deg);
+    -webkit-transform: rotateX(90deg);    
+    opacity: 0;
+}
+
+
+/*////////////example for slide show////*/
+/*.animate-show {
+    -webkit-transition:all linear 0.5s;
+    transition:all linear 0.5s;
+    left:0px;
+    right:0px;
+}
+.animate-show.ng-hide-add {
+    display:block!important;
+}
+
+.animate-show.ng-hide-remove {
+    display:block!important;
+}
+
+.animate-show.ng-hide {
+    left: 1000px;
+}
+
+.animate-show.ng-show-add {
+    display:block!important;
+}
+
+.animate-show.ng-show-remove {
+    display:block!important;
+}
+.animation-show.ng-show {
+    right: 1000px;
+}
+.ul-element{
+    position: absolute;
+}
+*/

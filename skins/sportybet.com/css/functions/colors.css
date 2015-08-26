@@ -1,0 +1,13 @@
+.nav-news-sport ul li h3 {
+  background: url(../images/SportyNews.png) no-repeat 0 50%;
+  width: 109px;
+  height: 72px;
+  text-indent: -9999em; }
+
+.sport-news h2 {
+  background: #f0f0f0 url(../images/mini-news.png) no-repeat 0 50% !important;
+  height: 26px;
+  text-indent: -9999em; }
+
+/* ======================================================================== 
+   === skin specific styles === */

@@ -1,0 +1,30 @@
+<div class="second-nav-block" ng-class="{'expanded': verytopMenuExpanded}">
+    <div class="verytopmenutoggle" ng-click="verytopMenuExpanded = !verytopMenuExpanded" id="verytopmenutoggle"></div>
+    <ul ng-show="conf.theVeryTopMenu.length || conf.additionalLink[env.lang].link || conf.flashVersionLink[env.lang] || conf.headerStatisticsLink" hide-on-click except="verytopmenutoggle" state-flag-var="verytopMenuExpanded">
+        <li ng-repeat="theVeryTopMenuItem in conf.theVeryTopMenu" ng-class="{ 'active' : $location.path() === theVeryTopMenuItem.href.substr(1), 'highlighted': theVeryTopMenuItem.highlight}" class="verytopmenu-{{::theVeryTopMenuItem.label.split(' ').join('')}}">
+            <a      target="{{theVeryTopMenuItem.target || '_self'}}"
+                    ng-href="{{theVeryTopMenuItem.href}}"
+                    ng-click="$root.topMenuDropDown=false;closeSlider();$parent.verytopMenuExpanded = false;"
+                    ng-bind="theVeryTopMenuItem.label|translate">
+
+            </a>
+        </li>
+        <li ng-show="conf.headerStatisticsLink">
+            <a ng-href="{{conf.headerStatisticsLink}}" target="_blank" trans>statistic</a>
+        </li>
+
+
+        <li ng-show="conf.additionalLink[env.lang].link">
+            <a ng-click="$root.topMenuDropDown=false;closeSlider();goToTop();$parent.verytopMenuExpanded = false;"
+               ng-href="{{conf.additionalLink[env.lang].link}}" target="_blank"
+               ng-bind="conf.additionalLink[env.lang].text"></a>
+        </li>
+
+        <li ng-show="conf.flashVersionLink[env.lang]">
+            <a href="{{conf.flashVersionLink[env.lang]}}" target="_blank"
+               ng-click="$root.topMenuDropDown=false;closeSlider();goToTop();$parent.verytopMenuExpanded = false;" trans>Previous Flash version</a>
+        </li>
+
+    </ul>
+
+</div>

@@ -1,0 +1,10 @@
+/* ======================================================================== 
+   === skin specific styles === */
+.conteiner {
+  z-index: 99999999; }
+
+.conteiner.show-fix, .conteiner.show-game {
+  z-index: 99999999; }
+
+.contain-header .popup-bg-contain {
+  background: #222222; }

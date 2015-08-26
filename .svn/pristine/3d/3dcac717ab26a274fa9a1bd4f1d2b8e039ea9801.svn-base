@@ -1,0 +1,6 @@
+<div class="clock noflip" ng-click="timezonesExpanded = !timezonesExpanded" ng-class="{timezonesExpanded : conf.enableTimeZoneSelect}">
+    <span ng-bind="env.clock|formatDate:'HH:mm:ss'"></span>
+    <br ng-if="conf.enableTimeZoneSelect"/>
+    <span ng-if="conf.enableTimeZoneSelect" ng-bind="env.selectedTimeZone"></span>
+    <timezone-switcher ng-if="conf.enableTimeZoneSelect && timezonesExpanded" timezone-class="open-lang"></timezone-switcher>
+</div>

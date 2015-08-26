@@ -1,0 +1,83 @@
+$black-text: #{'#171717'};
+$black-bg: #{'#000000'};
+$white-text: #{'#ffffff'};
+$white-bg: #{'#ffffff'};
+$gray: #{'#cccccc'};
+$bg-footer-slider: #{'#544f4f'};
+$bg-footer: #{'#544f4f'};
+$red-text: #{'#ee7001'};
+$red-bg: #{'#ee7001'};
+$shadow-color: #{'#222222'};
+$header-text: #{'#ff9c00'};
+$border-color: #{'#828183'};
+$header-nav-bg: #{'#ee7001'};
+$dark-shadow-color: #{'#555555'};
+$taupe-text-color: #{'#555555'};
+$profile-nav-bg: #{'#555555'};
+$bg-button: #{'#ff9c00'} url(../images/bet-list-bg.png) no-repeat 93% 50%;
+$bg-button-disable: #{'#7A7575'} url(../images/bet-list-bg.png) no-repeat 93% 50%;
+$betslit-icon: url(../images/bet-list-bg.png) no-repeat 0 20%;
+$bg-forms-cantain: rgba(117, 94, 64, 0.3);
+$style-text: italic;
+$lite-black-text: #{'#333333'};
+$bold-text: bold;
+$font-f: Arial, Helvetica, sans-serif;
+
+
+
+$show-hide-header: block;
+$header-margin: 41px 0 0; //for skins with header
+$top-sport-title-lpos: 230px;
+$logo-home-icon: none;
+$bet-btn-bg: #{'#ff9c00'};
+$bet-btn-hover-bg: #{'#ee7001'};
+$bet-btn-disabled-bg: #{'#AFADAD'};
+$live-btn-bg: rgba(148, 244, 98, 0.63);
+$prematch-btn-bg: rgba(255, 255, 255, 0.4);
+
+@mixin bg-img{}
+@mixin header-menu-bg{
+	background: #ef9302;
+	background: -moz-linear-gradient(#db8701, #f29301);
+	background: -webkit-linear-gradient(#db8701, #f29301);
+	background: -o-linear-gradient(#db8701, #f29301);
+	background: linear-gradient(#db8701, #f29301);
+	box-shadow: 0 1px 2px #b76f00 inset;
+}
+@mixin dropdown-menu-bg{
+	background: #946c32;
+	background: -moz-linear-gradient(#8b6835, #836439);
+    background: -webkit-linear-gradient(#8b6835, #836439);
+    background: -o-linear-gradient(#8b6835, #836439);
+    background: linear-gradient(#8b6835, #836439);
+}
+@mixin logo-position{
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+	width: 205px;
+	height: 59px;
+	padding: 0 5px;
+}
+
+@mixin logo-fixed{
+	background: url(../images/home.png) no-repeat 51px 8px;
+	width: 88px;
+	height: 41px;	
+}
+@mixin logo-fixed-position{
+	background-repeat: no-repeat;
+	background-position: 0 50%;
+	width: 68px;
+	height: 41px;
+	padding: 0 20px 0 0;
+}
+@mixin bet-tooltip-visibility{	
+}
+
+/* ======================================================================== 
+   === skin specific styles === */
+   
+.contain-header .clock span{
+	color: #f0f0f0;
+}
+.footer .copyright ul li a{color: $header-text;}

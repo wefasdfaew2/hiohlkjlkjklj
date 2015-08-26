@@ -1,0 +1,21 @@
+<div class="new-live-casino-j overwrite-j" ng-init="initSlidingView();">
+    <div class="live-casino-second-new-j">
+        <div class="j-resize-950-1280">
+            <div class="j-float-100-rel live-casino-slider-second-v-j">
+                <casino-game-slider product-slides="productSlides"></casino-game-slider>
+            </div>
+            <ul class="provider-navigation-j" ng-show="providerOptions">
+                <li ng-repeat="provider in providerOptions track by $index" ng-click="$parent.selectedProvider = provider" ng-class="{'active-j': $parent.selectedProvider === provider}">{{ provider|translate }}</li>
+            </ul>
+            <ul class="live-casino-games-by-ul-column">
+                <li ng-repeat="game in games|filter : {gameProvider : selectedProvider} track by game.id" ng-click="openTables(game, env.authorized ? 'real' : 'demo'); $event.stopPropagation();">
+                    <i class="game-icon-by-id-j-{{game.gameID}}"></i>
+                    <div class="float-left-of-icon-lss-j">
+                        <p>{{ game.gameName|translate }}</p>
+                        <button  trans>play now</button>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

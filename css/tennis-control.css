@@ -1,0 +1,1431 @@
+/* Soccer games control 
+  --------------------------------------------------------------------------------------------------*/
+.game-control.tennis {
+  margin: 27px 6px 0;
+  font-size: 14px;
+  /* statistics on bottom of field 
+    ----------------------------------------------------------------------------------------------*/
+  /* Field container with animated controls
+    --------------------------------------------------------------------------------------------*/
+  /* Animated controls 
+    -----------------------------------------------------------------------------------------------------*/
+  /* Point 
+  ------------------------ */
+  /* Ball In Play */
+  /* Ace */
+  /* First-Fifth Set & Finished*/
+  /* Fault */ }
+  .game-control.tennis .statistics-toggle {
+    background: #223451;
+    color: #fff;
+    overflow: hidden;
+    height: 51px; }
+    .game-control.tennis .statistics-toggle button {
+      display: block;
+      width: 40px;
+      height: 20px;
+      margin: 0 auto;
+      background: #fff;
+      border: 1px solid #ccc;
+      border-bottom: 0 none;
+      position: relative;
+      top: 1px;
+      cursor: pointer; }
+      .game-control.tennis .statistics-toggle button:focus {
+        outline: none; }
+      .game-control.tennis .statistics-toggle button:after {
+        content: "";
+        position: absolute;
+        top: 7px;
+        left: 13px;
+        width: 0;
+        height: 0;
+        border-width: 6px;
+        border-style: solid;
+        border-color: #666 transparent transparent; }
+  .game-control.tennis .game-statistics {
+    overflow: hidden;
+    margin: 0.5em 0.3em; }
+    .game-control.tennis .game-statistics.hidden {
+      display: none; }
+    .game-control.tennis .game-statistics li {
+      float: left;
+      width: 48%;
+      /*divide width depending on number of statistics in a row , for tennis number = 2, for soccer 3*/
+      margin: 0.3em 0;
+      margin-right: 2.9%; }
+      .game-control.tennis .game-statistics li:nth-child(2n) {
+        /* number 3 is number of statistics in the row*/
+        margin-right: 0; }
+  .game-control.tennis .field-container {
+    padding: 0 0 1px; }
+    .game-control.tennis .field-container .game-team-names li {
+      line-height: 25px; }
+    .game-control.tennis .field-container.tl-hide .field {
+      margin: 0; }
+  .game-control.tennis .field {
+    position: relative;
+    margin: 0 auto;
+    width: 338px;
+    height: 116px;
+    background: url("../images/animation/t-field.png") no-repeat 0 0; }
+    .game-control.tennis .field.field-0 {
+      background: url("../images/animation/t-field-red.png") no-repeat 0 0; }
+    .game-control.tennis .field.field-1 {
+      background: url("../images/animation/t-field.png") no-repeat 0 0; }
+    .game-control.tennis .field.field-2 {
+      background: url("../images/animation/t-field-green.png") no-repeat 0 0; }
+  .game-control.tennis .animation-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0; }
+  .game-control.tennis .ball {
+    background-color: #EBFF00;
+    background-image: none;
+    background-size: 80%;
+    width: 12px;
+    height: 12px;
+    overflow: hidden;
+    border-radius: 50%;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4), inset 0 1px 5px #3b4d03; }
+    .game-control.tennis .ball:after {
+      content: "";
+      position: absolute;
+      top: -10%;
+      width: 150%;
+      height: 107%;
+      border-radius: 50%;
+      -webkit-transform: scale(0.7, 0.6);
+              transform: scale(0.7, 0.6);
+      box-shadow: inset 0px 0px 6px rgba(0, 0, 0, 0.31);
+      border: 1px solid #6B7337; }
+  .game-control.tennis .Point .point_text {
+    position: absolute;
+    bottom: 11%;
+    opacity: 0.85;
+    color: #353535;
+    max-width: 27%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    font-size: 0.8em;
+    font-weight: bold;
+    padding: 0.2em 0.5em;
+    border-radius: 0.3em;
+    background: #D6D6D6;
+    border: 1px solid #bbb;
+    text-transform: uppercase;
+    text-shadow: 0px -1px 0px rgba(255, 255, 255, 0.53); }
+  .game-control.tennis .Point.side_1 .point_text {
+    left: 8%;
+    -webkit-animation: point_text_1 0.8s 1 ease-out;
+            animation: point_text_1 0.8s 1 ease-out;
+    -webkit-animation-fill-mode: forwards;
+            animation-fill-mode: forwards; }
+  .game-control.tennis .Point.side_2 .point_text {
+    right: 8%;
+    -webkit-animation: point_text_2 0.8s 1 ease-out;
+            animation: point_text_2 0.8s 1 ease-out;
+    -webkit-animation-fill-mode: forwards;
+            animation-fill-mode: forwards; }
+  .game-control.tennis .Point .score_1, .game-control.tennis .Point .score_2 {
+    position: absolute;
+    top: 30%;
+    width: 9%;
+    height: 1.6em;
+    overflow: hidden;
+    line-height: 1.6em;
+    font-size: 1.2em;
+    background: #112345;
+    border-radius: 0.3em;
+    border: 1px solid #08193d;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    color: #effc23;
+    opacity: 0.8; }
+    .game-control.tennis .Point .score_1 span, .game-control.tennis .Point .score_2 span {
+      position: relative; }
+  .game-control.tennis .Point .score_1 {
+    left: 38%;
+    -webkit-animation: point_text_1 0.8s 1 ease-out;
+            animation: point_text_1 0.8s 1 ease-out;
+    -webkit-animation-fill-mode: forwards;
+            animation-fill-mode: forwards; }
+  .game-control.tennis .Point .score_2 {
+    right: 37%;
+    -webkit-animation: point_text_2 0.8s 1 ease-out;
+            animation: point_text_2 0.8s 1 ease-out;
+    -webkit-animation-fill-mode: forwards;
+            animation-fill-mode: forwards; }
+  .game-control.tennis .BallInPlay .ball_container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0; }
+    .game-control.tennis .BallInPlay .ball_container .ball, .game-control.tennis .BallInPlay .ball_container .ball_shadow {
+      position: absolute;
+      top: 20%; }
+    .game-control.tennis .BallInPlay .ball_container .ball_shadow {
+      background: none;
+      width: 3.5%;
+      height: 11%;
+      border-radius: 50%; }
+  .game-control.tennis .BallInPlay.side_1.right .ball_container {
+    -webkit-animation: ball_in_play_y_home 1.7s 0.2s infinite cubic-bezier(0, 0, 0.35, 1);
+            animation: ball_in_play_y_home 1.7s 0.2s infinite cubic-bezier(0, 0, 0.35, 1);
+    -webkit-animation-fill-mode: forwards;
+            animation-fill-mode: forwards; }
+    .game-control.tennis .BallInPlay.side_1.right .ball_container .ball {
+      opacity: 0;
+      -webkit-animation: ball_in_play_x_home 1.7s 0.2s infinite cubic-bezier(0, 0, 0.65, 1), rotate_ball 1s infinite linear;
+              animation: ball_in_play_x_home 1.7s 0.2s infinite cubic-bezier(0, 0, 0.65, 1), rotate_ball 1s infinite linear;
+      -webkit-animation-fill-mode: forwards;
+              animation-fill-mode: forwards; }
+    .game-control.tennis .BallInPlay.side_1.right .ball_container .ball_shadow {
+      -webkit-animation: ball_in_play_x_shadow 1.7s 0.2s infinite cubic-bezier(0, 0, 0.65, 1);
+              animation: ball_in_play_x_shadow 1.7s 0.2s infinite cubic-bezier(0, 0, 0.65, 1);
+      -webkit-animation-fill-mode: forwards;
+              animation-fill-mode: forwards; }
+  .game-control.tennis .BallInPlay.side_1.left .ball_container {
+    -webkit-animation: ball_in_play_y_home1 1.7s 0.2s infinite cubic-bezier(0, 0, 0.35, 1);
+            animation: ball_in_play_y_home1 1.7s 0.2s infinite cubic-bezier(0, 0, 0.35, 1);
+    -webkit-animation-fill-mode: forwards;
+            animation-fill-mode: forwards; }
+    .game-control.tennis .BallInPlay.side_1.left .ball_container .ball {
+      opacity: 0;
+      -webkit-animation: ball_in_play_x_home1 1.7s 0.2s infinite cubic-bezier(0, 0, 0.65, 1), rotate_ball 1s infinite linear;
+              animation: ball_in_play_x_home1 1.7s 0.2s infinite cubic-bezier(0, 0, 0.65, 1), rotate_ball 1s infinite linear;
+      -webkit-animation-fill-mode: forwards;
+              animation-fill-mode: forwards; }
+    .game-control.tennis .BallInPlay.side_1.left .ball_container .ball_shadow {
+      -webkit-animation: ball_in_play_x_shadow1 1.7s 0.2s infinite cubic-bezier(0, 0, 0.65, 1);
+              animation: ball_in_play_x_shadow1 1.7s 0.2s infinite cubic-bezier(0, 0, 0.65, 1);
+      -webkit-animation-fill-mode: forwards;
+              animation-fill-mode: forwards; }
+  .game-control.tennis .BallInPlay.side_2.left .ball_container {
+    -webkit-animation: ball_in_play_y_away 1.7s 0.2s infinite cubic-bezier(0, 0, 0.35, 1);
+            animation: ball_in_play_y_away 1.7s 0.2s infinite cubic-bezier(0, 0, 0.35, 1);
+    -webkit-animation-fill-mode: forwards;
+            animation-fill-mode: forwards; }
+    .game-control.tennis .BallInPlay.side_2.left .ball_container .ball {
+      opacity: 0;
+      -webkit-animation: ball_in_play_x_away 1.7s 0.2s infinite cubic-bezier(0, 0, 0.65, 1), rotate_ball 1s infinite linear;
+              animation: ball_in_play_x_away 1.7s 0.2s infinite cubic-bezier(0, 0, 0.65, 1), rotate_ball 1s infinite linear;
+      -webkit-animation-fill-mode: forwards;
+              animation-fill-mode: forwards; }
+    .game-control.tennis .BallInPlay.side_2.left .ball_container .ball_shadow {
+      -webkit-animation: ball_in_play_x_shadow_away 1.7s 0.2s infinite cubic-bezier(0, 0, 0.65, 1);
+              animation: ball_in_play_x_shadow_away 1.7s 0.2s infinite cubic-bezier(0, 0, 0.65, 1);
+      -webkit-animation-fill-mode: forwards;
+              animation-fill-mode: forwards; }
+  .game-control.tennis .BallInPlay.side_2.right .ball_container {
+    -webkit-animation: ball_in_play_y_home2 1.7s 0.2s infinite cubic-bezier(0, 0, 0.35, 1);
+            animation: ball_in_play_y_home2 1.7s 0.2s infinite cubic-bezier(0, 0, 0.35, 1);
+    -webkit-animation-fill-mode: forwards;
+            animation-fill-mode: forwards; }
+    .game-control.tennis .BallInPlay.side_2.right .ball_container .ball {
+      opacity: 0;
+      -webkit-animation: ball_in_play_x_home2 1.7s 0.2s infinite cubic-bezier(0, 0, 0.65, 1), rotate_ball 1s infinite linear;
+              animation: ball_in_play_x_home2 1.7s 0.2s infinite cubic-bezier(0, 0, 0.65, 1), rotate_ball 1s infinite linear;
+      -webkit-animation-fill-mode: forwards;
+              animation-fill-mode: forwards; }
+    .game-control.tennis .BallInPlay.side_2.right .ball_container .ball_shadow {
+      -webkit-animation: ball_in_play_x_shadow2 1.7s 0.2s infinite cubic-bezier(0, 0, 0.65, 1);
+              animation: ball_in_play_x_shadow2 1.7s 0.2s infinite cubic-bezier(0, 0, 0.65, 1);
+      -webkit-animation-fill-mode: forwards;
+              animation-fill-mode: forwards; }
+  .game-control.tennis .Ace .ball_container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0; }
+    .game-control.tennis .Ace .ball_container .ball, .game-control.tennis .Ace .ball_container .ball_shadow {
+      position: absolute;
+      top: 20%; }
+    .game-control.tennis .Ace .ball_container .ball_shadow {
+      background: none;
+      width: 3.5%;
+      height: 11%;
+      border-radius: 50%; }
+  .game-control.tennis .Ace .set {
+    position: absolute;
+    top: 40%;
+    width: 30%;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding: 0.3em 1em;
+    background: #112345;
+    border-radius: 0.3em;
+    border: 1px solid #08193d;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    opacity: 0.8;
+    color: #effc23;
+    font-size: 0.8em;
+    font-weight: bold;
+    text-transform: uppercase;
+    background: #112345;
+    opacity: 0; }
+  .game-control.tennis .Ace.side_1 .ball_container {
+    -webkit-animation: ball_ace_y_home 0.8s 1 ease-in-out;
+            animation: ball_ace_y_home 0.8s 1 ease-in-out;
+    -webkit-animation-fill-mode: forwards;
+            animation-fill-mode: forwards; }
+    .game-control.tennis .Ace.side_1 .ball_container .ball {
+      opacity: 0;
+      -webkit-animation: ball_ace_x_home 0.8s 1 ease-in-out;
+              animation: ball_ace_x_home 0.8s 1 ease-in-out; }
+    .game-control.tennis .Ace.side_1 .ball_container .ball_shadow {
+      -webkit-animation: shadow_ace_x_home 0.8s 1 ease-in-out;
+              animation: shadow_ace_x_home 0.8s 1 ease-in-out;
+      -webkit-animation-fill-mode: forwards;
+              animation-fill-mode: forwards; }
+  .game-control.tennis .Ace.side_1 .set {
+    left: 11%;
+    -webkit-animation: setInfo 0.5s 0.9s 1 ease-in;
+            animation: setInfo 0.5s 0.9s 1 ease-in;
+    -webkit-animation-fill-mode: forwards;
+            animation-fill-mode: forwards; }
+  .game-control.tennis .Ace.side_2 .ball_container {
+    -webkit-animation: ball_ace_y_away 0.8s 1 ease-in-out;
+            animation: ball_ace_y_away 0.8s 1 ease-in-out;
+    -webkit-animation-fill-mode: forwards;
+            animation-fill-mode: forwards; }
+    .game-control.tennis .Ace.side_2 .ball_container .ball {
+      opacity: 0;
+      -webkit-animation: ball_ace_x_away 0.8s 1 ease-in-out;
+              animation: ball_ace_x_away 0.8s 1 ease-in-out; }
+    .game-control.tennis .Ace.side_2 .ball_container .ball_shadow {
+      -webkit-animation: shadow_ace_x_away 0.8s 1 ease-in-out;
+              animation: shadow_ace_x_away 0.8s 1 ease-in-out;
+      -webkit-animation-fill-mode: forwards;
+              animation-fill-mode: forwards; }
+  .game-control.tennis .Ace.side_2 .set {
+    right: 11%;
+    -webkit-animation: setInfo 0.5s 0.9s 1 ease-in;
+            animation: setInfo 0.5s 0.9s 1 ease-in;
+    -webkit-animation-fill-mode: forwards;
+            animation-fill-mode: forwards; }
+  .game-control.tennis .FirstSet, .game-control.tennis .SecondSet, .game-control.tennis .ThirdSet, .game-control.tennis .FourthSet, .game-control.tennis .FifthSet, .game-control.tennis .InjuryBreak, .game-control.tennis .RainDelay, .game-control.tennis .Timeout, .game-control.tennis .Finished {
+    position: absolute;
+    top: 40%;
+    width: 40%;
+    margin: 0 30%;
+    text-align: center; }
+    .game-control.tennis .FirstSet .set, .game-control.tennis .SecondSet .set, .game-control.tennis .ThirdSet .set, .game-control.tennis .FourthSet .set, .game-control.tennis .FifthSet .set, .game-control.tennis .InjuryBreak .set, .game-control.tennis .RainDelay .set, .game-control.tennis .Timeout .set, .game-control.tennis .Finished .set {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      padding: 0.3em 1em;
+      background: #112345;
+      border-radius: 0.3em;
+      border: 1px solid #08193d;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+      opacity: 0.8;
+      color: #effc23;
+      font-size: 0.8em;
+      font-weight: bold;
+      text-transform: uppercase;
+      background: #112345;
+      opacity: 0;
+      -webkit-animation: setInfo 1.5s 0.2s 1 ease-in;
+              animation: setInfo 1.5s 0.2s 1 ease-in;
+      -webkit-animation-fill-mode: forwards;
+              animation-fill-mode: forwards; }
+  .game-control.tennis .ServiceFault .fault_text, .game-control.tennis .DoubleFault .fault_text {
+    position: absolute;
+    bottom: 11%;
+    opacity: 0.85;
+    color: #353535;
+    max-width: 27%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    font-size: 0.8em;
+    font-weight: bold;
+    padding: 0.2em 0.5em;
+    border-radius: 0.3em;
+    background: #FFEB00;
+    border: 1px solid #F5FF00;
+    text-transform: uppercase; }
+  .game-control.tennis .ServiceFault.side_1 .fault_text, .game-control.tennis .DoubleFault.side_1 .fault_text {
+    left: 8%;
+    -webkit-animation: fault_text_1 0.8s 1 ease-out;
+            animation: fault_text_1 0.8s 1 ease-out;
+    -webkit-animation-fill-mode: forwards;
+            animation-fill-mode: forwards; }
+  .game-control.tennis .ServiceFault.side_2 .fault_text, .game-control.tennis .DoubleFault.side_2 .fault_text {
+    right: 8%;
+    -webkit-animation: fault_text_2 0.8s 1 ease-out;
+            animation: fault_text_2 0.8s 1 ease-out;
+    -webkit-animation-fill-mode: forwards;
+            animation-fill-mode: forwards; }
+
+/* Animation keyframes
+  ------------------------------------------------------------------------------------------------------------------------ */
+@-webkit-keyframes hide-animation {
+  0% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
+@keyframes hide-animation {
+  0% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
+/* Point animation */
+@-webkit-keyframes point_text_1 {
+  0% {
+    opacity: 0;
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in; }
+  100% {
+    opacity: 1; } }
+@keyframes point_text_1 {
+  0% {
+    opacity: 0;
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in; }
+  100% {
+    opacity: 1; } }
+@-webkit-keyframes point_text_2 {
+  0% {
+    opacity: 0;
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in; }
+  100% {
+    opacity: 1; } }
+@keyframes point_text_2 {
+  0% {
+    opacity: 0;
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in; }
+  100% {
+    opacity: 1; } }
+@-webkit-keyframes slideDown {
+  0% {
+    top: -100%; }
+  100% {
+    top: 0; } }
+@keyframes slideDown {
+  0% {
+    top: -100%; }
+  100% {
+    top: 0; } }
+/* Fault animation */
+@-webkit-keyframes fault_text_1 {
+  0% {
+    opacity: 0;
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in; }
+  40% {
+    opacity: 0.3;
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in; }
+  80% {
+    opacity: 0.5;
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in; }
+  20%,60%,100% {
+    opacity: 1; } }
+@keyframes fault_text_1 {
+  0% {
+    opacity: 0;
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in; }
+  40% {
+    opacity: 0.3;
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in; }
+  80% {
+    opacity: 0.5;
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in; }
+  20%,60%,100% {
+    opacity: 1; } }
+@-webkit-keyframes fault_text_2 {
+  0% {
+    opacity: 0;
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in; }
+  40% {
+    opacity: 0.3;
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in; }
+  80% {
+    opacity: 0.5;
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in; }
+  20%,60%,100% {
+    opacity: 1; } }
+@keyframes fault_text_2 {
+  0% {
+    opacity: 0;
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in; }
+  40% {
+    opacity: 0.3;
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in; }
+  80% {
+    opacity: 0.5;
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in; }
+  20%,60%,100% {
+    opacity: 1; } }
+/* ------------------------------------------------------- */
+/* BallInPlay animation */
+@-webkit-keyframes ball_in_play_y_home {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(40%);
+            transform: translateY(40%);
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out; }
+  10%,90% {
+    opacity: 1; }
+  50% {
+    -webkit-transform: translateY(5%);
+            transform: translateY(5%);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in; }
+  100% {
+    opacity: 0;
+    -webkit-transform: translateY(20%);
+            transform: translateY(20%);
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out; } }
+@keyframes ball_in_play_y_home {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(40%);
+            transform: translateY(40%);
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out; }
+  10%,90% {
+    opacity: 1; }
+  50% {
+    -webkit-transform: translateY(5%);
+            transform: translateY(5%);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in; }
+  100% {
+    opacity: 0;
+    -webkit-transform: translateY(20%);
+            transform: translateY(20%);
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out; } }
+@-webkit-keyframes rotate_ball {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg); }
+  70% {
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg); }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg); } }
+@keyframes rotate_ball {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg); }
+  70% {
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg); }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg); } }
+@-webkit-keyframes ball_in_play_x_home {
+  0% {
+    left: 15%;
+    opacity: 0;
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out; }
+  10%,60% {
+    opacity: 1; }
+  20% {
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in; }
+  90% {
+    opacity: 0; }
+  100% {
+    left: 65%;
+    opacity: 0;
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out; } }
+@keyframes ball_in_play_x_home {
+  0% {
+    left: 15%;
+    opacity: 0;
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out; }
+  10%,60% {
+    opacity: 1; }
+  20% {
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in; }
+  90% {
+    opacity: 0; }
+  100% {
+    left: 65%;
+    opacity: 0;
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out; } }
+@-webkit-keyframes ball_in_play_x_shadow {
+  0% {
+    left: 15%;
+    opacity: 0;
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+    box-shadow: 0 8px 5px rgba(0, 0, 0, 0.4), inset 0 0 5px #3b4d03; }
+  10%,60% {
+    opacity: 1; }
+  20% {
+    box-shadow: 0 20px 10px rgba(0, 0, 0, 0.4), inset 0 0 5px #3b4d03;
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in; }
+  70% {
+    box-shadow: 0 8px 5px rgba(0, 0, 0, 0.4), inset 0 0 5px #3b4d03; }
+  90% {
+    opacity: 0; }
+  100% {
+    left: 65%;
+    opacity: 0;
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+    box-shadow: 0 4px 3px rgba(0, 0, 0, 0.4), inset 0 0 5px #3b4d03; } }
+@keyframes ball_in_play_x_shadow {
+  0% {
+    left: 15%;
+    opacity: 0;
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+    box-shadow: 0 8px 5px rgba(0, 0, 0, 0.4), inset 0 0 5px #3b4d03; }
+  10%,60% {
+    opacity: 1; }
+  20% {
+    box-shadow: 0 20px 10px rgba(0, 0, 0, 0.4), inset 0 0 5px #3b4d03;
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in; }
+  70% {
+    box-shadow: 0 8px 5px rgba(0, 0, 0, 0.4), inset 0 0 5px #3b4d03; }
+  90% {
+    opacity: 0; }
+  100% {
+    left: 65%;
+    opacity: 0;
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+    box-shadow: 0 4px 3px rgba(0, 0, 0, 0.4), inset 0 0 5px #3b4d03; } }
+@-webkit-keyframes ball_in_play_y_home1 {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(5%);
+            transform: translateY(5%);
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out; }
+  10%,90% {
+    opacity: 1; }
+  50% {
+    -webkit-transform: translateY(25%);
+            transform: translateY(25%);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in; }
+  100% {
+    opacity: 0;
+    -webkit-transform: translateY(40%);
+            transform: translateY(40%);
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out; } }
+@keyframes ball_in_play_y_home1 {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(5%);
+            transform: translateY(5%);
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out; }
+  10%,90% {
+    opacity: 1; }
+  50% {
+    -webkit-transform: translateY(25%);
+            transform: translateY(25%);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in; }
+  100% {
+    opacity: 0;
+    -webkit-transform: translateY(40%);
+            transform: translateY(40%);
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out; } }
+@-webkit-keyframes ball_in_play_x_home1 {
+  0% {
+    left: 30%;
+    opacity: 0;
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out; }
+  10%,60% {
+    opacity: 1; }
+  20% {
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in; }
+  90% {
+    opacity: 0; }
+  100% {
+    left: 65%;
+    opacity: 0;
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out; } }
+@keyframes ball_in_play_x_home1 {
+  0% {
+    left: 30%;
+    opacity: 0;
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out; }
+  10%,60% {
+    opacity: 1; }
+  20% {
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in; }
+  90% {
+    opacity: 0; }
+  100% {
+    left: 65%;
+    opacity: 0;
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out; } }
+@-webkit-keyframes ball_in_play_x_shadow1 {
+  0% {
+    left: 30%;
+    opacity: 0;
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+    box-shadow: 0 8px 5px rgba(0, 0, 0, 0.4), inset 0 0 5px #3b4d03; }
+  10%,60% {
+    opacity: 1; }
+  20% {
+    box-shadow: 0 20px 10px rgba(0, 0, 0, 0.4), inset 0 0 5px #3b4d03;
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in; }
+  70% {
+    box-shadow: 0 5px 3px rgba(0, 0, 0, 0.3), inset 0 0 5px #3b4d03; }
+  90% {
+    opacity: 0; }
+  100% {
+    left: 65%;
+    opacity: 0;
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+    box-shadow: 0 4px 3px rgba(0, 0, 0, 0.4), inset 0 0 5px #3b4d03; } }
+@keyframes ball_in_play_x_shadow1 {
+  0% {
+    left: 30%;
+    opacity: 0;
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+    box-shadow: 0 8px 5px rgba(0, 0, 0, 0.4), inset 0 0 5px #3b4d03; }
+  10%,60% {
+    opacity: 1; }
+  20% {
+    box-shadow: 0 20px 10px rgba(0, 0, 0, 0.4), inset 0 0 5px #3b4d03;
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in; }
+  70% {
+    box-shadow: 0 5px 3px rgba(0, 0, 0, 0.3), inset 0 0 5px #3b4d03; }
+  90% {
+    opacity: 0; }
+  100% {
+    left: 65%;
+    opacity: 0;
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+    box-shadow: 0 4px 3px rgba(0, 0, 0, 0.4), inset 0 0 5px #3b4d03; } }
+@-webkit-keyframes ball_in_play_y_away {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(40%);
+            transform: translateY(40%);
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out; }
+  50% {
+    -webkit-transform: translateY(5%);
+            transform: translateY(5%);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in; }
+  10%,90% {
+    opacity: 1; }
+  100% {
+    opacity: 0;
+    -webkit-transform: translateY(20%);
+            transform: translateY(20%);
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out; } }
+@keyframes ball_in_play_y_away {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(40%);
+            transform: translateY(40%);
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out; }
+  50% {
+    -webkit-transform: translateY(5%);
+            transform: translateY(5%);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in; }
+  10%,90% {
+    opacity: 1; }
+  100% {
+    opacity: 0;
+    -webkit-transform: translateY(20%);
+            transform: translateY(20%);
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out; } }
+@-webkit-keyframes ball_in_play_x_away {
+  0% {
+    right: 15%;
+    opacity: 0;
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out; }
+  10%,60% {
+    opacity: 1; }
+  20% {
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in; }
+  90% {
+    opacity: 0; }
+  100% {
+    right: 65%;
+    opacity: 0;
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out; } }
+@keyframes ball_in_play_x_away {
+  0% {
+    right: 15%;
+    opacity: 0;
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out; }
+  10%,60% {
+    opacity: 1; }
+  20% {
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in; }
+  90% {
+    opacity: 0; }
+  100% {
+    right: 65%;
+    opacity: 0;
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out; } }
+@-webkit-keyframes ball_in_play_x_shadow_away {
+  0% {
+    right: 15%;
+    opacity: 0;
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+    box-shadow: 0 8px 5px rgba(0, 0, 0, 0.4), inset 0 0 5px #3b4d03; }
+  10%,60% {
+    opacity: 1; }
+  20% {
+    box-shadow: 0 20px 10px rgba(0, 0, 0, 0.4), inset 0 0 5px #3b4d03;
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in; }
+  70% {
+    box-shadow: 0 8px 5px rgba(0, 0, 0, 0.4), inset 0 0 5px #3b4d03; }
+  90% {
+    opacity: 0; }
+  100% {
+    right: 65%;
+    opacity: 0;
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+    box-shadow: 0 4px 3px rgba(0, 0, 0, 0.4), inset 0 0 5px #3b4d03; } }
+@keyframes ball_in_play_x_shadow_away {
+  0% {
+    right: 15%;
+    opacity: 0;
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+    box-shadow: 0 8px 5px rgba(0, 0, 0, 0.4), inset 0 0 5px #3b4d03; }
+  10%,60% {
+    opacity: 1; }
+  20% {
+    box-shadow: 0 20px 10px rgba(0, 0, 0, 0.4), inset 0 0 5px #3b4d03;
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in; }
+  70% {
+    box-shadow: 0 8px 5px rgba(0, 0, 0, 0.4), inset 0 0 5px #3b4d03; }
+  90% {
+    opacity: 0; }
+  100% {
+    right: 65%;
+    opacity: 0;
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+    box-shadow: 0 4px 3px rgba(0, 0, 0, 0.4), inset 0 0 5px #3b4d03; } }
+@-webkit-keyframes ball_in_play_y_home2 {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(5%);
+            transform: translateY(5%);
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out; }
+  10%,90% {
+    opacity: 1; }
+  50% {
+    -webkit-transform: translateY(25%);
+            transform: translateY(25%);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in; }
+  100% {
+    opacity: 0;
+    -webkit-transform: translateY(40%);
+            transform: translateY(40%);
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out; } }
+@keyframes ball_in_play_y_home2 {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(5%);
+            transform: translateY(5%);
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out; }
+  10%,90% {
+    opacity: 1; }
+  50% {
+    -webkit-transform: translateY(25%);
+            transform: translateY(25%);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in; }
+  100% {
+    opacity: 0;
+    -webkit-transform: translateY(40%);
+            transform: translateY(40%);
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out; } }
+@-webkit-keyframes ball_in_play_x_home2 {
+  0% {
+    right: 30%;
+    opacity: 0;
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out; }
+  10%,60% {
+    opacity: 1; }
+  20% {
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in; }
+  90% {
+    opacity: 0; }
+  100% {
+    right: 65%;
+    opacity: 0;
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out; } }
+@keyframes ball_in_play_x_home2 {
+  0% {
+    right: 30%;
+    opacity: 0;
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out; }
+  10%,60% {
+    opacity: 1; }
+  20% {
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in; }
+  90% {
+    opacity: 0; }
+  100% {
+    right: 65%;
+    opacity: 0;
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out; } }
+@-webkit-keyframes ball_in_play_x_shadow2 {
+  0% {
+    right: 30%;
+    opacity: 0;
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+    box-shadow: 0 8px 5px rgba(0, 0, 0, 0.4), inset 0 0 5px #3b4d03; }
+  10%,60% {
+    opacity: 1; }
+  20% {
+    box-shadow: 0 20px 10px rgba(0, 0, 0, 0.4), inset 0 0 5px #3b4d03;
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in; }
+  70% {
+    box-shadow: 0 5px 3px rgba(0, 0, 0, 0.3), inset 0 0 5px #3b4d03; }
+  90% {
+    opacity: 0; }
+  100% {
+    right: 65%;
+    opacity: 0;
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+    box-shadow: 0 4px 3px rgba(0, 0, 0, 0.4), inset 0 0 5px #3b4d03; } }
+@keyframes ball_in_play_x_shadow2 {
+  0% {
+    right: 30%;
+    opacity: 0;
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+    box-shadow: 0 8px 5px rgba(0, 0, 0, 0.4), inset 0 0 5px #3b4d03; }
+  10%,60% {
+    opacity: 1; }
+  20% {
+    box-shadow: 0 20px 10px rgba(0, 0, 0, 0.4), inset 0 0 5px #3b4d03;
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in; }
+  70% {
+    box-shadow: 0 5px 3px rgba(0, 0, 0, 0.3), inset 0 0 5px #3b4d03; }
+  90% {
+    opacity: 0; }
+  100% {
+    right: 65%;
+    opacity: 0;
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+    box-shadow: 0 4px 3px rgba(0, 0, 0, 0.4), inset 0 0 5px #3b4d03; } }
+/* ------------------------------------------------------- */
+/* Finished and all info only animations: firstSet - fifthSet */
+@-webkit-keyframes setInfo {
+  0% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+    opacity: 0; }
+  70% {
+    -webkit-transform: scale(1.05);
+            transform: scale(1.05);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+    opacity: 1; }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    opacity: 0.8; } }
+@keyframes setInfo {
+  0% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+    opacity: 0; }
+  70% {
+    -webkit-transform: scale(1.05);
+            transform: scale(1.05);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+    opacity: 1; }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    opacity: 0.8; } }
+/* Ace animation */
+@-webkit-keyframes ball_ace_y_home {
+  10% {
+    -webkit-transform: translateY(5%);
+            transform: translateY(5%);
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out; }
+  35% {
+    -webkit-transform: translateY(38%);
+            transform: translateY(38%);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in; }
+  38% {
+    -webkit-transform: translateY(38%);
+            transform: translateY(38%);
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out; }
+  70% {
+    -webkit-transform: translateY(5%);
+            transform: translateY(5%);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in; } }
+@keyframes ball_ace_y_home {
+  10% {
+    -webkit-transform: translateY(5%);
+            transform: translateY(5%);
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out; }
+  35% {
+    -webkit-transform: translateY(38%);
+            transform: translateY(38%);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in; }
+  38% {
+    -webkit-transform: translateY(38%);
+            transform: translateY(38%);
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out; }
+  70% {
+    -webkit-transform: translateY(5%);
+            transform: translateY(5%);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in; } }
+@-webkit-keyframes ball_ace_x_home {
+  9% {
+    left: 30%;
+    opacity: 0; }
+  10% {
+    left: 30%;
+    opacity: 1;
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out; }
+  35% {
+    opacity: 1;
+    left: 57%;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in; }
+  38% {
+    -webkit-transform: scaleY(0.5);
+            transform: scaleY(0.5);
+    opacity: 1;
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out; }
+  40% {
+    -webkit-transform: scaleY(1);
+            transform: scaleY(1); }
+  70% {
+    left: 80%;
+    opacity: 1;
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in; }
+  90% {
+    opacity: 0; }
+  100% {
+    left: 100%;
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+    opacity: 0; } }
+@keyframes ball_ace_x_home {
+  9% {
+    left: 30%;
+    opacity: 0; }
+  10% {
+    left: 30%;
+    opacity: 1;
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out; }
+  35% {
+    opacity: 1;
+    left: 57%;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in; }
+  38% {
+    -webkit-transform: scaleY(0.5);
+            transform: scaleY(0.5);
+    opacity: 1;
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out; }
+  40% {
+    -webkit-transform: scaleY(1);
+            transform: scaleY(1); }
+  70% {
+    left: 80%;
+    opacity: 1;
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in; }
+  90% {
+    opacity: 0; }
+  100% {
+    left: 100%;
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+    opacity: 0; } }
+@-webkit-keyframes shadow_ace_x_home {
+  9% {
+    left: 30%;
+    opacity: 0;
+    box-shadow: 0 25px 10px rgba(0, 0, 0, 0.4), inset 0 0 5px #3b4d03; }
+  10% {
+    left: 30%;
+    opacity: 1;
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+    box-shadow: 0 25px 10px rgba(0, 0, 0, 0.4), inset 0 0 5px #3b4d03; }
+  35% {
+    opacity: 1;
+    left: 57%;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.4), inset 0 -3px 5px #3b4d03; }
+  38% {
+    -webkit-transform: scaleY(0.5);
+            transform: scaleY(0.5);
+    opacity: 1;
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.4), inset 0 -3px 5px #3b4d03; }
+  40% {
+    -webkit-transform: scaleY(1);
+            transform: scaleY(1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4), inset 0 -3px 5px #3b4d03; }
+  70% {
+    left: 80%;
+    opacity: 1;
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+    box-shadow: 0 20px 10px rgba(0, 0, 0, 0.4), inset 0 0 5px #3b4d03; }
+  90% {
+    opacity: 0; }
+  100% {
+    left: 100%;
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+    box-shadow: 0 20px 10px rgba(0, 0, 0, 0.4), inset 0 0 5px #3b4d03;
+    opacity: 0; } }
+@keyframes shadow_ace_x_home {
+  9% {
+    left: 30%;
+    opacity: 0;
+    box-shadow: 0 25px 10px rgba(0, 0, 0, 0.4), inset 0 0 5px #3b4d03; }
+  10% {
+    left: 30%;
+    opacity: 1;
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+    box-shadow: 0 25px 10px rgba(0, 0, 0, 0.4), inset 0 0 5px #3b4d03; }
+  35% {
+    opacity: 1;
+    left: 57%;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.4), inset 0 -3px 5px #3b4d03; }
+  38% {
+    -webkit-transform: scaleY(0.5);
+            transform: scaleY(0.5);
+    opacity: 1;
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.4), inset 0 -3px 5px #3b4d03; }
+  40% {
+    -webkit-transform: scaleY(1);
+            transform: scaleY(1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4), inset 0 -3px 5px #3b4d03; }
+  70% {
+    left: 80%;
+    opacity: 1;
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+    box-shadow: 0 20px 10px rgba(0, 0, 0, 0.4), inset 0 0 5px #3b4d03; }
+  90% {
+    opacity: 0; }
+  100% {
+    left: 100%;
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+    box-shadow: 0 20px 10px rgba(0, 0, 0, 0.4), inset 0 0 5px #3b4d03;
+    opacity: 0; } }
+@-webkit-keyframes ball_ace_y_away {
+  10% {
+    -webkit-transform: translateY(5%);
+            transform: translateY(5%);
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out; }
+  35% {
+    -webkit-transform: translateY(38%);
+            transform: translateY(38%);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in; }
+  38% {
+    -webkit-transform: translateY(38%);
+            transform: translateY(38%);
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out; }
+  70% {
+    -webkit-transform: translateY(5%);
+            transform: translateY(5%);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in; } }
+@keyframes ball_ace_y_away {
+  10% {
+    -webkit-transform: translateY(5%);
+            transform: translateY(5%);
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out; }
+  35% {
+    -webkit-transform: translateY(38%);
+            transform: translateY(38%);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in; }
+  38% {
+    -webkit-transform: translateY(38%);
+            transform: translateY(38%);
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out; }
+  70% {
+    -webkit-transform: translateY(5%);
+            transform: translateY(5%);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in; } }
+@-webkit-keyframes ball_ace_x_away {
+  9% {
+    right: 30%;
+    opacity: 0; }
+  10% {
+    right: 30%;
+    opacity: 1;
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out; }
+  35% {
+    opacity: 1;
+    right: 57%;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in; }
+  38% {
+    -webkit-transform: scaleY(0.5);
+            transform: scaleY(0.5);
+    opacity: 1;
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out; }
+  40% {
+    -webkit-transform: scaleY(1);
+            transform: scaleY(1); }
+  70% {
+    right: 80%;
+    opacity: 1;
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in; }
+  90% {
+    opacity: 0; }
+  100% {
+    right: 100%;
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+    opacity: 0; } }
+@keyframes ball_ace_x_away {
+  9% {
+    right: 30%;
+    opacity: 0; }
+  10% {
+    right: 30%;
+    opacity: 1;
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out; }
+  35% {
+    opacity: 1;
+    right: 57%;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in; }
+  38% {
+    -webkit-transform: scaleY(0.5);
+            transform: scaleY(0.5);
+    opacity: 1;
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out; }
+  40% {
+    -webkit-transform: scaleY(1);
+            transform: scaleY(1); }
+  70% {
+    right: 80%;
+    opacity: 1;
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in; }
+  90% {
+    opacity: 0; }
+  100% {
+    right: 100%;
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+    opacity: 0; } }
+@-webkit-keyframes shadow_ace_x_away {
+  9% {
+    right: 30%;
+    opacity: 0;
+    box-shadow: 0 25px 10px rgba(0, 0, 0, 0.4), inset 0 0 5px #3b4d03; }
+  10% {
+    right: 30%;
+    opacity: 1;
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+    box-shadow: 0 25px 10px rgba(0, 0, 0, 0.4), inset 0 0 5px #3b4d03; }
+  35% {
+    opacity: 1;
+    right: 57%;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.4), inset 0 -3px 5px #3b4d03; }
+  38% {
+    -webkit-transform: scaleY(0.5);
+            transform: scaleY(0.5);
+    opacity: 1;
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.4), inset 0 -3px 5px #3b4d03; }
+  40% {
+    -webkit-transform: scaleY(1);
+            transform: scaleY(1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4), inset 0 -3px 5px #3b4d03; }
+  70% {
+    right: 80%;
+    opacity: 1;
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+    box-shadow: 0 20px 10px rgba(0, 0, 0, 0.4), inset 0 0 5px #3b4d03; }
+  90% {
+    opacity: 0; }
+  100% {
+    right: 100%;
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+    box-shadow: 0 20px 10px rgba(0, 0, 0, 0.4), inset 0 0 5px #3b4d03;
+    opacity: 0; } }
+@keyframes shadow_ace_x_away {
+  9% {
+    right: 30%;
+    opacity: 0;
+    box-shadow: 0 25px 10px rgba(0, 0, 0, 0.4), inset 0 0 5px #3b4d03; }
+  10% {
+    right: 30%;
+    opacity: 1;
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+    box-shadow: 0 25px 10px rgba(0, 0, 0, 0.4), inset 0 0 5px #3b4d03; }
+  35% {
+    opacity: 1;
+    right: 57%;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.4), inset 0 -3px 5px #3b4d03; }
+  38% {
+    -webkit-transform: scaleY(0.5);
+            transform: scaleY(0.5);
+    opacity: 1;
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.4), inset 0 -3px 5px #3b4d03; }
+  40% {
+    -webkit-transform: scaleY(1);
+            transform: scaleY(1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4), inset 0 -3px 5px #3b4d03; }
+  70% {
+    right: 80%;
+    opacity: 1;
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+    box-shadow: 0 20px 10px rgba(0, 0, 0, 0.4), inset 0 0 5px #3b4d03; }
+  90% {
+    opacity: 0; }
+  100% {
+    right: 100%;
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+    box-shadow: 0 20px 10px rgba(0, 0, 0, 0.4), inset 0 0 5px #3b4d03;
+    opacity: 0; } }

@@ -1,0 +1,35 @@
+<div class="subtop-header-menu-j">
+    <ul>
+        <li ng-class="{'active': $location.path() === '/sport/'}">
+            <a ng-href="#/sport" trans>Event View</a>
+        </li>
+        <li ng-if="conf.liveOverviewEnabled && (conf.sportsLayout !== 'modern')" ng-class="{'active': $location.path() === '/overview/'}">
+            <a ng-href="#/overview" trans>Live Overview</a>
+        </li>
+        <li ng-if="conf.liveMultiViewEnabled && (conf.sportsLayout !== 'modern')" ng-class="{'active': $location.path() === '/multiview/'}">
+            <a ng-href="#/multiview" trans>Live MultiView</a>
+        </li>
+        <li ng-if="conf.liveCalendarEnabled" ng-class="{'active': $location.path() === '/livecalendar/'}">
+            <a ng-href="#/livecalendar" trans>Live Calendar</a></li>
+        <li ng-if="conf.statisticsInsportsbookTab">
+            <a ng-href="{{conf.headerStatisticsLink}}" target="_blank" trans>Statistics</a>
+        </li>
+        <li ng-if="conf.showResultsTabInSportsbook" ng-class="{'active': $location.path() === '/results/'}">
+            <a href="#/results" trans>Results</a>
+        </li>
+    </ul>
+    <div class="right-options-j">
+        <div class="factor-change-wrapper" ng-show="conf.sportEnabled && conf.enableSportsbookLayoutSwitcher && isInSports()"  ng-class="{opened:showLayoutSubMenu}" ng-click="showLayoutSubMenu = !showLayoutSubMenu" state-flag-var="showLayoutSubMenu" hide-on-click >
+            <p id="layout-selector">{{({modern: 'Modern', classic: 'Classic', asian: 'Asian', external: 'Eastern'}[conf.sportsLayout])|translate}}</p>
+            <ul ng-include="getTemplate('templates/header/layoutswitcher.html');"></ul>
+        </div>
+        <div ng-show="conf.sportsLayout !== 'asian' && conf.sportsLayout !== 'external'" class="factor-change-wrapper" ng-class="{opened:showDecimalSubMenu}" ng-click="showDecimalSubMenu = !showDecimalSubMenu" state-flag-var="showDecimalSubMenu" hide-on-click>
+            <p>{{env.oddFormat|capitalise|translate}}</p>
+            <ul>
+                <div ng-include="getTemplate('templates/header/oddformatswitcher.html');"></div>
+            </ul>
+        </div>
+
+        <div class="scrolling-toggle-j" ng-show="conf.enableClassicScrollToggle && conf.sportsLayout === 'classic' && $location.path() === '/sport/'"><a ng-click="$root.noClassicScroll = !$root.noClassicScroll; toggleLiveSectionPin()" ng-class="{'active': $root.noClassicScroll}" title="Toggle inner scrolling" trans=""></a></div>
+    </div>
+</div>

@@ -1,0 +1,83 @@
+$black-text: #{'#171717'};
+$black-bg: #{'#0C220A'};
+$white-text: #{'#ffffff'};
+$white-bg: #{'#ffffff'};
+$gray: #{'#cccccc'};
+$bg-footer-slider: #{'#1A291A'};
+$bg-footer: #{'#1A291A'};
+$red-text: #{'#4e9849'};
+$red-bg: #{'#4d9748'};
+$shadow-color: #{'#222222'};
+$header-text: #{'#AEB499'};
+$border-color: #{'#828183'};
+$header-nav-bg: #{'#65B148'};
+$dark-shadow-color: #{'#555555'};
+$taupe-text-color: #{'#555555'};
+$profile-nav-bg: #{'#555555'};
+$bg-button: #{'#4d9748'} url(../images/bet-list-bg.png) no-repeat 93% 50%;
+$bg-button-disable: #{'#7A7575'} url(../images/bet-list-bg.png) no-repeat 93% 50%;
+$betslit-icon: url(../images/bet-list-bg.png) no-repeat 0 20%;
+$bg-forms-cantain: rgba(255, 255, 255, 0.2);
+$style-text: italic;
+$lite-black-text: #{'#333333'};
+$bold-text: bold;
+$font-f: Arial, Helvetica, sans-serif;
+
+
+
+$show-hide-header: block;
+$header-margin: 41px 0 0; //for skins with header
+$top-sport-title-lpos: 240px;
+$logo-home-icon: none;
+$bet-btn-bg: #{'#323332'};
+$bet-btn-hover-bg: #{'#3c3f3c'};
+$bet-btn-disabled-bg: #{'#AFADAD'};
+$live-btn-bg: #{'#94CF54'};
+$prematch-btn-bg: rgba(255, 255, 255, 0.4);
+
+@mixin bg-img{}
+@mixin header-menu-bg{
+	background: #3f843a;
+	background: -moz-linear-gradient(#4d9748, #2e622a);
+    background: -webkit-linear-gradient(#4d9748, #2e622a);
+    background: -o-linear-gradient(#4d9748, #2e622a);
+    background: linear-gradient(#4d9748, #2e622a);
+	box-shadow: 0 1px 2px #aaa inset;
+}
+@mixin dropdown-menu-bg{
+	background: #3f843a;
+	background: -moz-linear-gradient(#4d9748, #2e622a);
+    background: -webkit-linear-gradient(#4d9748, #2e622a);
+    background: -o-linear-gradient(#4d9748, #2e622a);
+    background: linear-gradient(#4d9748, #2e622a);
+}
+@mixin logo-position{
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+	width: 229px;
+	height: 59px;
+	padding: 0 5px;
+}
+
+@mixin logo-fixed{
+	width: 102px;
+	height: 41px;	
+}
+@mixin logo-fixed-position{
+	background-repeat: no-repeat;
+	background-position: 0 2px;
+	width: 102px;
+	height: 41px;
+	padding: 0;
+}
+@mixin bet-tooltip-visibility{	
+}
+
+/* ======================================================================== 
+   === skin specific styles === */
+.sport-news ul{
+	background: #E6F6E2;  
+}
+ .right-block-list .sport-news h2{  background: #E6F6E2;  }
+   
+   

@@ -1,0 +1,65 @@
+/* ======================================================================== 
+   === skin specific styles === */
+.free-registr-info {
+  float: left;
+  width: 100%;
+  text-align: center;
+  padding: 20px 0 0;
+  height: 274px;
+  position: relative; }
+
+.free-registr-info h3 {
+  float: left;
+  width: 100%;
+  font: 38px/42px "sirucaregular", Arial, Helvetica, sans-serif;
+  color: #ffffff;
+  text-shadow: 0 -1px 0 #666666;
+  text-transform: uppercase; }
+
+.free-registr-info h3 span {
+  width: 100%;
+  float: left;
+  font: 22px/24px "sirucaregular", Arial, Helvetica, sans-serif;
+  text-transform: none; }
+
+.free-registr-info p {
+  float: left;
+  width: 100%;
+  font: 58px/60px "sirucaregular", Arial, Helvetica, sans-serif;
+  text-shadow: 0 -1px 0 #666666;
+  color: #ffffff; }
+
+.free-registr-info p span {
+  float: left;
+  width: 100%;
+  font: 36px/38px "sirucaregular", Arial, Helvetica, sans-serif; }
+
+.free-signin-b {
+  position: absolute;
+  bottom: 40px;
+  width: 100%; }
+
+.free-signin-b input {
+  padding: 10px 20px;
+  border: none;
+  margin: 0;
+  background: #f2f2f2;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #444444;
+  font: 17px Arial, Helvetica, sans-serif;
+  color: #3e3e3e;
+  font-weight: bold;
+  text-transform: uppercase;
+  min-width: 240px;
+  cursor: pointer; }
+
+.free-signin-b input:hover {
+  background: #FFE3E3;
+  transition-duration: 150ms;
+  text-shadow: 0 -1px 0 #fff; }
+
+.free-signin-b input:active {
+  background: #FFBEBE;
+  position: relative;
+  top: 1px;
+  box-shadow: 0 1px 5px #333333; }

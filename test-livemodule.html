@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html style="width:100%;height:100%;">
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+    </head>
+    <body style="width:99%;height:100%;overflow:hidden;">
+        <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+        <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+        <form method="GET" action="">
+            <label for="token">UserID:</label>
+            <input type="text" id="user_id" name="user_id" value=""/>
+
+            <label for="token">AuthToken:</label>
+            <input type="text" id="token" name="token" value=""/>
+
+            <label for="lng">Language:</label>
+            <select id="lng" name="lng">
+                <option value="eng">English</option>
+                <option value="rus">Russian</option>
+                <option value="lt">Lithuanian</option>
+                <option value="ka">Georgian</option>
+                <option value="zh">Chinese</option>
+                <option value="tr">Turkish</option>
+                <option value="fr">French</option>
+                <option value="es">Spanish</option>
+                <option value="sr">Serbian</option>
+                <option value="et">Estonian</option>
+                <option value="lv">Latvian</option>
+                <option value="arm">Armenian</option>
+            </select>
+
+            <!--label for="gmt">Timezone:</label>
+            <select id="gmt" name="gmt">
+                <option value="-12">-12</option>
+                <option value="-11">-11</option>
+                <option value="-10">-10</option>
+                <option value="-9">-9</option>
+                <option value="-8">-8</option>
+                <option value="-7">-7</option>
+                <option value="-6">-6</option>
+                <option value="-5">-5</option>
+                <option value="-4">-4</option>
+                <option value="-3">-3</option>
+                <option value="-2">-2</option>
+                <option value="-1">-1</option>
+                <option value="0">0</option>
+                <option value="+1">+1</option>
+                <option value="+2">+2</option>
+                <option value="+3">+3</option>
+                <option value="+4">+4</option>
+                <option value="+5">+5</option>
+                <option value="+6">+6</option>
+                <option value="+7">+7</option>
+                <option value="+8">+8</option>
+                <option value="+9">+9</option>
+                <option value="+10">+10</option>
+                <option value="+11">+11</option>
+                <option value="+12">+12</option>
+            </select-->
+            
+            <label for="odds">Odds Type:</label>
+            <select id="odds" name="odds">
+                <option value="decimal">Decimal</option>
+                <option value="fractional">Fractional</option>
+                <option value="american">American</option>
+            </select>
+            
+            <label for="page">Page:</label>
+            <select id="page" name="page">
+                <option value="prematch">Prematch</option>
+                <option value="live">Live</option>
+            </select>
+
+            <label for="skin">SkinName:</label>
+            <input type="text" id="skin" name="skin" value=""/>
+
+            <label for="domain">DomainName:</label>
+            <input type="text" id="domain" name="domain" value=""/>
+
+            <input type="submit" value="Reload" />
+        </form>
+
+        <span>
+        Open: <a href="#" onclick="window.htmlHelper.open('mygames');">mygames</a>    <a href="#" onclick="window.htmlHelper.open('history');">history</a>
+        </span>
+        <span>Balance: <span id="balance"></span></span>
+
+        <div id="BetConstructObject" style="width:100%;height:100%;"></div>
+        <script>
+            $('#page').change(function() { window.htmlHelper.switchTo($(this).val());})
+            $('#odds').change(function() { window.htmlHelper.setOddsType($(this).val());})
+
+            function betConstructCallbackHandler(name, value) {
+                if (name == 'balance') {
+                    $('#balance').html(value.balance + ' ' + value.currency_name);
+                }
+            }
+            function qs(key) {
+                key = key.replace(/[*+?^$.\[\]{}()|\\\/]/g, "\\$&"); // escape RegEx meta chars
+                var match = location.search.match(new RegExp("[?&]" + key + "=([^&]+)(&|$)"));
+                return match && decodeURIComponent(match[1].replace(/\+/g, " "));
+            }
+            var lang = qs("lng") || "en";
+            var auth_token = qs("token") || "anonymous";
+            var user_id = qs("user_id") || "";
+            var page = qs("page") || "live";
+            //            var gmt = qs("gmt") || "0";
+            var odds = qs("odds") || "1";
+            var skin = qs("skin") || '';
+            var domain = qs("domain") || '';
+            $('#lng').val(lang);
+            $('#user_id').val(user_id);
+            $('#token').val(auth_token);
+            $('#page').val(page);
+            //            $('#gmt').val(gmt);
+            $('#odds').val(odds);
+            $('#skin').val(skin);
+            $('#domain').val(domain);
+
+	    var url = (domain ? ("//sportsbook." + domain + "/") : "/");
+            var query = "?" +
+		"containerID=BetConstructObject&amp;" +
+                    "lang=" + lang + "&amp;" +
+                    "callbackName=betConstructCallbackHandler" + "&amp;" +
+                    "UserId=" + user_id + "&amp;" +
+                    "AuthToken=" + auth_token + "&amp;" +
+//                       "gmt=" + gmt + "&amp;" +
+                    "oddsType=" + odds + "&amp;" +
+                       "type=" + page + "&amp;" +
+			"skinName=" + skin
+                    '';
+
+	 document.write('<script id="bcsportsbook" src="'+url+'js/partnerinit.js'+query+'"><\/script>');
+        </script>
+
+    </body>
+</html>

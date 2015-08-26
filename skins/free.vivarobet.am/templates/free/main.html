@@ -1,0 +1,74 @@
+<div ng-controller="pagesCtrl" ng-init="loadPage('new-free-winners-' + env.lang, true); checkIfEnabled('freeWinners')">
+
+<div class="new-winners-page-j" ng-if="pagesLoaded" ng-init="$parent.selectedFreePage = pages[0];">
+    <div class="j-float-main-wrap">
+        <div class="big-promo-j-of-winners">
+            <div class="j-resize-outline">
+                <h2 trans >Winners</h2>
+            </div>
+        </div>
+    </div>
+    <div class="j-float-main-wrap winners-slider-global-wrapper-j" ng-controller="freeWinnersCtrl" ng-init="loadWinners();">
+        <div class="j-resize-outline" ng-if="winnerSliderInfo && pagesLoaded">
+            <ul class="lucky-winners-slider-j">
+                <li ng-repeat="winner in winnerSliderInfo.slides track by $index">
+                    <div class="winner-slider-win-amount-j"><div>{{winner.amount|number:0}}<span>amd</span></div></div>
+                    <div class="image-box-of-jh-andlast"
+                         ng-class="{'no-image-winners': !getPageByTitle(selectedFreePage.children, winner.client_id.toString()).thumbnail_images.full.url}"
+                         title="{{getPageByTitle(selectedFreePage.children, winner.client_id.toString()).thumbnail_images.full.url ? '' :winner.client_id}}"
+                            >
+                        <img ng-show="getPageByTitle(selectedFreePage.children, winner.client_id.toString()).thumbnail_images.full.url" src="{{getPageByTitle(selectedFreePage.children, winner.client_id.toString()).thumbnail_images.full.url}}">
+                    </div>
+                    <div class="winner-title-j">{{winner.name}}</div>
+                </li>
+            </ul>
+            <ul class="lucky-winners-slider-j-pagination">
+                <li><a ng-click="winnerSliderSet(winnerSliderInfo.slide - 1)" class="prev-j-slider"></a></li>
+                <li class="dot-pagination-j-colorful">
+                    <span ng-repeat="dot in winnerSliderInfo.dots track by $index" ng-class="{'active-j':dot}" ng-click="winnerSliderSet($index)"></span>
+                </li>
+                <li><a ng-click="winnerSliderSet(winnerSliderInfo.slide + 1)" class="next-j-slider"></a></li>
+            </ul>
+            <h4 ng-bind="pages[2].title"></h4>
+            <p ng-bind-html="pages[2].content"></p>
+
+        </div>
+    </div>
+    <div class="j-float-main-wrap" ng-if="pages[2].children[0]">
+        <div class="steps-to-four-j">
+            <div class="j-resize-outline">
+                <ul>
+                    <li ng-repeat="step in pages[2].children track by $index">
+                        <span class="j-number">{{$index + 1}}</span>
+                        <p ng-bind-html="step.content|html"></p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="j-float-main-wrap">
+        <div class="j-resize-outline current-day-block-j" ng-controller="freeWinnersCtrl" ng-init="loadRankingTable()">
+            <h5 ng-bind="pages[1].title"></h5>
+            <div class="j-table-classic">
+                <table ng-show="players.length" class="visible">
+                    <tbody>
+                    <tr>
+                        <td trans >ID</td>
+                        <td trans>Amount</td>
+                        <td trans >Name</td>
+                    </tr>
+                    <tr ng-repeat="player in players">
+                        <td ng-bind="player.client_id"></td>
+                        <td ng-bind="player.amount"></td>
+                        <td ng-bind="player.name | uppercase"></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<vbet-loader class="page-center" ng-show="!pagesLoaded"></vbet-loader>
+
+</div>

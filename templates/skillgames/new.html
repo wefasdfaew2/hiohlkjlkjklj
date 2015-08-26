@@ -1,0 +1,52 @@
+<!--<div class="subtop-header-menu-j">
+    <ul class="j-resize-950-1280">
+        <li class="current-location-j"></li>
+        <li ng-repeat="page in gamePages track by page.id" ng-click="$parent.selectedPage = page" ng-class="{'active-j' : $parent.selectedPage.id === page.id}">
+            <a>{{ page.name }} </a>
+        </li>
+    </ul>
+</div>-->
+<div class="new-games-page-j">
+    <div class="games-pattern-j">
+        <div class="gamesp-container-j">
+            <ul class="j-resize-950-1280">
+
+                <li class="{{game.gameID}}" ng-repeat="game in games track by game.id" ng-class="{'added-to-favorite-j': isFromSaved(game.id)}">
+                    <div ng-click="toggleSaveToMyCasinoGames(game)" class="fav-bar-game-j" ng-show="game.gameType.realPlay === 1">
+                        <span></span>
+                    </div>
+                    <p>{{ game.gameName|translate }}</p>
+                    <a  class="game-link-tj" ng-if="game.gameType.realPlay === 1" ng-click="openGame(game, 'real'); $event.stopPropagation();"></a>
+                    <div class="games-pw-buttonset-j">
+                        <button ng-show="game.gameType.realPlay === 1" ng-click="openGame(game, 'real'); $event.stopPropagation();" class="skin-j" trans>play now</button>
+                        <div class="action-button-set-j">
+                            <div ng-show="!env.authorized && game.gameType.realPlay === 1 && cConf.funModeEnabled && cConf.providersThatHaveNotFunMode.indexOf(game.gameProvider) == -1" class="view-j">
+                                <a ng-click="openGame(game, 'demo'); $event.stopPropagation();"></a>
+                            </div>
+                            <div class="download-j" ng-if="cConf.downloadEnabled && game.gameType.isDownloadClient === 1" ng-click="gaSend('send', 'event', 'games', game.gameCategory||game.gameCat, {'page': $location.path(), 'eventLabel': ('Download '+game.gameName)}); $event.stopPropagation();">
+                                <a ng-if="(userOS!=='Windows' && userOS !== 'MacOS' && userOS !== 'Linux' && userOS !== 'UNIX') || (!game.gameInfo.downloadLink && (userOS==='Windows' || userOS==='Linux' || userOS==='UNIX')) ||
+                                    (userOS==='MacOS' && !game.gameInfo.downloadLinkMac)" ng-click="$parent.globalPopup=('There is no downloadable client for your operating system'|translate)"></a>
+                                <a ng-if="(userOS==='Windows' || userOS==='UNIX') && game.gameInfo.downloadLink" ng-href="{{game.gameInfo.downloadLink}}"></a>
+                                <a ng-if="userOS==='MacOS' && game.gameInfo.downloadLinkMac" ng-href="{{game.gameInfo.downloadLinkMac}}"></a>
+                                <a ng-if="userOS==='Linux' && game.gameInfo.downloadLinkLinux" ng-href="{{game.gameInfo.downloadLinkLinux}}"></a>
+                            </div>
+                            <div class="download-j beta-j" ng-if="cConf.downloadEnabled && game.gameInfo.betaDownloadLink" ng-click="gaSend('send', 'event', 'games', game.gameCategory||game.gameCat, {'page': $location.path(), 'eventLabel': ('Beta Download '+ game.gameName)}); $event.stopPropagation();">
+                                <a ng-if="(userOS!=='Windows' && userOS !== 'MacOS') || (!game.gameInfo.betaDownloadLink.windows && userOS==='Windows') ||
+                                    (userOS==='MacOS' && !game.gameInfo.betaDownloadLink.mac)" ng-click="$parent.globalPopup=('There is no downloadable client for your operating system'|translate)"></a>
+                                <a ng-if="userOS==='Windows' && game.gameInfo.betaDownloadLink.windows" ng-href="{{ game.gameInfo.betaDownloadLink.windows }}"></a>
+                                <a ng-if="userOS==='MacOS' && game.gameInfo.betaDownloadLink.mac" ng-href="{{ game.gameInfo.betaDownloadLink.mac }}"></a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!--
+<div ng-if="selectedPage.id === '599'" ng-include="getTemplate('templates/backgammon/main.html')"></div>
+<div ng-if="selectedPage.id === '547'" ng-include="getTemplate('templates/belote/main.html')"></div>
+<div ng-if="selectedPage.id === 'VGSPoker'" ng-include="getTemplate('templates/poker/main.html')"></div>
+<div ng-if="selectedPage.id === '1540'" ng-include="getTemplate('templates/poker/main.html')"></div>
+<div ng-if="selectedPage.id === '595'" ng-include="getTemplate('templates/backgammon/main.html')"></div>
+-->

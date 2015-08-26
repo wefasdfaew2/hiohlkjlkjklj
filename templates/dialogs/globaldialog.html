@@ -1,0 +1,49 @@
+<div ng-controller="globalDialogCtrl">
+    <div class="popup-bg-contain active" ng-class="dialog().type||'info'" ng-if="dialog() && !dialog().popup">
+        <div class="fedback-wrapper dialog">
+            <div class="feed-closed-b" ng-click="closeDialog()" ng-if="!dialog().hideCloseButton"></div>
+            <div class="fedback-info">
+                <h3 ng-bind-html="dialog().title|translate|html"></h3>
+                <ul>
+                    <li ng-if="dialog().image">
+                        <div class="dialog-icon-b">
+                            <div class="mini-img-dialog">
+                                <img alt="" ng-src="{{dialog().image}}" />
+                            </div>
+                        </div>
+                    </li>
+                    <li ng-if="dialog().content">
+                        <div class="dialog-text-b" ng-bind-html="dialog().content|translate|html"></div>
+                        <div class="dialog-text-box-b" ng-if="dialog().contentBox"><input type="text" ng-model="dialog().contentBox" readonly/> </div>
+                        <a ng-if="dialog().buttonText" target="_blank" ng-href="{{dialog().buttonURL}}" ng-click="buttonClick();$event.stopPropagation();" ng-bind-html="dialog().buttonText|translate|html"></a>
+
+                        <ul ng-if="dialog().buttons" class="dialog-buttons-t">
+                            <li ng-repeat="button in dialog().buttons"><a ng-href="{{button.url}}" ng-click="closeDialog()" target="{{button.target}}" ng-bind-html="button.text|translate|html"></a></li>
+                        </ul>
+
+                    </li>
+                    <li ng-if="dialog().iframeURL">
+                        <iframe ng-src="{{dialog().iframeURL|html:'url'}}"></iframe>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="popup-bg-contain active" ng-if="dialog() && dialog().popup">
+        <div class="deposit-alert-contain">
+            <div class="text-deposit-alert free">
+                <div class="popup-status-icon" ng-class="dialog().type||'info'"></div>
+                <p>
+                    <span ng-if="dialog().content" ng-bind-html="dialog().content|translate|html"></span>
+
+                    <button ng-if="dialog().popup!='yesno'" class="message-box-ok-btn" ng-click="closeDialog()" trans>OK</button>
+                    <button ng-if="dialog().popup=='yesno'" class="message-box-ok-btn" ng-click="answer('yes')" trans>Yes</button>
+                    <button ng-if="dialog().popup=='yesno'" class="message-box-ok-btn" ng-click="answer('no')" trans>No</button>
+                </p>
+
+            </div>
+        </div>
+    </div>
+
+</div>

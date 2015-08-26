@@ -1,0 +1,44 @@
+<!--casino savegames-->
+<div ng-controller="myCasinoGamesCtrl" class="save-games-contain" ng-show="env.sliderContent === 'casinoSavedGames'" watch-resize>
+    <div class="my-games-save casino">
+        <div class="games-save-slider">
+            <div class="arrow-left-s" ng-show="offset > 0"><a ng-click="slide('left')">left-arrow</a></div>
+            <div class="arrow-right-s" ng-show="offset < myCasinoGames.length - GAMES_TO_SHOW"><a ng-click="slide('right')">right-arrow</a></div>
+            <div class="games-slider">
+                <ul>
+                    <li ng-repeat="game in myCasinoSavedGames track by game.id">
+                        <div class="icon-delete"><a ng-click="removeGameFromSaved(game.id); $event.stopPropagation();">delete</a></div>
+                        <a ng-click="openGame(game, 'real'); $event.stopPropagation();">
+                            <p class="play-button"><span trans>play now</span></p>
+                            <img ng-src="{{cConf.iconsUrl + game.gameID}}.jpg" alt="">
+                        </a>
+
+                        <p ng-show="cConf.funModeEnabled && cConf.providersThatHaveNotFunMode.indexOf(game.gameProvider) == -1 && cConf.categoriesThatHaveNotFunMode.indexOf(game.gameCategory) == -1 && (!env.authorized || game.id !== '1314')"
+                           class="fun-game"><a
+                                ng-show="game.gameCategory != 'LiveDealer' && game.gameCategory != 'VirtualBetting' && game.gameCategory != 'SkillGames'"
+                                class="game-fun-link"
+                                ng-click="openGame(game, 'fun')"><span trans>PLAY FOR FUN</span></a>
+                            <a ng-show="!env.authorized && (game.gameCategory == 'LiveDealer' || game.gameCategory == 'VirtualBetting' || game.gameCategory == 'SkillGames')"
+                               class="game-fun-link"
+                               ng-click="openGame(game, 'demo')"><span trans>VIEW</span></a></p>
+                        <div class="popular-game-name">
+                            <p><a> {{game.gameName}} </a></p>
+                            <div class="fav-block"><a>star</a></div>
+                        </div>
+                    </li>
+                </ul>
+                <div class="dont-games-block" ng-show="myCasinoSavedGames.length === 0"><p trans>You don't have favourite games. To add some, click the star icon near the game name.</p></div>
+            </div>
+
+            <!--<div ng-show="!casinoGamesLoaded" class="loader">
+                <div class="loader-ring">
+                    <div class="loader-ball-holder">
+                        <div class="loader-ball"></div>
+                    </div>
+                </div>
+            </div>-->
+            <vbet-loader class="page-center" ng-show="!casinoGamesLoaded"></vbet-loader>
+        </div>
+    </div>
+</div>
+<!--casino savegames END-->

@@ -1,0 +1,97 @@
+<div ng-controller="virtualSportsCtrl">
+    <div class="v-sports-tab">
+        <ul>
+            <li ng-repeat="section in sections track by $index" ng-click="loadCompetitions(section)" class="{{section.alias.toLowerCase() + '-icon'}}" ng-class="{'active': selectedVirtualSport.id == section.id}">
+                <span>{{section.name}}</span>
+            </li>
+        </ul>
+    </div>
+    <div class="scroll-contain">
+        <div class="group-container" ng-show="sections.length">
+            <div class="virt-video-container">
+                <div class="video-content" ng-if="videoData">
+                    <div class="player">
+                        <flashplayer id="gamevideo{{selectedGame.id}}" stream-url="{{videoData}}" provider-id="{{providerId}}" initially-muted="{{ env.sound }}"></flashplayer>
+                    </div>
+                    <div class="video-player-control" ng-show="videoIsLoaded">
+                        <span ng-click="env.sound = 0; $event.stopPropagation();" ng-show="env.sound > 0" class="video-mute">Mute</span>
+                        <span ng-click="env.sound = 0.75; $event.stopPropagation();" ng-show="env.sound === 0" class="video-unmute">UnMute</span>
+                    </div>
+                    <div class="overlay-bg" ng-show="remainingSeconds > 0">
+                        <div class="details-overlay">
+                            <div trans>Next Event</div>
+                            <p>
+                                <span ng-bind="countdown.minutes()|padWithZeros:2"></span>
+                                <span>:</span>
+                                <span ng-bind="countdown.seconds()|padWithZeros:2"></span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="competitopn-switch">
+                    <ul>
+                        <li ng-repeat="competition in competitions track by competition.id" ng-click="competitions.length > 1 ? loadGames(competition): void();" ng-class="{'active': competition.id == selectedVirtualCompetition.id}">{{competition.name}}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="upcoming-events" ng-show="games.length">
+            <div>
+                <ul>
+                    <li class="upcoming-title" trans>Upcoming games</li>
+                    <li ng-repeat="game in games track by game.id" ng-click="openGame(game)" ng-bind="game.start_ts | formatDate:'HH:mm'" ng-class="{'active': game.id == selectedGame.id}"></li>
+                </ul>
+            </div>
+        </div>
+        <vbet-loader ng-hide="selectedGame"> </vbet-loader>
+        <div class="market-contain-b" ng-show="selectedGame">
+            <div class="game-title">
+                <div class="ew" ng-if="(selectedGame.market|firstElement).ew_coeff && (selectedGame.market|firstElement).ew_coeff > 1">
+                    <span>Each Way:</span>
+                    {{'1/'+ (selectedGame.market|firstElement).ew_coeff}}&nbsp;
+                    {{eachWayPlace((selectedGame.market|firstElement).ew_place)}}
+                </div>
+                <div>{{selectedGame.text_info + ' ' + selectedGame.team1_name + ' ' + selectedGame.team2_name}}</div>
+            </div>
+            <!-- tennis markets -->
+            <div class="mini-market-b" ng-repeat="market in selectedGame.markets track by $index" ng-if="selectedVirtualSport.alias === 'VirtualTennis' || selectedVirtualSport.alias === 'VirtualFootball'">
+                <h3>
+                     <span class="icons-bet-view" ng-show="market.express_id" title="Events from different groups can be combined in combined bets" trans="attr-only">
+                        <i class="icon-link"></i>
+                        <span>{{market.express_id}}</span>
+                    </span>
+                    {{market.name}}
+                </h3>
+                <ul class="column-{{market.col_count}}">
+                    <li ng-repeat="event in market.events track by $index" ng-class="{'active': isEventInBetSlip(event), 'blocked': event.price === 1}" ng-click="bet(event, market, selectedGame)" title="{{event.name}}">
+                        <div class="market-info-b"><p>{{event.name}}<b ng-if="event.base"> ({{event.base}})</b></p> <span class="price{{arrowHide}}{{event.price_change}}">{{event.price|oddConvert:env.oddFormat}}</span></div>
+                    </li>
+                </ul>
+            </div>
+            <!-- race markets -->
+            <div class="race-market" ng-repeat="market in selectedGame.markets track by $index" ng-if="selectedVirtualSport.alias !== 'VirtualTennis' && selectedVirtualSport.alias !== 'VirtualFootball' ">
+                <ul class="header">
+                    <li class="arr-up" trans ng-click="dataColumnClick('type')"
+                        ng-class="{'arr-down': dataPredicate == 'type' && dataReverce}">&#8470;</li>
+                    <li>
+                        <p ng-if="selectedVirtualSport.alias === 'VirtualHorses'" trans>Horse</p>
+                        <p ng-if="selectedVirtualSport.alias === 'VirtualDogs'" trans>Greyhound</p>
+                    </li>
+                    <li trans ng-if="selectedVirtualSport.alias === 'VirtualHorses'">Jockey</li>
+                    <li class="odds arr-up" ng-if="conf.enableNewHorseRacingTemplate" ng-click="dataColumnClick('price')" ng-class="{'arr-down': dataPredicate == 'price' && dataReverce}" trans>Odds:</li>
+                </ul>
+                <ul ng-repeat="event in market.events | orderBy:dataOrder:dataReverce track by $index">
+                    <li><img ng-src="{{ event.numberPath }}"/></li>
+                    <li>{{ event.animalName }}</li>
+                    <li ng-if="selectedVirtualSport.alias === 'VirtualHorses'">{{ event.playerName }}</li>
+                    <li class="odds">
+                        <div class="bets" ng-click="bet(event, market, selectedGame)" ng-class="{'active': isEventInBetSlip(event), 'blocked': event.price === 1}">
+                            <span class="price{{arrowHide}}{{event.price_change}}">{{event.price|oddConvert:env.oddFormat}}</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <!-- race markets END -->
+        </div>
+    </div>
+</div>

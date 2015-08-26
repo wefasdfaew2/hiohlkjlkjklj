@@ -1,0 +1,186 @@
+<div class="left-block-score">
+    <!--<div class="live-game-soccer">
+        <ul>
+            <li class="coat-team-1">
+                <div ng-show="game.info.extra.team1icon"><img ng-src="{{ game.info.extra.team1icon}}" ></div>
+                <div class="thsirt-instead-of-coat" ng-show="!game.info.extra.team1icon"><tshirt shorts="{{game.info.short1_color}}"  shirt="{{game.info.shirt1_color}}"></tshirt></div>
+                <span>{{ game.team1_name }}</span>
+            </li>
+            <li>{{ game.info.score1 }}<span class="cash-f">{{ game.info.score2 }}</span></li>
+        </ul>
+        <ul>
+            <li class="coat-team-2">
+                <div ng-show="game.info.extra.team2icon"><img ng-src="{{ game.info.extra.team2icon}}"></div>
+                <div class="thsirt-instead-of-coat" ng-show="!game.info.extra.team2icon"><tshirt shorts="{{game.info.short2_color}}"  shirt="{{game.info.shirt2_color}}"></tshirt></div>
+                <span>{{ game.team2_name }}</span>
+            </li>
+            <li>{{ game.info.current_game_state|convertSetName:game.sport.id }} {{ game.info.current_game_time }}</li>
+        </ul>
+    </div>-->
+    <div class="live-game-generic live-game-soccer1" ng-class="{'no-video-flash': !(conf.videoEnabled && game.video_id || game.last_event) || (isVideoDetached && !game.last_event)}">
+        <ul>
+            <li>
+                <p>
+                    <span>
+                        {{ game.team1_name }}
+                    </span>
+                </p>
+            </li>
+            <li>
+                <div class="soccer-score">
+                    {{ game.info.score1 ?  game.info.score1 : ''}}
+                </div>
+                <div class="team-coat" ng-show="game.info.extra.team1icon"><img ng-src="{{ game.info.extra.team1icon}}"></div>
+                <div class="team-form" ng-show="!game.info.extra.team1icon"><tshirt shorts="{{game.info.short1_color}}" shirt="{{game.info.shirt1_color}}"></tshirt></div>
+
+            </li>
+        </ul>
+        <ul>
+            <li>
+                <p>
+                    <span>{{ game.team2_name ?  game.team2_name: '' }}</span>
+                </p>
+            </li>
+            <li>
+                <div class="soccer-score">
+                    {{ game.info.score2 ?  game.info.score2 : ''}}
+                </div>
+                <div class="team-coat" ng-show="game.info.extra.team2icon"><img ng-src="{{ game.info.extra.team2icon}}"></div>
+                <div class="team-form" ng-show="!game.info.extra.team2icon"><tshirt shorts="{{game.info.short2_color}}" shirt="{{game.info.shirt2_color}}"></tshirt></div>
+            </li>
+        </ul>
+        <div class="add-info" ng-if="!!game.info.current_game_state">
+            {{ game.info.current_game_state|convertSetName:game.sport.id }} {{ (game.info.current_game_time)[0] === '-'? 'will start in '+ (game.info.current_game_time).substring(1): game.info.current_game_time }}
+        </div>
+    </div>
+
+    <div class="conteiner-goals">
+
+        <div class="football-gamer-name">
+            <div ng-class="game.live_events[game.live_events.length-1].event_type+'-icon'"></div>
+            <span ng-class="game.live_events[game.live_events.length-1].team" ng-show="game.live_events[0]">
+                <tshirt shirt="{{ game.info['shirt'+ (game.live_events|orderBy:'add_info_order':true)[0].team.slice(-1) + '_color'] }}" shorts="{{ game.info['short'+ (game.live_events|orderBy:'add_info_order':true)[0].team.slice(-1) + '_color'] }}"></tshirt>
+            </span>
+            <p>{{game.live_events[game.live_events.length-1].event_type}} {{ game.live_events[game.live_events.length-1].add_info }}</p>
+            <div class="arrow-hover" ng-show="game.live_events.count"></div>
+        </div>
+        <div class="hover-sp">
+            <div class="football-gamer-name" ng-repeat="gameEvent in game.live_events|orderBy:'add_info_order':true" ng-if="!$first">
+                <div ng-class="gameEvent.event_type+'-icon'"></div>
+                <span ng-class="gameEvent.team">
+                    <tshirt shirt="{{ game.info['shirt'+ gameEvent.team.slice(-1) + '_color'] }}" shorts="{{ game.info['short'+ gameEvent.team.slice(-1) + '_color'] }}"></tshirt>
+                </span>
+                <p>{{gameEvent.event_type}} {{ gameEvent.add_info }}</p>
+            </div>
+        </div>
+    </div>
+
+    <!--Счет игры live game-->
+    <table class="cash-game" ng-class="{'no-video-flash': !(conf.videoEnabled && game.video_id || game.last_event) || (isVideoDetached && !game.last_event)}">
+        <tr>
+            <th>&nbsp;</th>
+            <th><div class="ball-icon" title="goals"></div></th>
+            <th><div class="yellow-icon" title="yellow cards"></div></th>
+            <th><div class="red-icon" title="red cards"></div></th>
+            <th><div class="angular-icon" title="corners"></div></th>
+            <th><div class="penalty-icon" title="penalties"></div></th>
+        </tr>
+        <tr>
+            <td class="team-1" ng-style="{'border-left-color': '#'+ game.info.shirt1_color}"><div><tshirt shorts="{{game.info.short1_color}}" shirt="{{game.info.shirt1_color}}"></tshirt></div> <span>{{ game.team1_name }}</span></td>
+            <td>{{ game.stats.goal.team1_value }}</td>
+            <td>{{ game.stats.yellow_card.team1_value }}</td>
+            <td>{{ game.stats.red_card.team1_value }}</td>
+            <td>{{ game.stats.corner.team1_value }}</td>
+            <td>{{ game.stats.penalty.team1_value }}</td>
+        </tr>
+        <tr>
+            <td class="team-2" ng-style="{'border-left-color': '#'+ game.info.shirt2_color}"><div><tshirt shorts="{{game.info.short2_color}}" shirt="{{game.info.shirt2_color}}"></tshirt></div> <span>{{ game.team2_name }}</span></td>
+            <td>{{ game.stats.goal.team2_value }}</td>
+            <td>{{ game.stats.yellow_card.team2_value }}</td>
+            <td>{{ game.stats.red_card.team2_value }}</td>
+            <td>{{ game.stats.corner.team2_value }}</td>
+            <td>{{ game.stats.penalty.team2_value }}</td>
+        </tr>
+    </table>
+</div>
+<div ng-show="(conf.videoEnabled && game.video_id && !isVideoDetached) || game.last_event">
+    <div class="right-block-flash right-block-flash-soccer" id="game-monitor-{{ game.id }}">
+        <div ng-include="getTemplate('templates/sport/open/player.html')"></div>
+        <!-- Animated control -->
+        <div class="game-control">
+            <!-- Field with animations -->
+            <div class="field-container">
+                <div class="timeline">
+                    <div ng-repeat="tlEvent in game.tlEvents" ng-style="getTimelinePosition(tlEvent.minute)">
+                        <tshirt shorts="{{tlEvent.shirtColor}}" shirt="{{tlEvent.shirtColor}}" outline="fff"></tshirt>
+                        <div class="{{tlEvent.type}}"></div>
+                    </div>
+                    <div class="current-time" ng-style="getTlCurrentMinute(game)"></div>
+                </div>
+                <div class="field">
+                    <!-- <img src="img/ssoccer.png">	 -->
+                    <div ng-include="game.animatedEvent.url" class="animation-container {{game.animatedEvent.type}} {{game.animatedEvent.side}}"></div>
+                    <div class="gate-l"></div>
+                    <div class="gate-r"></div>
+                </div>
+            </div>
+            <!-- Game statistics -->
+            <div class="statistics-toggle">
+                <!-- 	<button  ng-click="hide = !hide"></button> -->
+                <ul class="game-statistics" ng-class="{hidden: hide}">
+                    <li>
+                        <div trans class="title">Dangerous Attack</div>
+                        <div class="stat-l">{{game.stats.dangerous_attack.team1_value}}</div>
+                        <div class="team-2" ng-style="{background: '#'+ game.info.shirt2_color}">
+                            <div class="team-1" ng-style="{background: '#'+ game.info.shirt1_color, width: game.stats.dangerous_attack.team1_width + '%'}"></div>
+                        </div>
+                        <div class="stat-r">{{game.stats.dangerous_attack.team2_value}}</div>
+                    </li>
+                    <li>
+                        <div trans class="title">Shot on target</div>
+                        <div class="stat-l">{{game.stats.shot_on_target.team1_value}}</div>
+                        <div class="team-2" ng-style="{background: '#'+ game.info.shirt2_color}">
+                            <div class="team-1" ng-style="{background: '#'+ game.info.shirt1_color, width: game.stats.shot_on_target.team1_width + '%'}"></div>
+                        </div>
+                        <div class="stat-r">{{game.stats.shot_on_target.team2_value}}</div>
+                    </li>
+                    <li>
+                        <div trans class="title">Shot off target</div>
+                        <div class="stat-l">{{game.stats.shot_off_target.team1_value}}</div>
+                        <div class="team-2" ng-style="{background: '#'+ game.info.shirt2_color}">
+                            <div class="team-1" ng-style="{background: '#'+ game.info.shirt1_color, width: game.stats.shot_off_target.team1_width + '%'}"></div>
+                        </div>
+                        <div class="stat-r">{{game.stats.shot_off_target.team2_value}}</div>
+                    </li>
+                    <li>
+                        <div trans class="title">Corner kick</div>
+                        <div class="stat-l">{{game.stats.corner.team1_value}}</div>
+                        <div class="team-2" ng-style="{background: '#'+ game.info.shirt2_color}">
+                            <div class="team-1" ng-style="{background: '#'+ game.info.shirt1_color, width: game.stats.corner.team1_width + '%'}"></div>
+                        </div>
+                        <div class="stat-r">{{game.stats.corner.team2_value}}</div>
+                    </li>
+                    <li>
+                        <div trans class="title">Yellow card</div>
+                        <div class="stat-l">{{ game.stats.yellow_card.team1_value }}</div>
+                        <div class="team-2" ng-style="{background: '#'+ game.info.shirt2_color}">
+                            <div class="team-1" ng-style="{background: '#'+ game.info.shirt1_color, width: game.stats.yellow_card.team1_width + '%'}"></div>
+                        </div>
+                        <div class="stat-r">{{ game.stats.yellow_card.team2_value }}</div>
+                    </li>
+                    <li>
+                        <div trans class="title">Red card</div>
+                        <div class="stat-l">{{game.stats.red_card.team1_value}}</div>
+                        <div class="team-2" ng-style="{background: '#'+ game.info.shirt2_color}">
+                            <div class="team-1" ng-style="{background: '#'+ game.info.shirt1_color, width: game.stats.red_card.team1_width + '%'}"></div>
+                        </div>
+                        <div class="stat-r">{{game.stats.red_card.team2_value}}</div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- Animated control END -->
+
+    </div>
+</div>
+

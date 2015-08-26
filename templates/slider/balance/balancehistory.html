@@ -1,0 +1,83 @@
+<div class="bet-history new"
+     ng-if="conf.sportEnabled"
+     ng-controller="balanceCtrl" ng-init="initbalanceHistory()">
+    <div class="contein-bet-history">
+        <!--Блок с датой-->
+        <div class="left-block-history new">
+            <div class="form-sign-in">
+                <label trans>Time Period</label>
+                <div class="select-block">
+                    <select ng-model="dataSelectedIndex" ng-change="loadBalanceHistory()">
+                        <option ng-repeat="d in balanceHistoryParams.dateRanges" value="{{ $index }}"  ng-class="{ 'data-range-month' : d.type == 'month', 'data-range-week': d.type == 'week' }">{{ d.str }}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-sign-in">
+                <label trans>Transactions</label>
+                <div class="select-block">
+                    <select ng-model="balanceHistoryParams.balanceType" ng-options="key as value  for (key, value) in balanceHistoryParams.balanceTypes " ng-change="loadBalanceHistory()">
+                    </select>
+                </div>
+            </div>
+        </div>
+        <!--Блок с датой END-->
+        <vbet-loader class="page-center right-block-history" ng-if="!balanceHistoryLoaded && !message"></vbet-loader>
+        <!--all Transactions block-->
+        <div class="right-block-history new" ng-if="balanceHistoryLoaded">
+            <div class="All-Bets-history">
+                <h3 trans>All Transactions</h3>
+                <div class="history-list">
+                    <ul ng-repeat="balance in balanceHistory" ng-show="conf.balanceTypesToHideInHistory.indexOf(balance.operation)===-1" >
+                        <li class="transactions-list-date">
+                        	<span>{{balance.date_time|formatDate:'full'}} </span>
+                            <p ng-show="balance.bet_id"><span trans>id:&nbsp;</span> <span>{{balance.bet_id}}</span></p>
+                        </li>
+                        
+                        
+                        <!--<li class="transactions-money" ng-show="balance.bet_id"><span trans>id: </span><span>{{balance.bet_id}}</span></li>-->
+                        <!--<li class="transactions-money empty" ng-show="!balance.bet_id"></li>-->
+                        <li class="type-transactions">
+                            <p> {{balanceTypes[balance.operation]}} </p>
+                        </li>
+                        <li class="bonus-title-b" ng-show="conf.bonusesEnabled">
+                            <p trans>Bonus</p>
+                        </li>
+
+                        <li class="transactions-money">
+                            <span ng-show="balance.amount >0">+</span><span>{{balance.amount}} {{currency_name}}</span>
+                        </li>
+                        <li class="transactions-money"><span>{{balance.balance}} {{currency_name}}</span></li>
+                    </ul>
+
+
+                </div>
+            </div>
+            <!--pagination-->
+            <div class="pagination" ng-show="balanceHistory.length && balanceHistoryPages.length > 1">
+                <ul>
+                    <li ng-repeat="page in balanceHistoryPages" ng-class="{true: 'item-active', false: 'item-dark'}[balanceHistoryActivePage === page]">
+                        <a ng-click="balanceHistoryGotoPage(page)" ng-show="page> 0">{{page}}</a>
+                        <span ng-show="page < 0">...</span>
+                    </li>
+                    <li class="item-next" ng-show="balanceHistoryActivePage < totalPages"><a ng-click="balanceHistoryGotoPage(balanceHistoryActivePage + 1)" trans>next</a></li>
+                    <li class="item-prevew" ng-show="balanceHistoryActivePage > 1"><a ng-click="balanceHistoryGotoPage(balanceHistoryActivePage -1)" trans>prev</a></li>
+                </ul>
+            </div>
+            <!--pagination END-->
+        </div>
+        <!--all Transactions block END-->
+    </div>
+
+    <div class="popup-bg-contain" ng-class="{'active': message}">
+        <div class="deposit-alert-contain">
+            <div class="icon-delete"><a ng-click="message=null">Close</a></div>
+            <div class="text-deposit-alert">
+                <div class="popup-status-icon" ng-class="messageType||'info'"></div>
+                <p>
+                    <span ng-bind="message"></span>
+                    <button class="message-box-ok-btn" ng-click="message=null" trans>OK</button>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

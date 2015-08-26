@@ -1,0 +1,99 @@
+<div ng-if="conf.oldHomepage" ng-init="setTitle('')" class="old-homepage">
+    <!--Главная страница-->
+    <div class="mein-page-contain">
+        <div class="page-main">
+            <div class="top-picture-block" ng-include="getTemplate('templates/homepage/top_game_banners.html')"></div>
+
+            <div>
+                <div ng-include="getTemplate('templates/homepage/countdown_announcement.html')"  ng-controller="homepageCtrl"    class="announcement" ng-if="env.showFifaCountdown" ></div>
+                <div ng-include="getTemplate('templates/homepage/short_wide_banners.html')"       ng-controller="sportNewsCtrl"   class="announcement announcement-banners"  ng-init="getHomepageBanners()" ng-show="homepageBanners.length" ></div>
+                <div ng-include="getTemplate('templates/homepage/twitternews.html')"            ng-controller="pagesCtrl"       class="twitter-news" ng-if="conf.twitterFeed.enabled" ng-show="tweets.length" ng-init="loadTwitterFeed()" ></div>
+            </div>
+        </div>
+    </div>
+
+    <!--Блок с новостью-->
+    <div ng-include="getTemplate('templates/homepage/center.html')" class="tpl-container"></div>
+    <div ng-include="getTemplate('templates/homepage/sportnews_full.html')" class="tpl-container" ng-if="!conf.disableHomepageNews"></div>
+    <!--Блок с новостью END-->
+</div>
+
+
+
+
+
+<!-- new home page template -->
+<div ng-if="!conf.oldHomepage" ng-init="setTitle('')" class="new-homepage">
+    <div class="mein-page-contain">
+        <div class="page-main">
+            <div class="outside-b-sh">
+                <div class="top-picture-block" ng-include="getTemplate('templates/homepage/top_game_banners.html')"></div>
+                <div>
+                    <div ng-include="getTemplate('templates/homepage/short_wide_banners.html')" ng-controller="sportNewsCtrl" class="announcement announcement-banners new-version"  ng-init="getHomepageBanners()" ng-show="homepageBanners.length" ></div></div>
+            </div>
+            <div class="news-block-section">
+                <!-- news section -->
+                <div ng-include="getTemplate('templates/homepage/new_sportnews_full.html')" class="tpl-container" ng-if="!conf.disableHomepageNews"></div>
+
+
+            </div>
+            <div ng-if="!conf.enableHomePageBottomBanner" ng-controller="homepageTournaments">
+                <div class="mini-t-container tournament" ng-class="{'ChinesePoker': tournamentModel.selectedTournament.value == 2}">
+                    <vbet-loader  ng-show="!tournamentsLoadComplete"></vbet-loader>
+                    <div ng-show="tournamentsLoadComplete" ng-include="getTemplate('templates/homepage/tournaments.html')">
+                    </div>
+                </div>
+                <div class="mini-t-container leaderbord" ng-if="conf.getPokerLeaderboardDataFromSwarm">
+                    <vbet-loader ng-show="!pokerLeaderboard"></vbet-loader>
+                    <div ng-init="getPokerLeaderboard();" ng-show="pokerLeaderboard">
+                        <h3 trans>Poker Leaderboard</h3>
+                        <div class="list-leder-gamers">
+                            <table border="0" cellspacing="0" cellpadding="0">
+                                <tbody>
+                                <tr>
+                                    <td>ID</td>
+                                    <td trans>Points</td>
+                                </tr>
+                                <tr ng-repeat="boardData in pokerLeaderboard">
+                                    <td>{{boardData.player_id}}</td>
+                                    <td>{{boardData.point}}</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div ng-if="!conf.hidePokerLeaderboardAllButton" class="show-all-listinfo">
+                            <a ng-href="#/poker?page=leaderboards&subpage=tournament">
+                                <button trans>Show All</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div ng-controller="pagesCtrl" class="mini-t-container leaderbord" ng-if="!conf.getPokerLeaderboardDataFromSwarm && !conf.enableHomePageBottomBanner">
+                <vbet-loader ng-show="!pokerLeaderboard"></vbet-loader>
+                <div ng-init="getPokerLeaderboard();" ng-show="pokerLeaderboard">
+                    <h3 trans>Poker Leaderboard</h3>
+                    <div class="list-leder-gamers" ng-bind-html="pokerLeaderboard"></div>
+                    <div ng-if="!conf.hidePokerLeaderboardAllButton" class="show-all-listinfo">
+                        <a ng-href="#/poker?page=leaderboards&subpage=tournament">
+                            <button trans>Show All</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div ng-if="conf.enableHomePageBottomBanner" ng-controller="pagesCtrl" ng-init="loadBanners(WPConfig.bannerSlugs.homepageBottomBanners[env.lang])" class="hp-bottom-buner-j">
+                <vbet-loader ng-show="!bannerObjects[WPConfig.bannerSlugs.homepageBottomBanners[env.lang]]"></vbet-loader>
+                <div ng-show="bannerObjects[WPConfig.bannerSlugs.homepageBottomBanners[env.lang]]">
+                    <a ng-href="{{bannerObjects[WPConfig.bannerSlugs.homepageBottomBanners[env.lang]][0].link}}" target="{{bannerObjects[WPConfig.bannerSlugs.homepageBottomBanners[env.lang]][0].linktarget}}">
+                        <img ng-src="{{ bannerObjects[WPConfig.bannerSlugs.homepageBottomBanners[env.lang]][0].imageurl }}" alt="">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<!--<div ng-controller="pageSliderCtrl" ng-include="getTemplate('templates/bottomslider.html')" onload="loadSliderContent('homepage-slider-' + env.lang)"></div>-->

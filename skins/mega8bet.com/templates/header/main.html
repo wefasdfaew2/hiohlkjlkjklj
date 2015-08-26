@@ -1,0 +1,37 @@
+<div class="new-header-wrapper">
+    <div class="top-black" ng-include="getTemplate('templates/header/headerannouncements.html')"></div>
+    <div class="header-bg"></div>
+    <div class="header">
+        <div ng-include="getTemplate('templates/header/verytopmenu.html')"></div>
+        <ng-include src="getTemplate('templates/header/breadcrumb.html')"></ng-include>
+        <div ng-hide="conf.disableHeader">
+            <div ng-include="getTemplate('templates/header/clock.html')"></div>
+            <div class="main-nav favorite">
+                <ul class="favorite-b-new"><ng-include src="getTemplate('templates/header/favorites.html')"></ng-include></ul>
+            </div>
+            <div ng-include="getTemplate('templates/search/sport.html')"></div>
+            <div ng-include="getTemplate('templates/search/casino.html')"></div>
+            <div ng-include="getTemplate('templates/header/settings.html')"></div>
+            <div ng-include="getTemplate('templates/header/logo.html')"></div>
+        </div>
+        <div class="top-menu" ng-hide="::conf.disableHeaderNavigation">
+            <div class="main-nav account-nav">
+                <ul ng-show="env.authorized">
+                    <ng-include src="getTemplate('templates/header/balance.html')"></ng-include>
+                    <ng-include src="getTemplate('templates/header/mybets.html')"></ng-include>
+                    <li class="last-child">
+                        <ng-include src="getTemplate('templates/header/dynamicmessage.html')"></ng-include>
+                    </li>
+                </ul>
+                <ul class="not-sign" ng-show="!env.authorized">
+                    <div class="sign-in-reg-buttons">
+                        <ng-include src="getTemplate('templates/header/registrationbutton.html')"></ng-include>
+                        <ng-include src="getTemplate('templates/header/signinbutton.html')"></ng-include>
+                    </div>
+                </ul>
+            </div>
+            <div ng-include="getTemplate('templates/header/profilemenu.html')"></div>
+        </div>
+        <div ng-include="getTemplate('templates/header/topmenu.html')"></div>
+    </div>
+</div>

@@ -1,0 +1,53 @@
+$black-text: #{'#171717'};
+$black-bg: #{'#000000'};
+$white-text: #{'#ffffff'};
+$white-bg: #{'#ffffff'};
+$gray: #{'#cccccc'};
+$bg-footer-slider: #{'#0E3610'};
+$bg-footer: #{'#0E3610'};
+$red-text: #{'#8c673b'};
+$red-bg: #{'#a1824c'};
+$shadow-color: #{'#222222'};
+$header-text: #{'#ffffff'};
+$border-color: #{'#828183'};
+$header-nav-bg: #{'#ad1703'};
+$dark-shadow-color: #{'#555555'};
+$taupe-text-color: #{'#555555'};
+$profile-nav-bg: #{'#555555'};
+$bg-button: #{'#339425'} url(../images/bet-list-bg.png) no-repeat 93% 50%;
+$bg-button-disable: #{'#7A7575'} url(../images/bet-list-bg.png) no-repeat 93% 50%;
+$betslit-icon: url(../images/bet-list-bg.png) no-repeat 0 20%;
+$bg-forms-cantain: rgba(180, 178, 178, 0.3);
+$style-text: italic;
+$lite-black-text: #{'#333333'};
+$bold-text: bold;
+$font-f:  Arial, Helvetica, sans-serif;
+$font-k: KabelLt, Arial, Helvetica, sans-serif;
+
+
+$show-hide-header: none;
+$header-margin: 0; //for skins without header
+$top-sport-title-lpos: 0;
+$logo-home-icon: none;
+$bet-btn-bg: #{'#e41919'};
+$bet-btn-hover-bg: #{'#ad1703'};
+$bet-btn-disabled-bg: #{'#AFADAD'};
+$live-btn-bg: rgba(148, 244, 98, 0.63);
+$prematch-btn-bg: rgba(255, 255, 255, 0.4);
+
+@mixin bg-img{}
+@mixin header-menu-bg{	
+}
+@mixin dropdown-menu-bg{	
+}
+@mixin logo-position{	
+}
+@mixin logo-fixed{
+}
+@mixin logo-fixed-position{	
+}
+@mixin bet-tooltip-visibility{
+}
+
+/* ======================================================================== 
+   === skin specific styles === */

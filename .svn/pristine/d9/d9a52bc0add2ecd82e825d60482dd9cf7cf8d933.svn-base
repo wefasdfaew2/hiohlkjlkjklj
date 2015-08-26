@@ -1,0 +1,6 @@
+<div ng-controller="miniGamesCtrl" ng-mouseover="rotationPaused = true;"
+     ng-mouseleave="rotationPaused = false;">
+    <div ng-if="showGames" class="mini-game-container">
+        <iframe ng-src="{{ frameUrl }}"></iframe>
+    </div>
+</div>

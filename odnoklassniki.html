@@ -1,0 +1,17 @@
+<script>
+  (function () {
+    window.opener.odnoSettings = {};
+    var odnoSettings = {};
+
+    function getHashValue(key) {
+      return location.hash.match(new RegExp(key + '=([^&]*)'))[1];
+    }
+    odnoSettings.accessToken = getHashValue('access_token');
+    odnoSettings.sessionSecretKey = getHashValue('session_secret_key');
+
+    window.opener.postMessage(JSON.stringify(odnoSettings),'*');
+
+    setTimeout(window.close,500);
+
+  })()
+</script>

@@ -1,0 +1,137 @@
+<!DOCTYPE>
+<html>
+<head>
+
+    <title></title>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <script>
+        function handlePageLoad(FormName) {
+            var endpointMatcher = new RegExp("[\\?\\&]endpoint=([^&#]*)");
+            document.getElementById(''+FormName+'').setAttribute('action',
+                    decodeURIComponent(endpointMatcher.exec(document.location.search)[1]));
+        }
+
+        function submitFunction(ServerResult){
+            if(ServerResult == true){
+                var elem = document.getElementById('GuestForm');
+                elem.parentNode.removeChild(elem);
+                handlePageLoad('ClientForm');
+                document.forms[0].submit();
+            }
+            else{
+                var elem = document.getElementById('ClientForm');
+                elem.parentNode.removeChild(elem);
+                handlePageLoad('GuestForm');
+            }
+        }
+    </script>
+</head>
+
+<body onload="submitFunction(false)">
+
+<form id="ClientForm" method="post">
+    <input name="liveagent.prechat:UserID" type="hidden" value="" /><br />
+    <input name="liveagent.prechat.query:UserID" type="hidden" value="Contact,Contact.UserID" />
+    <input name="liveagent.prechat.save:UserID" type="hidden" value="UserID" />
+
+    <input name="liveagent.prechat:FirstName" type="hidden" value="" /><br />
+    <input name="liveagent.prechat.query:FirstName" type="hidden" value="Contact,Contact.FirstName" />
+    <input name="liveagent.prechat.save:FirstName" type="hidden" value="FirstName" />
+
+    <input name="liveagent.prechat:LastName" type="hidden" value="" /><br />
+    <input name="liveagent.prechat.query:LastName" type="hidden" value="Contact,Contact.LastName" />
+    <input name="liveagent.prechat.save:LastName" type="hidden" value="LastName" />
+
+    <input name="liveagent.prechat:Sex" type="hidden" value="" /><br />
+    <input name="liveagent.prechat.query:Sex" type="hidden" value="Contact,Contact.Sex" />
+    <input name="liveagent.prechat.save:Sex" type="hidden" value="Sex" />
+
+    <input name="liveagent.prechat:Address" type="hidden" value=""/><br />
+    <input name="liveagent.prechat.query:Address" type="hidden" value="Contact,Contact.Address" />
+    <input name="liveagent.prechat.save:Address" type="hidden" value="Address" />
+
+    <input name="liveagent.prechat:Email" type="hidden" value=""/><br />
+    <input name="liveagent.prechat.query:Email" type="hidden" value="Contact,Contact.Email" />
+    <input name="liveagent.prechat.save:Email" type="hidden" value="Email" />
+
+    <input name="liveagent.prechat:Balance" type="hidden" value=""/><br />
+    <input name="liveagent.prechat.query:Balance" type="hidden" value="Contact,Contact.Balance" />
+    <input name="liveagent.prechat.save:Balance" type="hidden" value="Balance" />
+
+    <input name="liveagent.prechat:SkinName" type="hidden" value=""/><br />
+    <input name="liveagent.prechat.query:SkinName" type="hidden" value="Contact,Contact.SkinName" />
+    <input name="liveagent.prechat.save:SkinName" type="hidden" value="SkinName" />
+</form>
+<style>
+    body {
+        background: none repeat scroll 0 0 #cecece;
+        font-family: arial;
+        height: 100%;
+        margin: 0;
+        width: 100%;
+    }
+    label {
+        margin-right: 10px;
+        color: #369e08;
+    }
+    .formBlock {
+        margin: 0 0 10px;
+    }
+
+    .formBlock > input {
+        border:1px solid #bababa;
+        padding: 5px;
+        width: 300px;
+    }
+    #GuestForm {
+        background: none repeat scroll 0 0 #fff;
+        border: 1px solid #bababa;
+        display: block;
+        height: 88%;
+        margin: 10px;
+        padding: 10px;
+        width: 91.5%;
+    }
+    #GuestForm > input[type="submit"] {
+        -moz-border-bottom-colors: none;
+        -moz-border-left-colors: none;
+        -moz-border-right-colors: none;
+        -moz-border-top-colors: none;
+        background: -moz-linear-gradient(center top , #00e00b 0%, #00d40a 44%, #00c109 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
+        border-color: #369e08 #369e08 #1d6406;
+        border-image: none;
+        border-style: solid;
+        border-width: 1px;
+        box-shadow: 0 0 1px 1px rgba(255, 255, 255, 0.5) inset;
+        color: #fff;
+        display: block;
+        font-size: 15px;
+        font-weight: 700;
+        padding: 5px 10px;
+        text-shadow: 0 -1px 0 #1f5a05;
+        top: 0;
+        cursor: pointer;
+    }
+    #GuestForm h2 {
+        border-bottom: 1px solid #bababa;
+        color: #369e08;
+        font-size: 25px;
+        margin: 5px 0 20px;
+        padding: 0 0 15px;
+    }
+</style>
+<form id="GuestForm" method="post">
+    <h2>Welcome to Live support</h2>
+    <div class="formBlock">
+        <label>User ID:</label>
+        <input name="liveagent.prechat:clientID" type="text" value="" /><br />
+        <input name="liveagent.prechat.query:clientID" type="hidden" value="Contact,Contact.clientID" />
+        <input name="liveagent.prechat.save:clientID" type="hidden" value="clientID" />
+    </div>
+    <input type="submit" value="Start Chat"/>
+</form>
+
+</body>
+</html>
+
+

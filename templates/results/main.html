@@ -1,0 +1,162 @@
+<div ng-controller="ResultsController as resCtrl">
+    <div class="gameing-wrapper"
+         ng-class="{'no-betslip': (conf.customSportsBook.enabled && !conf.customSportsBook.classic.showBetSlip)}">
+
+        <style>
+            html {overflow: hidden;}
+            body {overflow-y: auto;}
+        </style>
+        <div class="contain-gameing"
+             ng-class="{'multiview-enabled': env.preMatchMultiSelection}"><!-- ng-init="loadLeftMenuSports()"-->
+
+
+
+
+            <!--centr-market-->
+
+
+            <div class="centr-market-contain" ng-class="{'favorite-game-open': favoriteGameIsSelected}">
+                <div class="game-center-container left-menu-closed" ng-class="{'left-menu-closed': leftMenuClosed}">
+                    <!--Prematch END-->
+                    <div class="scroll-contain">
+
+
+                        <!--RESULTS-->
+                        <div class="results-center-ba-j">
+                            <h4 trans>Results Centre</h4>
+                        </div>
+                        <div class="navigation-of-results-j">
+                            <div class="results-table-cell-j">
+                                <ul class="search-tabs-conatiner">
+                                    <li>
+                                        <label>
+                                            <h5 trans >Sport</h5>
+                                            <div class="results-select-j">
+                                                <select ng-model="requestData.sport"
+                                                        ng-options="sport.name for sport in sportList track by sport.id"
+                                                        ng-change="updateRegion()">
+                                                </select>
+                                            </div>
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <label>
+                                            <h5 trans >Region</h5>
+                                            <div class="results-select-j">
+                                                <select ng-model="requestData.region"
+                                                        ng-options="region.name for region in regionList track by region.id" ng-change="updateCompetition()">
+                                                    <option value="">All</option>
+                                                </select>
+                                            </div>
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <label>
+                                            <h5 trans >Competition</h5>
+                                            <div class="results-select-j">
+                                                <select ng-model="requestData.competition"
+                                                        ng-options="competition.name for competition in competitionList track by competition.id">
+                                                    <option value="">All</option>
+                                                </select>
+                                            </div>
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <h5 trans >Date</h5>
+                                        <div class="date-picker-b">
+                                            <div class="picker-contain">
+                                                <div class="input-group">
+                                                    <input type="text" class="form-control" placeholder="From" datepicker-options="dateOptions" datepicker-popup="yyyy-MM-dd" max-date="requestData.dateTo"
+                                                           ng-model="requestData.dateFrom" is-open="openedFrom"  disabled="disabled"
+                                                           datepicker-options="dateOptions"
+                                                           ng-required="true" close-text="Close"/>
+                                                    <span class="input-group-btn"><button type="button" class="btn btn-default date-view" ng-click="openFrom($event)"><i class="date-p"></i></button></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <h5>&nbsp;</h5>
+                                        <div class="date-picker-b">
+                                            <div class="picker-contain">
+                                                <div class="input-group">
+                                                    <input type="text" class="form-control" placeholder="To" datepicker-options="dateOptions" datepicker-popup="yyyy-MM-dd" max-date="today"
+                                                           ng-model="requestData.dateTo" is-open="openedTo"  disabled="disabled"
+                                                           datepicker-options="dateOptions" ng-change="adjustFromDate()"
+                                                           ng-required="true" close-text="Close"/>
+                                                    <span class="input-group-btn"><button type="button" class="btn btn-default date-view" ng-click="openTo($event)"><i class="date-p"></i></button></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                 </ul>
+                            </div>
+                            <div class="results-table-cell-j button-container-j">
+                                <button class="search-lat-button-j-results" ng-click="searchGames()" trans >Search</button>
+                            </div>
+                        </div>
+
+                        <!-- RESULTS -->
+                        <div  ng-show="!gameListLoaded" class="results-table-j">
+                            <table  ng-show="gamesResult[0]">
+                                 <tr>
+                                     <th ng-click="sortByDate = !sortByDate"><div><span ng-class="{ 'up-j-icon': sortByDate }" class="icon-arrow-down5-j-sort"></span><span trans >Date</span></div></th>
+                                     <th><div trans >Competition</div></th>
+                                     <th><div trans >Event</div></th>
+                                     <th><div trans >Score</div></th>
+                                 </tr>
+                                <tr ng-repeat="game in gamesResult | orderBy: 'date': sortByDate">
+                                    <td><div>{{game.date|formatDate:'DD-MM-YYYY'}} {{game.date|formatDate:'HH:mm'}}</div></td>
+                                    <td><div>{{game.competition_name.split(".").splice(1, 10).join()}}</div></td>
+                                    <td><div>{{game.game_name}}</div></td>
+                                    <td><div>{{game.scores}}</div></td>
+                                </tr>
+                            </table>
+                            <div ng-show="(gamesResult !== null) && !gamesResult[0]" class="no-result-to-show-j" trans >No Results</div>
+                        </div>
+                        <!-- RESULTS END -->
+
+                        <vbet-loader ng-show="gameListLoaded"></vbet-loader>
+
+                    </div>
+                </div>
+            </div>
+            <!--centr-market END-->
+
+
+            <!--betslip-contain-->
+            <div class="right-betslip-contain">
+                <div class="scroll-contain"
+                     ng-class="{'animated-block': openGame.last_event || (openGame.video_id && conf.videoEnabled && !isVideoDetached)}">
+                    <div class="todays-results-j-contain"  ng-init="todayResults()">
+                        <div class="todays-results-j" ng-show="!todayGameListLoaded">
+                            <div class="results-header-j">
+                                <h2 trans >Today's Resluts</h2>
+                            </div>
+                            <ul>
+                                <li  ng-show="todayGameList" ng-repeat="sport in todayGameList track by $index" ng-click="resultsBySport(sport[0].sport_id); requestData.dateFrom = today; requestData.dateTo = today"><div>{{sport[0].name}}</div></li>
+                                <li  ng-hide="todayGameList"><div>List is empty</div></li>
+                            </ul>
+                        </div>
+
+                        <vbet-loader ng-show="todayGameListLoaded"></vbet-loader>
+
+                    </div>
+
+                    <!--<div class="right-banner-container" ng-if="conf.enableBannerUnderBetslip"
+                         ng-controller="sportNewsCtrl"
+                         ng-include="getTemplate('templates/sport/classic/banners.html')"></div>-->
+
+                </div>
+
+            </div>
+
+            <!--betslip-contain END-->
+
+
+        </div>
+
+    </div>
+
+
+</div>

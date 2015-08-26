@@ -1,0 +1,16 @@
+<div class="brend-new-slider-j">
+    <div class="j-resize-950-1280 j-dot-slider-pagination-j-resize">
+        <div class="dot-slider-pagination-j" ng-mouseover="rotationPaused = true" ng-mouseleave="rotationPaused = false">
+            <span ng-class="{'active-j': $index == selectedIndex}" ng-repeat="slide in productSlides" ng-click="selectSlide($index)" ng-show="productSlides.length > 1"></span>
+        </div>
+    </div>
+    <div class="slide-j" ng-repeat="slide in productSlides" ng-show="$index === selectedIndex" ng-style="{'background-image': 'url({{slide.thumbnail_images.full.url}})'}">
+        <div class="slide-wrap-j j-resize-950-1280">
+            <div class="j-max-slider-width">
+                <h3>{{pageName | translate}}</h3>
+                <h4>{{slide.title}}</h4>
+                <p ng-bind-html="slide.content|html"></p>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,11 @@
+<h3 trans>Live news</h3>
+<ul>
+    <li ng-repeat="tweet in tweets" ng-show="$index === activeTweetIndex">
+        <a ng-click="nextTweet(+1)" ng-show="activeTweetIndex < tweets.length - 1 " class="next-tweet">&#8249;</a>
+        <span class="tweet-date">{{tweet.created_at|formatDate:'full':1}}</span>
+        <a ng-href="http://twitter.com/{{conf.twitterFeed.user[env.lang]}}" target="_blank">
+            <span class="tweet-text" title="{{tweet.text}}">{{tweet.text}}</span>
+        </a>
+        <a ng-click="nextTweet(-1)" ng-show="activeTweetIndex > 0" class="prev-tweet">&#8250;</a>
+    </li>
+</ul>

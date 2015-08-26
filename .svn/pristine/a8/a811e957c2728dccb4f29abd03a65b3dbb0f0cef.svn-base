@@ -1,0 +1,9 @@
+<div ng-show="conf.sportsLayout !== 'asian' && conf.sportsLayout !== 'external'">
+    <li class="title-sep"><span trans>Odds in</span>:</li>
+    <li ng-click="broadcast('setOddsFormat', 'decimal')" ng-class="{'active-format': env.oddFormat === 'decimal'}" trans>Decimal</li>
+    <li ng-click="broadcast('setOddsFormat', 'fractional')" ng-class="{'active-format': env.oddFormat === 'fractional'}" trans>Fractional</li>
+    <li ng-click="broadcast('setOddsFormat', 'american')" ng-class="{'active-format': env.oddFormat === 'american'}" trans>American</li>
+    <li ng-click="broadcast('setOddsFormat', 'hongkong')" ng-class="{'active-format': env.oddFormat === 'hongkong'}" trans>Hongkong</li>
+    <li ng-click="broadcast('setOddsFormat', 'malay')" ng-class="{'active-format': env.oddFormat === 'malay'}" trans>Malay</li>
+    <li ng-click="broadcast('setOddsFormat', 'indo')" ng-class="{'active-format': env.oddFormat === 'indo'}" trans>Indo</li>
+</div>

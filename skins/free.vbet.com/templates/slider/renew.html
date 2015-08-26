@@ -1,0 +1,63 @@
+<div class="register renew" ng-controller="paymentsCtrl"  ng-init="renewInit()">
+    <div ng-show="profile.credit_renew_time" class="next-renew-fb">
+       <div class="timer" ng-show="timer">
+            <h2 trans>You can renew in:</h2>
+           
+           <div class="fb-timer-renew">
+            	<ul>
+                    <li><p><span>{{timer.hours.value|numberFixedLength:2}}</span></p></li>
+                    <li><p><span>{{timer.minutes.value|numberFixedLength:2}}</span></p></li>
+                    <li><p><span>{{timer.seconds.value|numberFixedLength:2}}</span></p></li>
+              </ul>  
+			</div>
+         </div>
+        
+         <button ng-click="renew()"  ng-show="!timer" ng-disabled="renewInProgress" trans>Renew Now</button>
+
+
+
+    </div>
+    <h1 ng-show="renewDone" trans>Renew done!</h1>
+    <h1 ng-show="renewFailed" trans>Cannot renew right now.</h1>
+    <h1><span trans>You can get more credits by</span> <a ng-click="env.sliderContent = 'invite'" trans>inviting</a> <span trans>your friends</span></h1>
+
+    <div ng-if="conf.buyVc.enabled" class="buy-vc">
+        <div class="renew-information" ng-hide="showConfirmation">
+            <ul>
+                <li ng-click="buyVC(point)" ng-repeat="point in conf.buyVc.points track by $index">
+                    <p><span>{{point.vc}} VC</span> = <span>{{point.price}}</span></p>
+
+                    <div class="buy-button-renew"><b trans>Buy</b></div>
+                </li>
+
+            </ul>
+
+        </div>
+        <div class="popup-bg-contain" ng-class="{'active': popupInfo}">
+            <div class="deposit-alert-contain">
+                <div class="icon-delete"><a ng-click="popupInfo=null">Close</a></div>
+                <div class="text-deposit-alert">
+                    <div class="popup-status-icon" ng-class="messageType||'info'"></div>
+                    <p>
+                        <span ng-bind="popupInfo"></span>
+                        <button class="message-box-ok-btn" ng-click="popupInfo=null" trans>OK</button>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="form-sign-in status-message" ng-if="showConfirmation">
+            <div class="text-deposit-contain">
+                <p trans>Please confirm money transfer</p>
+                <p><span trans>Amount: </span> <span class="amount">{{selectedPoint.price}}</span></p>
+            </div>
+            <external-form  form-target="_blank" params="externalFormParams"
+                            additional-fields="addFields" on-submit="confirmDeposit" button-caption="Confirm"></external-form>
+        </div>
+        <div class="form-sign-in status-message" ng-if="paymentIsDone">
+            <div class="text-deposit-contain">
+                <p><span trans>Payment complete</span>{{paymentStatusMessage}}</p>
+                <button class="button-confirm" ng-click="confirmDeposit()" trans="">OK</button>
+            </div>
+        </div>
+    </div>
+</div>

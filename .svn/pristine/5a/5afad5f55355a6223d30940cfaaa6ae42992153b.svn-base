@@ -1,0 +1,363 @@
+$J-GLOBAL-1: #a61f67;
+$J-GLOBAL-BUTTON: #008D48;
+$J-GLOBAL-COLOR: #171c2c;  
+$j-favorite-yellow: #efbf00; 
+
+$j-ls-li-value: #DEC04F;
+$j-ls-li-asctive-value: $j-ls-li-value;
+
+
+
+
+$black-text: #000000;
+$black-bg: $J-GLOBAL-COLOR; 
+$white-text: #ffffff;
+$white-bg: #ffffff;
+$gray: #586380;
+$bg-footer-slider: $J-GLOBAL-COLOR;
+$bg-footer: $J-GLOBAL-COLOR; 
+$bg-button: $J-GLOBAL-BUTTON;
+$shadow-color: #2e323e;
+$header-text: #646464;
+$border-color: lighten( saturate( adjust-hue( $J-GLOBAL-COLOR, -4deg ), 1 ), 2 );
+$red-bg: $J-GLOBAL-1;
+$red-text: $red-bg;
+$dark-shadow-color: #555555;
+$taupe-text-color: #555555;
+$profile-nav-bg: #555555;
+$bg-button-disable: #41454F;
+$betslit-icon: url(../images/bet-list-bg.png) no-repeat 0 100%;
+$bg-forms-cantain: rgba(255, 255, 255, 0.2);
+$style-text: normal;
+$lite-black-text: #333333;
+$bold-text: bold;
+$font-f: 'NotoSans', 'NotoSans2';
+
+$header-nav-bg: darken( desaturate( $red-bg, 1 ), 7 );
+$j-head-reg-button: lighten( desaturate( adjust-hue( $bg-button, -17deg ), 38 ), 2 ); //#1d7d34 
+$j-header-nav-icon-color: $red-text;
+
+$j-deposit-alert-button: $bg-button;
+$j-pagination-border: $bg-button;
+$j-casino-nav-selected: $bg-button;
+
+$j-form-error-bg: lighten( desaturate( $red-bg, 13 ), 8 );
+$j-form-focus-border: $red-bg;
+$j-announcement-timer-binding-color: lighten( saturate( $red-bg, 14 ), 10 );
+$j-news-sport-active-tab-border: darken( desaturate( $red-bg, 15 ), 17 );
+$j-roundups-slider-color: lighten( saturate(  $red-bg, 31 ), 20 );
+
+$j-table-popular-bets-active-bg: lighten( saturate( $red-bg, 17 ), 10 );
+$j-table-popular-bets-active-hover-bg: $j-table-popular-bets-active-bg;
+$j-popular-bet-color: lighten( saturate( $red-bg, 31 ), 15 );
+
+$j-active-tab-border2: $j-news-sport-active-tab-border;
+$j-tournament-name-selection-bg: darken( desaturate( $red-bg, 51 ), 6 );
+$j-block-more-event-global: #F0B0B0;
+$j-block-more-event-color: #753E42;
+$j-history-list-transactions-money-selection-bg: $j-tournament-name-selection-bg;
+
+$j-menu-casino-active: $red-bg;
+$j-menu-casino-active-bsi: darken( saturate( $j-menu-casino-active, 11 ), 5 );
+
+$j-play-button-bg: lighten( desaturate( adjust-hue( $red-bg, 2deg ), 14 ), 8 );
+$j-fun-game-bg:$bg-button; //play-gor-free
+$j-baners-poker-p-bg: lighten( saturate( $red-bg, 19 ), 9 ); //#e60f50
+
+$j-general-nav-block-bg: $j-menu-casino-active;
+$j-general-nav-block-bsi: $j-menu-casino-active-bsi;
+
+$j-selected-deposit-box-shadow: lighten( desaturate( adjust-hue( $red-bg, -328deg ), 19 ), 6 ); //#AD3939
+$j-settings-info-contain-note-highlight-color: #FF5C5C;
+
+$j-category-nav-ul-after-bg: darken( desaturate( $red-bg, 2 ), 8 );
+$j-prematch-live-buttons-count-bg: darken( desaturate( $red-bg, 1 ), 9 );
+
+$j-download-button-info-beta: $red-bg;
+$j-play-start-button: $red-bg;
+$j-lending-buttons-new-button: $red-bg;
+$j-homapage-liwvenow-button: $red-bg;
+$j-cancelbtn-red: $red-bg;
+$j-account-verification-button:  $red-bg;
+$j-drop-down-menu-btn-bg: $red-bg;
+
+$j-bet-form-input-focus: lighten( desaturate( adjust-hue( $red-bg, 15deg ), 37 ), 23 );
+
+$j-body-background-global-color: $J-GLOBAL-COLOR;   
+$j-dark-blue-global-2: darken( saturate( $j-body-background-global-color, 1 ), 3 ); //#121623
+$j-dark-blue-global-3: lighten( adjust-hue( $j-body-background-global-color, -4deg ), 4 ); //#1e2639
+$j-body-background-bg-style:  $j-body-background-global-color url(../images/bg-hompage.jpg) no-repeat 0 0;
+
+$j-footer-bg: desaturate( adjust-hue( $j-body-background-global-color, -2deg ), 2 );
+$j-footer-black-line-bg:  darken( desaturate( adjust-hue( $j-body-background-global-color, 3deg ), 1 ), 6 ); 
+$j-footer-social-icons-color: lighten( desaturate( adjust-hue( $j-footer-black-line-bg, -3deg ), 17 ), 24 );
+
+$j-footer-paymen-icons-list: $j-dark-blue-global-2;
+$j-footer-second-black-line-bg: $j-dark-blue-global-2;
+
+// MAIN PAGE
+$j-live-now-block-button: darken( saturate( $j-body-background-global-color, 2 ), 5 );
+$j-live-now-block-button-hover: $j-live-now-block-button;
+$j-text-banners-new-bg: lighten( adjust-hue( $j-body-background-global-color, -4deg ), 4 );//#1e2639
+$j-text-banners-new-border-bottom: $j-dark-blue-global-2;//#121623
+$j-sports-nav-contain-bg: $j-dark-blue-global-2; //#121623
+$j-sports-nav-contain-box-shadow: lighten( adjust-hue( $j-sports-nav-contain-bg, -2deg ), 2 ); 
+$j-sport-nav-ul-li-a-border-color: lighten( desaturate( adjust-hue( $j-sports-nav-contain-bg, -4deg ), 1 ), 7);
+$j-sports-nav-drop-down-las-item-bg: lighten( desaturate( adjust-hue( $j-sports-nav-contain-bg, 1deg ), 5 ), 7 );
+$j-sports-casino-morgames-hover-bg: $j-sports-nav-contain-bg;
+$j-min-t-container-default-bg: darken( saturate( $j-dark-blue-global-2, 1 ), 2 );
+$j-min-to-conatiner-border-bottom-color: $j-dark-blue-global-2;
+$j-new-tournament-steps-bg: lighten( adjust-hue( $j-body-background-global-color, -2deg ), 2 );
+$j-list-leder-gamers-borders: $j-dark-blue-global-3;
+$j-min-t-container-button-border: lighten( desaturate( adjust-hue( $j-dark-blue-global-2, -5deg ), 12 ), 15 );
+$j-news-block-global-color-bg: $j-text-banners-new-bg;
+$j-news-block-scrollbar-bg: $j-news-block-global-color-bg;
+$j-news-block-scrollbar-thumb: lighten( desaturate( $j-news-block-scrollbar-bg, 19 ), 18 );
+$j-news-block-li-bg: darken( adjust-hue( $j-dark-blue-global-3, 2deg ), 3 );
+$j-news-block-li-border: $j-dark-blue-global-2;
+// END OF MAIN PAGE
+
+// NEWS PAGE 
+$j-news-slider-main-color: lighten( desaturate( adjust-hue( $j-body-background-global-color, -3deg ), 19 ), 22 );
+$j-news-page-light-sat-blue-color: lighten( desaturate( adjust-hue( $j-body-background-global-color, -2deg ), 12 ), 29 );
+// END OF NEWS PAGE
+
+//popups
+$j-block-slider-bg: $j-dark-blue-global-2;
+$j-form-sign-in-bg: lighten( desaturate( $j-block-slider-bg, 1 ), 3 );
+$j-input-textarea-bg: lighten( desaturate( adjust-hue( $j-dark-blue-global-2, -4deg ), 1 ), 7 );
+//end of popups
+
+
+$j-balance-td-bg-2: $j-input-textarea-bg;
+$j-balance-td-bg-3: lighten( desaturate( $j-body-background-global-color, 12 ), 9 );
+$j-table-color-1: $j-input-textarea-bg; //#1E2639
+$j-table-color-2: lighten( desaturate( adjust-hue( $j-table-color-1, 4deg ), 12 ), 5 ); //#2D3242
+
+$j-light-blue-text: lighten( desaturate( $j-body-background-global-color, 23 ), 36 );
+$j-light-blue-text-2: lighten( desaturate( adjust-hue( $j-body-background-global-color, -2deg ), 12 ), 29 ); //#586380
+
+$j-body-games-promos-belote-bg: $j-body-background-global-color;
+$j-body-livedealer-bg: $j-body-background-global-color;
+$j-body-livedealer-fs-bg: $j-body-background-global-color;
+$j-poker-background-new: $j-body-background-global-color;
+$j-poker-background-new-border: darken( saturate( $j-poker-background-new, 1 ), 3 );
+$j-read-mor-button: $j-body-background-global-color;
+$j-read-mor-button-color: lighten( desaturate( $j-read-mor-button, 25 ), 31 );
+
+$j-link-sec-download: lighten( desaturate( adjust-hue( $j-body-background-global-color, -1deg ), 16 ), 8 );
+
+$j-contain-gradient-first: $j-body-background-global-color;
+$j-contain-gradient-second:  darken( saturate( $j-contain-gradient-first, 1 ), 3 );
+
+$j-contain-fantasy-bg: lighten( desaturate( adjust-hue( $j-body-background-global-color, -3deg ), 8 ), 8 );
+$j-all-games-wrap-bg: $j-body-background-global-color;
+
+
+/* LIVE SPORT */
+$j-ls-globe-color: $j-body-background-global-color; // #171c2c
+$j-ls-globe-color-second: darken( saturate( $j-ls-globe-color, 1 ), 3 ); //#121623
+$j-ls-globe-color-third: lighten( adjust-hue( $j-ls-globe-color, -4deg ), 4 ); //#1e2639
+$j-ls-globe-color-fourth: lighten( desaturate( adjust-hue( $j-ls-globe-color, -1deg ), 16 ), 8 ); //#2E323E
+
+$j-left-list-menu-ul-li-a: $j-ls-globe-color-fourth;
+$j-left-list-menu-ul-li-a-head: darken( saturate( adjust-hue( $j-left-list-menu-ul-li-a, 1deg ), 1 ), 5 );
+$j-ls-blocks-heads-bg: $j-ls-globe-color-fourth;
+
+$j-ls-scrollbar-bg: $j-ls-globe-color-fourth;
+$j-ls-scrollbar-bg-thumb: lighten( desaturate( adjust-hue( $j-ls-scrollbar-bg, -1deg ), 4 ), 20 );
+$j-ls-scrollbar-inset-shadow: darken( desaturate( adjust-hue( $j-ls-globe-color-fourth, -225deg ), 15 ), 5 );
+
+$j-center-ul-li-closed: $j-ls-globe-color-fourth;
+$j-center-ul-li: lighten( desaturate( $j-ls-globe-color, 15 ), 3 ); 
+$j-center-ul-li-box-shadow: lighten( desaturate( adjust-hue( $j-center-ul-li, -3deg ), 3 ), 23 );
+$j-center-ul-li-hover: lighten( desaturate( adjust-hue( $j-center-ul-li, -2deg ), 2 ), 10 );
+
+$j-betslip-ul-border-top: lighten( desaturate( $j-ls-globe-color, 15 ), 3 );
+$j-betslip-ul-li: lighten( desaturate( adjust-hue( $j-ls-globe-color, -1deg ), 16 ), 8 );
+$j-betslip-ul-li-deleted: lighten( desaturate( adjust-hue( $j-ls-globe-color, -3deg ), 17 ), 26 );
+$j-betslip-ul-li-changed: lighten( desaturate( adjust-hue( $j-ls-globe-color, -2deg ), 17 ), 18 );
+$j-betslip-button-disabled: lighten( desaturate( adjust-hue( $j-ls-globe-color-fourth, -1deg ), 1 ), 5 );
+$j-betslip-mini-select: darken( saturate( adjust-hue( $j-ls-globe-color-fourth, 1deg ), 1 ), 5 );
+
+$j-prematch-live-buttons: $j-ls-globe-color-fourth;
+$j-live-view-information-b: darken( saturate( adjust-hue( $j-ls-globe-color-fourth, 1deg ), 1 ), 5 ); //#232630
+$j-game-mini-filter: $j-ls-globe-color-fourth;
+$j-market-button: $j-live-view-information-b;
+/* END OF LIVE SPORT | hallelujah !!!!! */ 
+
+
+
+/* NOT USING
+$show-hide-header: block;
+$header-margin: 41px 0 0; //for skins with header
+$top-sport-title-lpos: 274px;
+$logo-home-icon: url(../images/home.png) no-repeat 115px 68px;
+$bet-btn-bg: url(../images/bg-button-bet.png) repeat-x 0 0;
+$bet-btn-hover-bg: url(../images/bg-button-bet.png) repeat-x 0 -36px;
+$bet-btn-disabled-bg: #AFADAD;
+$live-btn-bg: rgba(148, 244, 98, 0.63);
+$prematch-btn-bg: rgba(255, 205, 205, 0.4);
+
+@mixin bg-img{}
+@mixin header-menu-bg{
+  background: #db0a49;
+  background: -moz-linear-gradient(#eb1857, #cd134b);
+  background: -webkit-linear-gradient(#eb1857, #cd134b);
+  background: -o-linear-gradient(#eb1857, #cd134b);
+  background: linear-gradient(#eb1857, #cd134b);
+  box-shadow: 0 1px 2px #aaa inset;
+}
+@mixin dropdown-menu-bg{
+	background: #db0a49;
+	background: -moz-linear-gradient(#eb1857, #cd134b);
+    background: -webkit-linear-gradient(#eb1857, #cd134b);
+	background: -o-linear-gradient(#eb1857, #cd134b);
+	background: linear-gradient(#eb1857, #cd134b);
+}
+@mixin logo-position{
+	background-repeat: no-repeat;
+	background-position: 0 0;
+	width: 158px;
+	height: 100px;
+}
+
+@mixin logo-fixed{
+	background: url(../images/home.png) no-repeat 108px 8px;
+	width: 135px;
+	height: 41px;
+	}
+@mixin logo-fixed-position{
+	background-repeat: no-repeat;
+	background-position: 0 0;
+	width: 115px;
+	height: 41px;
+	padding: 0 20px 0 0;
+}
+@mixin bet-tooltip-visibility{
+	opacity: 1;
+	left: 0;
+}
+
+
+
+
+/* ======================================================================== 
+   === skin specific styles === 
+
+.youtube a {
+	background: url(../images/social-spryte.png) no-repeat 0 -229px;
+}
+
+
+*/
+
+
+
+
+
+ 
+
+/*asian view*/
+
+/*base colors*/
+/*asian page background*/
+$asian-page-layout: url(../images/bg-asian-view.jpg) no-repeat 50% 0 fixed;
+/*asian page background END*/
+
+/*text-colors*/
+$text-color-active: #fbd50c;
+$text-color-dark: #555555;
+$text-color-white: #ffffff;
+$text-color-menu: #828282;
+/*text-colors END*/
+
+/*background-colors*/
+$global-color-1: #295a7f;
+$global-color-2: #6a8294;
+$global-color-3: #e6e6e8;
+$global-color-4: #828282;
+$global-white-bg: #ffffff;
+/*background-colors END*/
+
+/*popup*/
+$global-color-popup: rgba(18, 22, 34, 0.5);
+/*popup END*/
+
+
+
+
+/*base colors END*/
+
+/*second level*/
+
+/*headers-bg*/
+$bg-headers: $global-color-1;
+/*headers-bg END*/
+
+
+
+/*buttons*/
+$bg-buttons-normal: $global-color-2;
+$bg-buttons-disable: lighten( desaturate( $bg-buttons-normal, 1 ), 13 );
+/*buttons END*/
+
+
+
+
+/*filters*/
+$bg-filters: $global-color-2;
+/*filters END*/
+
+
+
+
+/*team name*/
+$team-name-bg: $global-color-3;
+$score-bg: darken( desaturate( adjust-hue( $team-name-bg, -240deg ), 4 ), 40 );
+/*team name END*/
+
+
+
+
+/*market colors*/
+$market-color: $global-white-bg;
+$market-color-active: darken( saturate( adjust-hue( $market-color, 206deg ), 17 ), 50 );
+$market-color-hover: darken( saturate( adjust-hue( $market-color, 240deg ), 4 ), 9 );
+/*market colors END*/
+
+
+
+
+/*border-color*/
+$border-color-default: $global-color-2;
+$border-color-white: lighten( desaturate( adjust-hue( $border-color-default, -206deg ), 17 ), 50 );
+$base-color-border: lighten( desaturate( adjust-hue( $border-color-default, 18deg ), 7 ), 28 );
+$base-color-light: lighten( desaturate( adjust-hue( $border-color-default, 34deg ), 13 ), 41 );
+/*border-color END*/
+
+
+
+
+/*element states*/
+$element-default-color: $global-color-2;
+$element-default-2-color: lighten( desaturate( adjust-hue( $element-default-color, -206deg ), 17 ), 1 );
+$element-active-color: darken( saturate( $global-color-2, 34 ), 17 );
+$element-hover-color: darken( $element-default-color, 17 );
+$element-disable-color: darken( desaturate( adjust-hue( $global-color-3, -240deg ), 4 ), 13 );
+/*element states END*/
+
+/*up down*/
+$up-bg: #e9fae8;
+$down-bg: darken( saturate( adjust-hue( $up-bg, -101deg ), 2 ), 1 );
+$up-text-color: #1dbd15;
+$down-text-color: lighten( saturate( adjust-hue( $up-text-color, -101deg ), 13 ), 5 );
+/*up down END*/
+
+/*sport icons color*/
+$sport-icon-color: $global-white-bg;
+/*sport icons color END*/
+
+/*second level END*/
+
+/*asian view END*/

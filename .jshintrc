@@ -1,0 +1,29 @@
+{
+    "nonew": true,
+    "curly": true,
+    "latedef": true,
+    "unused": true,
+    "noarg": true,
+    "forin": true,
+    "white": true,
+    "noempty": true,
+    "eqeqeq": true,
+    "strict": true,
+    "undef": true,
+    "bitwise": true,
+    "immed": true,
+    "browser": true,
+    "es3": true,
+//    "camelcase": true,
+
+    "globals": {
+        "angular": false,
+        "it": false,
+        "describe": false,
+        "beforeEach": false,
+        "expect": false,
+        "console": false,
+        "amplify": false,
+        "inject": false
+    }
+}

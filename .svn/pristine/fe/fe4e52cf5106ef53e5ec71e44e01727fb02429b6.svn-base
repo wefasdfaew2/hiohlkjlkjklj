@@ -1,0 +1,26 @@
+<form ng-show=" $location.path() == '/casino/'" ng-controller="searchCtrl">
+    <div class="block-search">
+        <input name="" type="text" placeholder="Search a casino game..." title="Search a casino game..." ng-model="searchCommand" ng-keypress="searchEnter($event)" trans>
+        <!-- casino result search-->
+        <div class="search-results-container" ng-show="showSearchCommandResults" hide-on-click state-flag-var="showSearchCommandResults" broadcast-on-close="search.ResultsClosed" class-on-scroll="search-results-container-scroll,search-results-container" >
+            <div class="search-results-inner casino">
+                <div class="arrow-sport"></div>
+                <h3 trans>Search results</h3>
+                <div id="casino-result-search" keyboard-navigation result-id-prefix="search-result-casino-" select-result-by-id-func="selectCasinoGameFromSearchResults" results-ids="searchCommandResultGameIds" selected-result-id="selectedSearchCommandResultId" show-results-flag="showSearchCommandResults">
+                    <div ng-repeat="game in searchCommandResults">
+                        <ul ng-class="{'active': selectedSearchCommandResultId === game.id}" ng-click="openCasinoGame(game); $event.stopPropagation();" id="search-result-casino-{{ game.id }}">
+                            <li><img ng-src="{{iconsUrl + game.gameID}}.jpg" alt=""></li>
+                            <li>
+                                <a> {{game.gameName}} </a>
+                                <div class="play-game-button-search">
+                                    <p><a><span trans>play now</span></a></p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="search-no-results" ng-show="!(searchCommandResults|count)" trans>no results</div>
+            </div>
+        </div>
+    </div>
+</form>

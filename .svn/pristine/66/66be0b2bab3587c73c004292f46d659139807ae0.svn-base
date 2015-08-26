@@ -1,0 +1,92 @@
+$black-text: #{'#171717'};
+$black-bg: #{'#000000'};
+$white-text: #{'#ffffff'};
+$white-bg: #{'#ffffff'};
+$gray: #{'#cccccc'};
+$bg-footer-slider: #{'#3b3b3b'};
+$bg-footer: #{'#0a4135'};
+$red-text: #{'#eb0014'};
+$red-bg: #{'#69050e'};
+$shadow-color: #{'#222222'};
+$header-text: #{'#cccccc'};
+$border-color: #{'#828183'};
+$header-nav-bg: #{'#44040A'};
+$dark-shadow-color: #{'#555555'};
+$taupe-text-color: #{'#555555'};
+$profile-nav-bg: #{'#555555'};
+$bg-button: #{'#69050e'} url(../images/bet-list-bg.png) no-repeat 93% 50%;
+$bg-button-disable: #{'#9D9D9D'} url(../images/bet-list-bg.png) no-repeat 93% 50%;
+$betslit-icon: url(../images/bet-list-bg.png) no-repeat 0 20%;
+$bg-forms-cantain: rgba(43, 42, 42, 0.8);
+$style-text: italic;
+$lite-black-text: #{'#333333'};
+$bold-text: bold;
+$font-f: Arial, Helvetica, sans-serif;
+
+
+$show-hide-header: block;
+$header-margin: 41px 0 0; //for skins with header
+$top-sport-title-lpos: 230px;
+$logo-home-icon: none;
+$bet-btn-bg: #{'#0c7272'};
+$bet-btn-hover-bg: #{'#0c5a4c'};
+$bet-btn-disabled-bg: #{'#AFADAD'};
+$live-btn-bg: rgba(148, 244, 98, 0.63);
+$prematch-btn-bg: rgba(255, 255, 255, 0.4);
+
+@mixin bg-img{}
+@mixin header-menu-bg{
+	background: #117c78;
+	background: -moz-linear-gradient(#0D4E40, #0a4135);
+    background: -webkit-linear-gradient(#0D4E40, #0a4135);
+    background: -o-linear-gradient(#0D4E40, #0a4135);
+    background: linear-gradient(#0D4E40, #0a4135);
+	box-shadow: 0 1px 2px #aaaaaa inset;
+}
+@mixin dropdown-menu-bg{
+	background: #117c78;
+	background: -moz-linear-gradient(#0D4E40, #0a4135);
+    background: -webkit-linear-gradient(#0D4E40, #0a4135);
+    background: -o-linear-gradient(#0D4E40, #0a4135);
+    background: linear-gradient(#0D4E40, #0a4135);
+}
+@mixin logo-position{
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+	width: 310px;
+	height: 100px;
+	padding: 0 5px;
+}
+
+@mixin logo-fixed{
+	background: url(../images/home.png) no-repeat 51px 8px;
+	width: 88px;
+	height: 41px;
+	@media screen and (max-width: 1200px){
+		background: url(../images/home.png) no-repeat 51px 8px !important;
+		margin: 0 0 0 132px !important;
+		width: 88px;
+		height: 41px;
+	}
+}
+@mixin logo-fixed-position{
+	background-repeat: no-repeat;
+	background-position:  0 50%;
+	width: 68px;
+	height: 41px;
+	padding: 0 20px 0 0;
+}
+@mixin bet-tooltip-visibility{	
+}
+
+/* ======================================================================== 
+   === skin specific styles === */
+   
+@media screen and (max-width: 1200px){
+.conteiner.show-fix .clock {
+	display: block;
+	}
+}
+	
+	
+	

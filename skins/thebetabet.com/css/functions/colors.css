@@ -1,0 +1,4 @@
+/* ======================================================================== 
+   === skin specific styles === */
+.conteiner.show-fix .top-menu .block-search, .conteiner.show-game .top-menu .block-search {
+  background: none; }

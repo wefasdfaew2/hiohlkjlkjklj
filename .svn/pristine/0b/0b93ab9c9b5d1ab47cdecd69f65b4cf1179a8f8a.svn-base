@@ -1,0 +1,17 @@
+<div class="gameing-wrapper" ng-init="checkIfEnabled('virtualSports'); setTitle(('Virtual sports'|translate))">
+    <div ng-if="conf.virtualSportsEnabled" class="contain-gameing">
+        <!--centr-market-->
+        <div class="centr-market-contain virtual-games">
+            <div ng-include="getTemplate('templates/sport/virtualsports.html')"></div>
+        </div>
+        <!--centr-market END-->
+        <!--betslip-contain-->
+        <div class="right-betslip-contain">
+            <div class="scroll-contain">
+                <div class="betslip-toggle" ng-click="betslipOpen=!betslipOpen" ng-class="{'betslip-button-open':betslipOpen }"><p>BetSlip</p><span class="betslip-bets-count" ng-bind="$root.betSlipBetsCount"></span></div>
+                <div class="list-bet-block" ng-include="getTemplate('templates/sport/betslip.html')"></div>
+            </div>
+        </div>
+        <!--betslip-contain END-->
+    </div>
+</div>

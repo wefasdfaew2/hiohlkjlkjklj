@@ -1,0 +1,19 @@
+<li class="balance"
+    ng-class="{'active-s': (env.sliderContent === 'cashier' || env.sliderContent === 'deposit' || env.sliderContent === 'renew' || env.sliderContent === 'withdraw' || env.sliderContent === 'balanceHistory' || env.sliderContent === 'casinoBalanceHistory')}"
+    ng-click="balanceSlider.toggle()">
+    <a ng-if="conf.sportEnabled" ng-show="!isInCasino() && !isInPoker()" ng-class="{'bonus': profile.bonus_balance !== undefined}">
+        <p ng-show="!env.hideBalance">{{ profile.balance|number:conf.balanceFractionSize }}&nbsp;{{profile.currency_name }}</p>
+        <p class="bonus-balance" ng-show="!env.hideBalance">{{profile.bonus_balance}} {{profile.currency_name}}</p>
+    </a>
+
+    <a ng-if="::casinoEnabled || conf.pokerEnabled"
+       ng-show="env.casinoBalance !== undefined && (isInCasino() || isInPoker()) || !conf.sportEnabled"
+       ng-controller="casinoLoginCtrl"
+       ng-class="{'bonus': (env.casinoBalance.bonus || env.casinoBalance.bonus_balance)}">
+        <!--delete "env.casinoBalance.bonus" after sworm update for all sites-->
+        <span ng-show="!env.hideBalance">{{env.casinoBalance.balance|number:conf.balanceFractionSize }}&nbsp;{{profile.currency_name}}</span>
+
+        <p class="bonus-balance" ng-show="!env.hideBalance">{{env.casinoBalance.bonus || env.casinoBalance.bonus_balance}} {{profile.currency_name}}</p>
+        <!--delete "env.casinoBalance.bonus" after sworm update for all sites-->
+    </a>
+</li>

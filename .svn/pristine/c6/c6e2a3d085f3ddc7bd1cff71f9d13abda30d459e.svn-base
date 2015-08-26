@@ -1,0 +1,137 @@
+<!--Deposit-->	
+    <div class="register deposit" ng-controller="paymentsCtrl"  ng-init="init('deposit');">
+      <div class="form-contain deposit">
+       	<h4> <span trans>Deposit to main wallet</span><br />
+            	<span trans>Select a payment method</span>
+            </h4>
+            <div class="depozit-block-icon">
+            	<ul>
+                    <li ng-repeat="paymentSystem in paymentConfig | orderBy:'order' track by $index"
+                        ng-class="{'active-deposit': $parent.selectedPaymentSystem==paymentSystem}"
+                        ng-show="paymentSystem.canDeposit">
+                        <div class="{{paymentSystem.name}}"><a ng-click="selectPaymentSystem(paymentSystem)">{{paymentSystem.name}} <span class="deposit-arrow"></span></a></div>
+                    </li>
+                </ul>
+            </div>
+            <div ng-if="selectedPaymentSystem.customDepositTemplate" ng-include="getTemplate(selectedPaymentSystem.customDepositTemplate)"></div>
+            <form ng-model="depositFormDataData"  name="depositFormData" novalidate ng-show="!selectedPaymentSystem.customDepositTemplate">
+         		<div class="form-sign-in {{selectedPaymentSystem.name}}-left" ng-class="{'single-column': !selectedPaymentSystem.depositFormFields.length && !showConfirmation && !showGetStatusForm && !paymentIsDone && !selectedPaymentSystem.hasBetShops}">
+                    <div ng-show="selectedPaymentSystem.depositText" class="text-payment-contain">
+                      	<p ng-bind-html="selectedPaymentSystem.depositText"></p>
+                    </div>
+                </div>
+                <div class="form-sign-in {{selectedPaymentSystem.name}}-right status-message" ng-if="showConfirmation">
+                    <div class="text-deposit-contain">
+                        <p class="confirm-text" ng-if="selectedPaymentSystem.depositConfirmText" ng-bind-html="selectedPaymentSystem.depositConfirmText" trans></p>
+                        <p trans>Please confirm money transfer</p>
+                        <p><span trans>Amount: </span> <span class="amount">{{depositAmount}} {{currency_name}}</span></p>
+                    </div>
+                    <external-form  form-target="{{selectedPaymentSystem.stayInSameTabOnDeposit ? '_self' : '_blank'}}" params="externalFormParams" additional-fields="addFields" on-submit="confirmDeposit" button-caption="Confirm"></external-form>
+                </div>
+
+                <div class="form-sign-in {{selectedPaymentSystem.name}}-right status-message" ng-if="showGetStatusForm">
+                    <div class="text-deposit-contain" ng-show="!busy && !getDepositStatusInProgress">
+                        <p >
+                            <span trans>Status:</span>
+                            <span ng-show="depositStatus === 'unknown'" trans>Unknown</span>
+                            <span ng-show="depositStatus === 'success'" trans>Success</span>
+                            <span ng-show="depositStatus === 'pending'" trans>Pending</span>
+                            <span ng-show="depositStatus === 'error'" trans>Failure</span>
+                        </p>
+                        <p ng-show="depositedAmount !== undefined && depositStatus === 'success'">
+                            <span trans>Deposit Amount</span> <span ng-bind="depositedAmount"></span>
+                        </p>
+                    </div>
+                    <!--<div class="loader" ng-show="getDepositStatusInProgress || busy">
+                        <div class="loader-ring">
+                            <div class="loader-ball-holder">
+                                <div class="loader-ball"></div>
+                            </div>
+                        </div>
+                    </div>-->
+                    <vbet-loader ng-show="getDepositStatusInProgress || busy"></vbet-loader>
+                    <external-form ng-show="!getDepositStatusInProgress && !busy" params="externalFormParams" additional-fields="addFields" on-submit="getDepositStatus" button-caption="Check"></external-form>
+                </div>
+
+
+                <div class="form-sign-in {{selectedPaymentSystem.name}}-right status-message" ng-if="paymentIsDone">
+                    <div class="text-deposit-contain">
+                        <p><span trans>Payment complete</span>{{paymentStatusMessage}}</p>
+                        <button class="button-confirm" ng-click="confirmDeposit()" trans="">OK</button>
+                    </div>
+                </div>
+                <div class="form-sign-in" ng-show="!showConfirmation && !paymentIsDone && (selectedPaymentSystem.depositFormFields.length > 0 || selectedPaymentSystem.hasBetShops)">
+                    <div class="text-payment-contain">
+                        <div ng-if="selectedPaymentSystem.hasBetShops" ng-init="loadBetShops()">
+                            <ul>
+                                <li ng-repeat="city in selectedPaymentSystem.betShops.cities">
+                                    <p class="bet-shop-city-name">{{city.name}}</p>
+                                    <ul>
+                                        <li ng-repeat="shop in city.betshops">{{shop.address}}<i class="{{shop.type}}">{{shop.type}}</i> </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div ng-repeat="field in selectedPaymentSystem.depositFormFields" ng-switch on="field.type" class="{{selectedPaymentSystem.name + '-' + field.name}}">
+                        <label ng-show="field.type != 'button'">{{field.label|translate}}</label>
+                        <div ng-switch-when="button">
+                            <button ng-click="this[field.click]()">{{field.label}}</button>
+                        </div>
+                        <div ng-switch-when="text">
+                            <input name="{{field.name}}" ng-attr-id="{{field.id}}" ng-model="$parent.$parent.depositFormData[field.name]" type="text" size="{{field.size}}" maxlength="{{field.maxlength}}" ng-required="field.required"  ng-disabled="field.disabled">
+                        </div>
+                        <div ng-switch-when="hidden" class="ng-hide">
+                            <input name="{{field.name}}" ng-attr-id="{{field.id}}" ng-model="$parent.$parent.depositFormData[field.name]" type="text" ng-hide="true">
+                        </div>
+                        <div ng-switch-when="password">
+                            <input name="{{field.name}}" ng-attr-id="{{field.id}}" ng-model="$parent.$parent.depositFormData[field.name]" type="password" size="{{field.size}}" maxlength="{{field.maxlength}}" ng-required="field.required">
+                        </div>
+                        <div ng-switch-when="email">
+                            <input name="{{field.name}}" ng-attr-id="{{field.id}}" ng-model="$parent.$parent.depositFormData[field.name]" type="email" size="{{field.size}}" ng-required="field.required">
+                        </div>
+                        <div ng-switch-when="number">
+                            <input name="{{field.name}}" id="numpad-{{field.name}}" numpad numpad-force ng-model="$parent.$parent.depositFormData[field.name]" type="number" size="{{field.size}}" min="{{field.min}}" max="{{field.max}}" ng-required="field.required">
+                        </div>
+                        <div class="select-block" ng-switch-when="select">
+                                <select name="{{field.name}}" ng-model="$parent.$parent.depositFormData[field.name]"
+                                        ng-init="$parent.$parent.depositFormData[field.name] = field.options[0].value">
+                                    <option ng-repeat="option in field.options" value="{{option.value}}"  ng-selected="$first">{{option.text}}</option>
+                                </select>
+                        </div>
+                        <div class="select-block" ng-switch-when="radio">
+                            <div ng-repeat="option in field.options">
+                                <input type="radio" name="{{field.name}}" ng-model="$parent.$parent.depositFormData[field.name]"  value="{{option.value}}" ng-checked="$first" ng-required="field.required && $first"><span>{{option.text}}</span>
+                            </div>
+                        </div>
+                        <div class="text-payment-contain" ng-switch-when="html" ng-bind-html="field.html">
+                        </div>
+                   </div>
+                  </div>
+
+                <div class="cont-deposit-button" ng-show="!showConfirmation && !paymentIsDone && !selectedPaymentSystem.onlyInfoTextOnDeposit">
+                <div class="button-sign" ng-show="selectedPaymentSystem && !selectedPaymentSystem.onlyInfoTextOnDeposit">
+                	<button id="deposit-button" class="button-sign" ng-hide="selectedPaymentSystem.hideDepositButton" trans ng-click="deposit()" ng-disabled="(!depositAmount && selectedPaymentSystem.depositPrefilledAmount === undefined)|| busy" ng-bind="(depositInProgress ? 'Start over' : ((selectedPaymentSystem.depositButtonCaption|translate) || 'Deposit'))|translate"></button>
+                    <div class="deposit-amount" ng-hide="selectedPaymentSystem.hideDepositButton || selectedPaymentSystem.hideDepositAmmount" ng-if="selectedPaymentSystem.depositPrefilledAmount === undefined">
+                    <label><span trans>Deposit Amount</span> <span ng-hide="selectedPaymentSystem.hideCurrency">({{currency_name}})</span></label>
+                    <input name="amount" id="numpad-forced" type="number" numpad numpad-force ng-model="$parent.depositAmount" placeholder="enter amount here" min="{{amountMinLimit}}" step="{{amountMinLimit}}" required trans>
+                    </div>
+                </div>
+            </div>
+                <div class="popup-bg-contain" ng-class="{'active': popupInfo}">
+                    <div class="deposit-alert-contain">
+                        <div class="icon-delete"><a ng-click="popupInfo=null">Close</a></div>
+                        <div class="text-deposit-alert">
+                            <div class="popup-status-icon" ng-class="messageType||'info'"></div>
+                            <p>
+                                <span ng-bind="popupInfo"></span>
+                                <button class="message-box-ok-btn" ng-click="popupInfo=null" trans>OK</button>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+        </form>
+      </div>
+    </div>
+    <!--Deposit END-->

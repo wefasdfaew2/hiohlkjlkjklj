@@ -1,0 +1,158 @@
+<!--Live Dealer-->
+<div ng-controller="livedealerCtrl"
+     ng-init="checkIfEnabled('liveDealer'); setTitle(('Live casino'|translate));"
+     watch-resize middle-screen-mode="true">
+    <div class="casino-main" ng-show="!gamesInfo.length">
+        <div class="menu-games dealer">
+            <div class="contain-menu-games" ng-show="dealerPages && dealerPages.length > 1">
+                <ul>
+                    <div class="contein-nav-g">
+                        <li ng-repeat="page in dealerPages"
+                            ng-class="{'active-game-casino': page.id === selectedDealerPage.id}">
+                        <a ng-click="selectDealerPage(page)"><span></span>{{page.title}}</a>
+                        </li>
+                    </div>
+                </ul>
+            </div>
+        </div>
+
+        <!--live dealer games-->
+        <div ng-show="games.length && dealerPagesLoaded && (selectedDealerPage.slug == 'home' || dealerPages.length === 0)">
+            <div class="Featured-casino-games" ng-if="!liveGamesConf.view3DEnabled && (!liveGamesConf.viewStyle || liveGamesConf.viewStyle === 'ClassicView')">
+                <div class="contein-slider">
+                    <div class="games-slider">
+                        <h3 trans="">Live casino</h3>
+                        <ul>
+                            <li ng-repeat="game in games track by game.id" ng-class="{'casino-live-dealer' : wideMode}">
+                                <a ng-click="openTables(game, 'real'); $event.stopPropagation();">
+                                    <p class="play-button"><span trans>play now</span></p>
+                                    <img ng-src="{{cConf.iconsUrl + game.gameID}}.jpg" alt="">
+                                </a>
+
+                                <p class="fun-game">
+                                    <a class="game-fun-link" ng-show="game.hasFunMode && !env.authorized" ng-click="openTables(game, 'demo'); $event.stopPropagation();"><span trans>VIEW</span></a>
+                                </p>
+                                <div class="popular-game-name">
+                                    <p><a title="{{game.gameName}}"> {{ game.gameName|translate }} </a></p>
+                                    <div class="fav-block"><a ng-click="toggleSaveToMyCasinoGames(game)" ng-class="{'star-active': isFromSaved(game.id)}">star</a></div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div ng-if="liveGamesConf.view3DEnabled || liveGamesConf.viewStyle === '3DView'" ng-include="getTemplate('templates/livedealer/threedimensionalview.html')">
+            </div>
+            <div ng-if="!liveGamesConf.view3DEnabled && liveGamesConf.viewStyle === 'SliderView'" ng-include="getTemplate('templates/livedealer/onedimensionalview.html')">
+            </div>
+        </div>
+        <vbet-loader ng-hide="dealerPagesLoaded && ((selectedDealerPage && selectedDealerPage.slug !== 'home') || games.length  || errorStatus == 1)"></vbet-loader>
+    </div>
+
+    <div class="error-block-ld"
+         ng-show="errorStatus && dealerPagesLoaded && (!dealerPages.length || selectedDealerPage.slug == 'home')">
+    <div class="info-text-error-ld">
+            <ul>
+                <li trans>Live Casino Page is currently closed for</li>
+                <li><span trans>maintenance.</span></li>
+                <li trans>We will be back soon with more and better features. Thank you for your patience.</li>
+                <li><a href="#" trans>Click here to see other games.</a></li>
+            </ul>
+        </div>
+    </div>
+    <div ng-show="allGames && allGames.length" ng-include="getTemplate('templates/casino/popup-games.html')"></div>
+
+    <div class="popup-bg-contain" ng-class="{'active': message}">
+        <div class="deposit-alert-contain">
+            <div class="icon-delete"><a ng-click="message=null">Close</a></div>
+            <div class="text-deposit-alert">
+                <div class="popup-status-icon" ng-class="messageType||'info'"></div>
+                <p>
+                    <span ng-bind="message"></span>
+                    <button class="message-box-ok-btn" ng-click="message=null" trans>OK</button>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div ng-include="getTemplate('templates/casino/big-game.html')" ng-if="gamesInfo.length"
+         class="big-games-overflow"></div>
+
+    <div ng-if="selectedDealerPage.slug == 'promotion'" class="livedealer-promo">
+        <div class="contain-livedealer-centr">
+            <div class="livedealer-promotion-item">
+                <div class="left-picture-dealer">
+                    <p><img ng-src="{{ selectedDealerPage.thumbnail }}" alt=""></p>
+                </div>
+                <div class="right-text-dealer">
+                    <h1 ng-bind-html="selectedDealerPage.title"></h1>
+                    <div class="livedealer-promotion" ng-bind-html="selectedDealerPage.content"></div>
+                    <!-- <div class="load-more-news"><a ng-click="loadMoreGames()"><p trans="">Read more</p><span></span></a></div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div ng-if="selectedDealerPage.slug == 'meet-our-dealers'">
+        <div class="carousel-contain">
+            <div class="carousel-info">
+                <ul>
+                    <li ng-repeat="item in ourDealers"
+                        ng-class="{'dealers-carousel-left' : slideDirection === 'left', 'dealers-carousel-right' : slideDirection === 'right'}">
+                        <img ng-src="{{ item.thumbnail_images.full.url }}">
+
+                        <div ng-show="$index === 2" ng-bind-html="item.content"></div>
+
+                        <div class="play-buttun-dealer" ng-show="$index === 2">
+                            <div ng-show="dealerInfo.is_online">
+                                <h3>{{ dealerInfo.gameName | translate }}</h3>
+                                <a ng-click="openDealerGame(dealerInfo)" trans>Play</a>
+                            </div>
+                            <div class="offline-dealer" ng-show="dealerInfo && !dealerInfo.is_online" trans>Offline</div>
+                        </div>
+                    </li>
+                </ul>
+
+                <div class="arrow-left-s"><a ng-click="slide('left')">left-arrow</a></div>
+                <div class="arrow-right-s"><a ng-click="slide('right')">right-arrow</a></div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="popup-bg-contain livedealer" ng-class="{'active': tablesControll}">
+        <div class="deposit-alert-contain casino">
+            <div class="icon-delete"><a title="{{ 'close'|translate }}" ng-click="tablesControll=null;">Close</a></div>
+            <div class="popup-livecasino-tables">
+                <iframe ng-if="tablesControll" ng-src="{{tablesControll.url}}"></iframe>
+                <vbet-loader ng-show="tablesControll.loadingUserData"></vbet-loader>
+            </div>
+        </div>
+    </div>
+
+    <!-- JACKPOT Popup -->
+    <div ng-if="jackpotData">
+        <div class="popup-bg-contain active">
+            <div class="fedback-wrapper live-casino">
+                <div class="feed-closed-b" ng-click="closeJackpotPopUp(checkboxSelected)"></div>
+                <div class="fedback-info">
+                    <h3><div trans >Live Casino</div>
+                        <div><span trans>Every week Jackpot</span> {{ jackpotData.totalJackpot }} {{ profile.currency_name }}</div>
+                    </h3>
+                    <ul>
+                        <li ng-repeat="player in jackpotData.userList track by $index" ng-class="{'jackpot-current-user': jackpotData.userId ===  player.Id}">
+                            <p><span ng-bind="player.Name"></span>  <span style="float: right;"><span ng-bind="player.Points"></span> <span trans>points</span></span></p>
+                        </li>
+                    </ul>
+                    <div class="accept-f-b">
+                    <input id="name-b" type="checkbox" ng-model="checkboxSelected"/>
+                        <label for="name-b" trans>Don`t show again</label>
+                    </div>
+                    <div class="show-m-button"><a href="#/promos/?news={{liveGamesConf.jackpot.url[env.lang] || liveGamesConf.jackpot.url.eng}}" ng-click="closeJackpotPopUp(checkboxSelected);" trans>Show more</a></div><!-- TEMPORARY URL -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- JACKPOT Popup END-->
+</div>
+<!--live dealer games-->

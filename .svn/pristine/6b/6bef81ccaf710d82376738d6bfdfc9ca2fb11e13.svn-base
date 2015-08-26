@@ -1,0 +1,40 @@
+<div ng-controller="FeedbackController as feedbackCtrl"  ng-if="conf.enableFeedbackButton && $location.path() != '/popup/'" ng-show="!env.authorized">
+
+    <div class="popup-bg-contain active" ng-show="showFeedBackPopup">
+        <div class="fedback-wrapper">
+            <div class="feed-closed-b" ng-click="toggleView()"></div>
+            <div class="fedback-info">
+                <h3>Feedback</h3>
+                <form ng-show="!hideForm" name="feedbackForm">
+                    <ul>
+                        <li>
+                            <p trans>Hello, we'd love to hear your thoughts.</p>
+                            <p trans>Now, if you have any questions, comments or suggestions, please enter your feedback in the box below and then press Send.</p>
+                        </li>
+                        <li>
+                            <label trans>Email Address</label>
+                            <div class="form-text" ng-class="{'error': feedbackForm.email.$dirty && feedbackForm.email.$invalid}">
+                                <input name="email" type="email" placeholder="Enter your email address" required
+                                       ng-model="email"
+                                       ng-pattern="/^[\w!.%+\-]+@[\w\-]+(?:\.[\w\-]+)+$/" trans>
+                                <div class="form-error-icon"></div>
+                                <div class="form-error-text" ng-show="feedbackForm.email.$error.pattern">
+                                    <div class="error-icon-f"></div>
+                                    <p trans ng-show="feedbackForm.email.$error.pattern">Please enter a valid email address</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <label trans>Your message</label>
+                            <textarea name="" cols="1" rows="1" ng-model="messageBody"></textarea></li>
+                    </ul>
+                    <button trans ng-click="sendMessage()" ng-disabled="feedbackForm.$invalid">Send</button>
+
+
+                </form>
+                <div class="success-feedback" trans ng-show="hideForm">Your message has been sent.</div>
+            </div>
+        </div>
+
+    </div>
+</div>

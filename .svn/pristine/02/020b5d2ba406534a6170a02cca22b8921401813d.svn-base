@@ -1,0 +1,21 @@
+<div ng-controller="facebookCtrl"  ng-if="env.sliderContent === 'invite' && conf.enableInvites">
+    <div class="form-contain" ng-if="fbReady" ng-init="getFbLoginStatus()">
+        <h3 trans>Invite your friends</h3>
+	<div class="invite-button-fb" ng-class="{'email-form-open': showEmailInvite}">
+        <button ng-click="inviteFbFriends()" trans>Invite Facebook friends</button>
+        <a ng-click="showEmailInvite=true" trans>Or invite By email</a>
+    </div>
+    <div ng-show="showEmailInvite" class="invite-fb-block" ng-class="{'email-form-open': showEmailInvite}">
+            <form name="inviteByEmailForm" ng-submit="inviteByEmail()">
+                <label for="emaillist" trans>Enter friends email addresses here:</label>
+                <textarea id="emaillist" name="emails" ng-model="$parent.mailList"></textarea>
+                <input type="submit" value="{{'Invite'|translate}}" ng-disabled="sending">
+            </form>
+         <p>	
+        	<span ng-show="sending" trans>sending...</span>
+        	<span ng-show="noMailsFound" class="error-mail-fb" trans>Please enter valid e-mail addresses</span>
+        	<span ng-show="sent"><b trans>Done. Email(s) sent:</b> <i>{{sent}}</i></span>
+         </p>
+        </div>
+	</div>
+</div>

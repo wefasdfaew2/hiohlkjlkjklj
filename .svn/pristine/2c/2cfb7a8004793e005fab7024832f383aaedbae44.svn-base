@@ -1,0 +1,629 @@
+@font-face {
+  font-family: "Lato";
+  src: url("../fonts/Lato-Thin.eot");
+  src: url("../fonts/Lato-Thin.eot?#iefix") format("embedded-opentype"), url("../fonts/Lato-Thin.woff") format("woff"), url("../fonts/Lato-Thin.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 200;
+  text-rendering: optimizeLegibility; }
+@font-face {
+  font-family: "Lato";
+  src: url("../fonts/Lato-Regular.eot");
+  src: url("../fonts/Lato-Regular.eot?#iefix") format("embedded-opentype"), url("../fonts/Lato-Regular.woff") format("woff"), url("../fonts/Lato-Regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+  text-rendering: optimizeLegibility; }
+@font-face {
+  font-family: "Lato";
+  src: url("../fonts/Lato-Bold.eot");
+  src: url("../fonts/Lato-Bold.eot?#iefix") format("embedded-opentype"), url("../fonts/Lato-Bold.woff") format("woff"), url("../fonts/Lato-Bold.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 700;
+  text-rendering: optimizeLegibility; }
+@font-face {
+  font-family: 'icomoon';
+  src: url("../fonts/icomoon.eot?p741o0r");
+  src: url("../fonts/icomoon.eot?#iefixp741o0r") format("embedded-opentype"), url("../fonts/icomoon.ttf?p7410or") format("truetype"), url("../fonts/icomoon.woff?p741o0r") format("woff"), url("../fonts/icomoon.svg?p7401or#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+* {
+  padding: 0;
+  margin: 0;
+  outline: 0;
+  border: 0;
+  list-style: none;
+  background: none;
+  box-sizing: border-box;
+  font-family: 'Lato'; }
+
+a {
+  text-decoration: none;
+  color: #33abe0; }
+
+html, body {
+  height: 100%; }
+
+body {
+  color: #000000;
+  min-width: 980px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
+
+.body-wrapper {
+  padding-bottom: 74px;
+  float: left;
+  width: 100%;
+  position: relative;
+  min-height: 100%; }
+
+.wrapper {
+  width: 980px;
+  margin: auto; }
+
+.bboard {
+  float: left;
+  width: 100%;
+  height: 200px;
+  background: #e6ecf0;
+  box-shadow: inset 0 -1px 0 #e9ecf0;
+  margin-bottom: 36px; }
+  .bboard .wrapper {
+    position: relative;
+    height: 100%; }
+  .bboard .slider-pagination {
+    position: absolute;
+    right: 10px;
+    bottom: -24px; }
+    .bboard .slider-pagination li {
+      height: 16px;
+      width: 16px;
+      float: left;
+      cursor: pointer; }
+      .bboard .slider-pagination li:before {
+        content: '';
+        width: 8px;
+        height: 8px;
+        border: 1px solid #d2dae2;
+        display: block;
+        transition: 200ms;
+        background: transparent;
+        margin: 4px; }
+      .bboard .slider-pagination li:hover:before {
+        border-color: #33abe0; }
+      .bboard .slider-pagination li.active:before {
+        background: #33abe0;
+        background-clip: content-box;
+        border-color: transparent; }
+  .bboard .slider-main {
+    box-shadow: 0px 20px 50px 0px rgba(93, 110, 130, 0.1);
+    float: left;
+    width: 100%;
+    height: 100%;
+    overflow: hidden; }
+    .bboard .slider-main li {
+      background-size: cover;
+      background-position: 50% 50%;
+      float: left;
+      width: 100%;
+      height: 100%;
+      position: relative; }
+    .bboard .slider-main li.game-info.football {
+      background-image: url(../images/games/football.jpg); }
+    .bboard .slider-main li.game-info .game-name-date {
+      float: left;
+      margin: 24px 0 0 20px;
+      color: #fafbfc;
+      font: 14px/20px "Lato"; }
+      .bboard .slider-main li.game-info .game-name-date li {
+        display: block; }
+        .bboard .slider-main li.game-info .game-name-date li:first-child {
+          font-weight: 700; }
+    .bboard .slider-main li.game-info .clubs {
+      height: 200px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      color: #fafbfc;
+      font: 14px/20px "Lato"; }
+      .bboard .slider-main li.game-info .clubs li {
+        display: block;
+        float: left;
+        width: calc(100% / 2 - 41px);
+        position: relative; }
+        .bboard .slider-main li.game-info .clubs li:nth-child(2) {
+          width: 82px; }
+          .bboard .slider-main li.game-info .clubs li:nth-child(2) > span {
+            position: absolute;
+            bottom: 28px;
+            left: 0;
+            right: 0;
+            text-align: center; }
+        .bboard .slider-main li.game-info .clubs li:first-child {
+          text-align: right; }
+        .bboard .slider-main li.game-info .clubs li .club-wrap {
+          display: inline-block;
+          width: 110px;
+          text-align: center;
+          height: 172px;
+          margin-bottom: 28px;
+          position: relative; }
+          .bboard .slider-main li.game-info .clubs li .club-wrap .club-name {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            text-align: center;
+            z-index: 10; }
+            .bboard .slider-main li.game-info .clubs li .club-wrap .club-name > span {
+              display: block; }
+          .bboard .slider-main li.game-info .clubs li .club-wrap .club-logo {
+            height: 132px;
+            width: 100px;
+            margin: auto;
+            background-size: contain;
+            background-position: top center;
+            background-repeat: no-repeat; }
+
+.arrow-wrap {
+  width: 66px;
+  height: 66px;
+  position: absolute;
+  display: block;
+  top: calc(50% - 33px);
+  transition-duration: 200ms; }
+  .arrow-wrap:before, .arrow-wrap:after, .arrow-wrap span:after, .arrow-wrap span:before {
+    position: absolute;
+    left: 50%;
+    width: 3px;
+    height: 50%;
+    background: #dde1e5;
+    content: '';
+    -webkit-transition: -webkit-transform 0.3s;
+    transition: transform 0.3s;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    outline: 1px solid transparent; }
+  .arrow-wrap:before, .arrow-wrap span:before {
+    top: 50%;
+    -webkit-transform: translateX(-50%) rotate(-135deg);
+    transform: translateX(-50%) rotate(-135deg);
+    -webkit-transform-origin: 50% 0%;
+    transform-origin: 50% 0%; }
+  .arrow-wrap:after, .arrow-wrap span:after {
+    top: 50%;
+    -webkit-transform: translateX(-50%) rotate(-45deg);
+    transform: translateX(-50%) rotate(-45deg);
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0; }
+  .arrow-wrap span:before {
+    z-index: 100;
+    height: 0;
+    background: #5d6e82;
+    -webkit-transition: height 0.3s, -webkit-transform 0.3s;
+    transition: height 0.3s, transform 0.3s; }
+  .arrow-wrap span:after {
+    z-index: 100;
+    height: 0;
+    background: #5d6e82;
+    -webkit-transition: height 0.3s, -webkit-transform 0.3s;
+    transition: height 0.3s, transform 0.3s; }
+  .arrow-wrap:hover:before, .arrow-wrap:hover span:before {
+    -webkit-transform: translateX(-50%) rotate(-125deg);
+    transform: translateX(-50%) rotate(-125deg); }
+  .arrow-wrap:hover:after, .arrow-wrap:hover span:after {
+    -webkit-transform: translateX(-50%) rotate(-55deg);
+    transform: translateX(-50%) rotate(-55deg); }
+  .arrow-wrap:hover span:before, .arrow-wrap:hover span:after {
+    height: 50%; }
+  .arrow-wrap.left-arrow {
+    left: -150px; }
+  .arrow-wrap.right-arrow {
+    right: -150px; }
+    .arrow-wrap.right-arrow:before, .arrow-wrap.right-arrow span:before {
+      -webkit-transform: translateX(-50%) rotate(135deg);
+      transform: translateX(-50%) rotate(135deg);
+      -webkit-transform-origin: 50% 0%;
+      transform-origin: 50% 0%; }
+    .arrow-wrap.right-arrow:after, .arrow-wrap.right-arrow span:after {
+      -webkit-transform: translateX(-50%) rotate(45deg);
+      transform: translateX(-50%) rotate(45deg);
+      -webkit-transform-origin: 100% 0%;
+      transform-origin: 100% 0%; }
+    .arrow-wrap.right-arrow:hover:before, .arrow-wrap.right-arrow:hover span:before {
+      -webkit-transform: translateX(-50%) rotate(125deg);
+      transform: translateX(-50%) rotate(125deg); }
+    .arrow-wrap.right-arrow:hover:after, .arrow-wrap.right-arrow:hover span:after {
+      -webkit-transform: translateX(-50%) rotate(55deg);
+      transform: translateX(-50%) rotate(55deg); }
+
+.main-content {
+  float: left;
+  width: 100%; }
+
+.sport-selector {
+  float: left;
+  width: 100%; }
+  .sport-selector ul {
+    float: left;
+    width: 100%; }
+    .sport-selector ul > li {
+      display: block;
+      float: left;
+      margin: 0 0 0 25px;
+      cursor: pointer;
+      color: #abb1b8;
+      font: 14px/20px "Lato";
+      transition: color 250ms; }
+      .sport-selector ul > li:first-child {
+        margin: 0 0 0 20px; }
+      .sport-selector ul > li .sport-icon {
+        display: block;
+        float: left;
+        width: 20px;
+        height: 20px;
+        margin: 0 6px 0 0;
+        background-image: url(../images/sprite.png);
+        background-size: 20px;
+        background-repeat: no-repeat;
+        opacity: 0.6;
+        transition: opacity 250ms, filter 250ms;
+        filter: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='grayscale'><feColorMatrix type='matrix' values='0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0'/></filter></svg>#grayscale");
+        /* Firefox 3.5+ */
+        filter: gray;
+        -webkit-filter: grayscale(100%); }
+      .sport-selector ul > li > span {
+        display: block;
+        float: left;
+        height: 20px; }
+      .sport-selector ul > li.more {
+        margin: 0 0 0 35px; }
+      .sport-selector ul > li.active, .sport-selector ul > li:hover {
+        color: #5d6e82; }
+        .sport-selector ul > li.active .sport-icon, .sport-selector ul > li:hover .sport-icon {
+          opacity: 1;
+          filter: none;
+          -webkit-filter: grayscale(0%); }
+  .sport-selector.opened .sport-icon {
+    opacity: 1;
+    filter: none;
+    -webkit-filter: grayscale(0%); }
+  .sport-selector.opened li {
+    color: #5D6E82; }
+    .sport-selector.opened li:hover {
+      color: #ABB1B8; }
+  .sport-selector.opened li.more {
+    color: #ABB1B8; }
+    .sport-selector.opened li.more:hover {
+      color: #5D6E82; }
+    .sport-selector.opened li.more i {
+      display: none; }
+    .sport-selector.opened li.more span.more-sports {
+      display: none; }
+    .sport-selector.opened li.more span.hide-blockt {
+      display: block; }
+  .sport-selector.opened .more-sports ul {
+    float: left;
+    width: 100%;
+    margin: 52px 0 0; }
+    .sport-selector.opened .more-sports ul li {
+      margin: 0;
+      width: 280px;
+      padding: 15px 0 0 20px; }
+
+.sport-icon.football {
+  background-position: 0px 0px; }
+
+.sport-icon.basketball {
+  background-position: 0 -177px; }
+
+.sport-icon.tennis {
+  background-position: 0 -354px; }
+
+.sport-icon.hockey {
+  background-position: 0 -530px; }
+
+.sport-icon.australian-football {
+  background-position: 0 -23px; }
+
+.sport-icon.automotosport {
+  background-position: 0 -45px; }
+
+.sport-icon.american-football {
+  background-position: 0 -67px; }
+
+.sport-icon.baseball {
+  background-position: 0 -89px; }
+
+.sport-icon.boks {
+  background-position: 0 -111px; }
+
+.sport-icon.cycling {
+  background-position: 0 -133px; }
+
+.sport-icon.volleyball {
+  background-position: 0 -155px; }
+
+.sport-icon.handball {
+  background-position: 0 -199px; }
+
+.sport-icon.golf {
+  background-position: 0 -221px; }
+
+.sport-icon.gaelic-football {
+  background-position: 0 -243px; }
+
+.sport-icon.darts {
+  background-position: 0 -265px; }
+
+.sport-icon.winter-sports {
+  background-position: 0 -288px; }
+
+.sport-icon.cybersport {
+  background-position: 0 -310px; }
+
+.sport-icon.cricket {
+  background-position: 0 -332px; }
+
+.sport-icon.lottery {
+  background-position: 0 -376px; }
+
+.sport-icon.horse-racing {
+  background-position: 0 -398px; }
+
+.sport-icon.table-tennis {
+  background-position: 0 -420px; }
+
+.sport-icon.rugby {
+  background-position: 0 -442px; }
+
+.sport-icon.mma {
+  background-position: 0 -464px; }
+
+.sport-icon.snooker {
+  background-position: 0 -486px; }
+
+.sport-icon.hurling {
+  background-position: 0 -508px; }
+
+.sport-icon.more {
+  background-position: 0 -553px; }
+
+.search-event {
+  float: left;
+  width: 100%;
+  border-radius: 8px;
+  height: 70px;
+  background: #e3e8ed;
+  margin: 40px 0 42px;
+  box-shadow: 0px 15px 25px 0px rgba(210, 218, 226, 0.1);
+  padding: 17px 0 0; }
+  .search-event > span {
+    width: 180px;
+    float: left;
+    height: 36px;
+    padding: 0 0 0 20px;
+    color: #5d6e82;
+    font: 14px/36px "Lato"; }
+  .search-event .selectboxes {
+    width: 560px;
+    height: 36px;
+    float: left; }
+    .search-event .selectboxes .selectbox {
+      margin: 0 0 0 10px;
+      float: left; }
+      .search-event .selectboxes .selectbox:first-of-type {
+        margin: 0; }
+  .search-event .checkbox {
+    margin: 10px 0 0 9px;
+    float: left; }
+  .search-event > button {
+    margin: 2px 0 0 40px;
+    display: block;
+    float: left;
+    padding: 0 30px;
+    height: 32px;
+    cursor: pointer;
+    border-radius: 50px;
+    color: #fafbfc;
+    background: #d2dae2;
+    background: -moz-linear-gradient(top, #d2dae2 0%, #bfc5cc 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #d2dae2), color-stop(100%, #bfc5cc));
+    background: -webkit-linear-gradient(top, #d2dae2 0%, #bfc5cc 100%);
+    background: -o-linear-gradient(top, #d2dae2 0%, #bfc5cc 100%);
+    background: -ms-linear-gradient(top, #d2dae2 0%, #bfc5cc 100%);
+    background: linear-gradient(to bottom, #d2dae2 0%, #bfc5cc 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d2dae2', endColorstr='#bfc5cc',GradientType=0 );
+    box-shadow: 0px 15px 25px 0px rgba(210, 218, 226, 0.1);
+    font: 14px "Lato"; }
+    .search-event > button:hover {
+      background: #46b4e4;
+      background: -moz-linear-gradient(top, #46b4e4 0%, #1f96d4 100%);
+      background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #46b4e4), color-stop(100%, #1f96d4));
+      background: -webkit-linear-gradient(top, #46b4e4 0%, #1f96d4 100%);
+      background: -o-linear-gradient(top, #46b4e4 0%, #1f96d4 100%);
+      background: -ms-linear-gradient(top, #46b4e4 0%, #1f96d4 100%);
+      background: linear-gradient(to bottom, #46b4e4 0%, #1f96d4 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#46b4e4', endColorstr='#1f96d4',GradientType=0 );
+      box-shadow: 0px 15px 25px 0px rgba(210, 218, 226, 0.3); }
+
+.selectbox {
+  width: 180px;
+  background: #fafbfc;
+  border: 1px solid #d2dae2;
+  cursor: pointer;
+  position: relative; }
+  .selectbox > span {
+    display: block;
+    width: 100%;
+    height: 34px;
+    color: #5d6e82;
+    font: 14px/34px "Lato";
+    padding: 0 24px 0 10px;
+    position: relative;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap; }
+    .selectbox > span:before {
+      content: "\e600";
+      color: #cfd4da;
+      font: 5px/34px 'icomoon';
+      height: 34px;
+      display: block;
+      position: absolute;
+      top: 0px;
+      right: 11px; }
+  .selectbox ul {
+    display: none; }
+    .selectbox ul li {
+      height: 28px;
+      padding: 0 10px;
+      color: #5d6e82;
+      font: 14px/28px "Lato";
+      transition: color 250ms, background 250ms;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap; }
+      .selectbox ul li:hover {
+        color: #33abe0;
+        background: #e3e8ed; }
+  .selectbox.active {
+    background: white;
+    box-shadow: 0px 20px 50px 0px rgba(29, 78, 103, 0.1); }
+    .selectbox.active > span:before {
+      -webkit-transform: rotate(180deg);
+      -moz-transform: rotate(180deg);
+      -ms-transform: rotate(180deg);
+      -o-transform: rotate(180deg);
+      transform: rotate(180deg); }
+    .selectbox.active ul {
+      display: block; }
+
+.checkbox {
+  display: block;
+  position: relative;
+  height: 16px;
+  padding: 0 0 0 26px;
+  color: #5d6e82;
+  font: 14px/16px "Lato";
+  overflow: hidden;
+  cursor: pointer; }
+  .checkbox input[type="checkbox"] {
+    position: absolute;
+    top: -999px; }
+    .checkbox input[type="checkbox"]:checked + i:before {
+      content: "\e601";
+      color: #5d6e82;
+      font: normal 11px icomoon;
+      position: absolute;
+      top: 1px;
+      right: 1px;
+      display: block; }
+  .checkbox i {
+    background: #fafbfc;
+    display: block;
+    border: 1px solid #d2dae2;
+    height: 16px;
+    width: 16px;
+    position: absolute;
+    top: 0;
+    left: 0; }
+
+.betpromos {
+  float: left;
+  width: 100%; }
+  .betpromos h3 {
+    float: left;
+    width: 100%;
+    color: #5d6e82;
+    font: normal 14px "Lato";
+    margin: 50px 0 20px; }
+  .betpromos .betpromobox {
+    margin: 0 0 0 40px;
+    float: left; }
+    .betpromos .betpromobox:first-of-type {
+      margin: 0; }
+
+.betpromobox {
+  width: 300px;
+  height: 180px;
+  border-radius: 8px;
+  border: 2px solid #e3e8ed;
+  position: relative;
+  background-size: cover; }
+  .betpromobox ol {
+    float: left;
+    padding: 28px 0 0 18px;
+    width: 166px;
+    overflow: hidden;
+    height: 92px; }
+    .betpromobox ol li {
+      color: #5d6e82;
+      font: 14px "Lato";
+      padding-bottom: 5px; }
+      .betpromobox ol li:before {
+        display: inline-block;
+        color: #bec5cc;
+        padding-right: 8px; }
+      .betpromobox ol li:nth-child(1):before {
+        content: '1.'; }
+      .betpromobox ol li:nth-child(2):before {
+        content: '2.'; }
+  .betpromobox ul {
+    float: left;
+    width: 130px;
+    padding: 24px 20px 0 0;
+    overflow: hidden;
+    height: 92px; }
+    .betpromobox ul li {
+      font: 200 30px/34px "Lato";
+      color: #5d6e82;
+      text-align: right; }
+  .betpromobox li {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; }
+  .betpromobox table {
+    float: left;
+    width: 100%;
+    font: 14px/20px "Lato";
+    color: #bec5cc;
+    margin: 30px 0 0;
+    table-layout: fixed; }
+    .betpromobox table td {
+      width: 1%;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis; }
+    .betpromobox table tr td:first-child {
+      padding-left: 20px; }
+    .betpromobox table tr td:nth-child(2) {
+      padding-left: 10px; }
+    .betpromobox table tr td:nth-child(3) {
+      padding-left: 5px; }
+  .betpromobox:first-of-type {
+    background-image: url("../images/betbox1.jpg"); }
+  .betpromobox:nth-of-type(2) {
+    background-image: url("../images/betbox2.jpg"); }
+  .betpromobox:last-of-type {
+    background-image: url("../images/betbox3.jpg"); }
+
+@media screen and (max-width: 1280px) {
+  .arrow-wrap.left-arrow {
+    left: -105px; }
+
+  .arrow-wrap.right-arrow {
+    right: -105px; }
+
+  .arrow-wrap:before, .arrow-wrap:after, .arrow-wrap span:after, .arrow-wrap span:before {
+    background: rgba(0, 0, 0, 0.05); }
+
+  .arrow-wrap span:before, .arrow-wrap span:after {
+    background: #5D6E82; } }
+@media screen and (max-width: 1192px) {
+  .arrow-wrap.left-arrow {
+    left: 0px; }
+
+  .arrow-wrap.right-arrow {
+    right: 0px; } }
